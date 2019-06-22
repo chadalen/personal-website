@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-blog-js","path":"/2019/06/22/first-blog/","webpackCompilationHash":"","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"/2019/06/22/first-blog/"}}}
+{"componentChunkName":"component---src-templates-blog-js","path":"/2019/06/22/first-blog/","webpackCompilationHash":"","result":{"data":{"markdownRemark":{"html":"<p>This is my first blog.</p>","frontmatter":{"title":"My first blog"}}},"pageContext":{"isCreatedByStatefulCreatePages":false,"slug":"/2019/06/22/first-blog/"}}}

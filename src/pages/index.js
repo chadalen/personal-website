@@ -1,26 +1,49 @@
 import React from "react";
 import Header from "../components/header";
 import { Link, graphql } from "gatsby";
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import { Card, CardHeader, CardContent, Typography } from "@material-ui/core";
+import Layout from "../components/layout";
+
+const styles = makeStyles({
+
+})
 
 export default ({ data }) => {
   console.log(data);
+  const classes = styles()
   return (
-    <div style={{ margin: `3rem auto`, maxWidth: 600 }}>
-      <Header />
-      <p>Chad's Blog</p>
-      {data.allMarkdownRemark.edges.map(({ node }, index) => (
-        <Link
-          to={node.fields.slug}
-          style={{textDecoration: 'none',
-                  color: 'inherit'}}
-        >
-          <div key={index}>
-            <h1>{node.frontmatter.title}</h1>
-            <small>{node.frontmatter.date}</small>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <Layout>
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+
+          <Card key={index} style={{ marginBottom: '5px' }}>
+
+            <CardContent>
+
+              <Link
+                to={node.fields.slug}
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit'
+                }}
+              >
+                <Typography variant="h4">
+                  {node.frontmatter.title}
+                </Typography>
+
+              </Link>
+
+              <small>{node.frontmatter.date}</small>
+
+              <Typography variant="body2" color="textSecondary" component="p">
+                {node.excerpt}
+        </Typography>
+            </CardContent>
+          </Card>
+
+        ))}
+    </Layout>
   );
 };
 
