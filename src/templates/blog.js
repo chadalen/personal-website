@@ -2,12 +2,15 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout";
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
   },
+  date: {
+    fontSize: 14
+  }
 }));
 
 
@@ -18,7 +21,13 @@ export default ({ data }) => {
   return (
     <Layout>
       <Paper className={classes.root}>
-      <h1>{post.frontmatter.title}</h1>
+        <Typography variant="h4">
+          {post.frontmatter.title}
+        </Typography>
+        <Typography className={classes.date} color="textSecondary" gutterBottom>
+          {post.frontmatter.date}
+        </Typography>
+        <hr />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </Paper>
     </Layout>
@@ -31,6 +40,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        date
       }
     }
   }

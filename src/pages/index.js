@@ -7,7 +7,9 @@ import { Card, CardHeader, CardContent, Typography } from "@material-ui/core";
 import Layout from "../components/layout";
 
 const styles = makeStyles({
-
+  date: {
+    fontSize: 14
+  }
 })
 
 export default ({ data }) => {
@@ -34,7 +36,9 @@ export default ({ data }) => {
 
               </Link>
 
-              <small>{node.frontmatter.date}</small>
+              <Typography className={classes.date} color="textSecondary" gutterBottom>
+              {node.frontmatter.date}
+              </Typography>
 
               <Typography variant="body2" color="textSecondary" component="p">
                 {node.excerpt}
