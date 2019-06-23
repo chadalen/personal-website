@@ -1,9 +1,7 @@
 import React from "react";
-import Header from "../components/header";
 import { Link, graphql } from "gatsby";
-import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardContent, Typography } from "@material-ui/core";
+import { Card, CardContent, Typography } from "@material-ui/core";
 import Layout from "../components/layout";
 
 const styles = makeStyles({
