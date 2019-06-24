@@ -11,6 +11,11 @@ const useStyles = makeStyles(theme => ({
   date: {
     fontSize: 14
   },
+  content: {
+    "& img": {
+      maxWidth: "100%"
+    }
+  }
 }));
 
 
@@ -28,7 +33,7 @@ export default ({ data }) => {
           {post.frontmatter.date}
         </Typography>
         <hr />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className={classes.content} dangerouslySetInnerHTML={{ __html: post.html }} />
       </Paper>
     </Layout>
   )
