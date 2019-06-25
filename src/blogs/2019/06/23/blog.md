@@ -26,7 +26,7 @@ On your DNS provider create 4 A records and 1 CNAME record ([Github Docs](https:
 ![enter image description here](https://i.imgur.com/Z92xbSX.png)
  4. **Configure GitHub Pages**
 
-First then we need to do is create a file in the root of our project named "CNAME". Inside that, put the url to your custom domain. In my case I put "blog.chadalen.com"
+Next, we need to create a file in the root of the project named "CNAME". Inside that, put the url of your custom domain. In my case I put "blog.chadalen.com"
 
 ![enter image description here](https://i.imgur.com/8gMrG3e.png)
 
