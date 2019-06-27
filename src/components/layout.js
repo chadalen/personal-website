@@ -20,10 +20,6 @@ export default ({ children }) => {
   const classes = styles();
   return (
     <React.Fragment>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Chad Adams</title>
-      </Helmet>
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Toolbar>
