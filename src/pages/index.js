@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, CardContent, Typography, Avatar } from "@material-ui/core";
+import { Card, CardContent, Typography } from "@material-ui/core";
 import Layout from "../components/layout";
 
 const styles = makeStyles({
@@ -33,7 +33,7 @@ export default ({ data }) => {
                   position: "absolute"
                 }}
               >
-                <Typography variant="h4">{node.frontmatter.title}</Typography>
+                <Typography variant="h5">{node.frontmatter.title}</Typography>
 
                 <Typography
                   className={classes.date}
