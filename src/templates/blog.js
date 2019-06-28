@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(3, 2)
   },
   date: {
     fontSize: 14
@@ -18,26 +18,37 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 export default ({ data }) => {
-  console.log(data)
+  console.log(data);
   const classes = useStyles();
-  const post = data.markdownRemark
+  const post = data.markdownRemark;
   return (
     <Layout>
       <Paper className={classes.root}>
-        <Typography variant="h4">
-          {post.frontmatter.title}
-        </Typography>
+        <div>
+        <img
+          style={{ width: "64px", marginRight: "10px", position: "relative" }}
+          src="/avatar.png"
+          alt="Avatar"
+        />
+
+        <div style={{display: "inline-block", position: "absolute"}}>
+        <Typography variant="h4">{post.frontmatter.title}</Typography>
         <Typography className={classes.date} color="textSecondary" gutterBottom>
           {post.frontmatter.date}
         </Typography>
+        </div>
+
+          </div>
         <hr />
-        <div className={classes.content} dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          className={classes.content}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </Paper>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($slug: String!) {
@@ -49,4 +60,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

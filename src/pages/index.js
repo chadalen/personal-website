@@ -21,28 +21,28 @@ export default ({ data }) => {
             <div>
               <img
                 style={{ width: "64px", position: "relative", marginRight: "10px" }}
-                alt="Remy Sharp"
                 src="./avatar.png"
+                alt="Avatar"
               />
 
+              <div style={{display: "inline-block", position: "absolute"}}>
               <Link
                 to={node.fields.slug}
                 style={{
                   textDecoration: "none",
-                  color: "inherit",
-                  position: "absolute"
+                  color: "inherit"
                 }}
               >
                 <Typography variant="h5">{node.frontmatter.title}</Typography>
-
-                <Typography
+              </Link>
+              <Typography
                   className={classes.date}
                   color="textSecondary"
                   gutterBottom
                 >
                   {node.frontmatter.date}
                 </Typography>
-              </Link>
+              </div>
             </div>
 
             <Typography variant="body2" color="textSecondary" component="p">
