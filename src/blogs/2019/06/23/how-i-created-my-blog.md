@@ -1,5 +1,5 @@
 ---
-title: "How I created my blog"
+title: "How I Created My Blog"
 date: "06-23-2019"
 ---
 
