@@ -28,7 +28,7 @@ export default ({ data }) => {
       <Paper className={classes.root}>
         <Typography variant="h4">
           {post.frontmatter.title}
-        </Typography>consistant
+        </Typography>
         <Typography className={classes.date} color="textSecondary" gutterBottom>
           {post.frontmatter.date}
         </Typography>
