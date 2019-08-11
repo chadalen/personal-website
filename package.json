@@ -26,7 +26,6 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
     "prettier": "^1.18.2"
   },
   "repository": {
