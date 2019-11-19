@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 14
   },
   content: {
+    fontSize: '20px',
     "& img": {
       maxWidth: "100%"
     }
