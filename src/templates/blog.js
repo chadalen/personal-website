@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2)
   },
   date: {
-    fontSize: 14
+    fontSize: '16px'
   },
   content: {
     fontSize: '20px',

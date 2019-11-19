@@ -6,7 +6,10 @@ import Layout from "../components/layout";
 
 const styles = makeStyles({
   date: {
-    fontSize: 14
+    fontSize: '16px'
+  },
+  summary: {
+    fontSize: '20px'
   }
 });
 
@@ -33,7 +36,7 @@ export default ({ data }) => {
                   color: "inherit"
                 }}
               >
-                <Typography variant="h5">{node.frontmatter.title}</Typography>
+                <Typography variant="h4">{node.frontmatter.title}</Typography>
               </Link>
               <Typography
                   className={classes.date}
@@ -45,7 +48,7 @@ export default ({ data }) => {
               </div>
             </div>
 
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography className={classes.summary} color="textSecondary" component="p">
               {node.excerpt}
             </Typography>
           </CardContent>
