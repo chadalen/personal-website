@@ -2,7 +2,7 @@
 
 title: "I Switched To Netlify"
 
-date: "06-27-2019"
+date: "2019-06-27"
 
 ---
 

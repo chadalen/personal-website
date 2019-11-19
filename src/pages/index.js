@@ -70,7 +70,7 @@ export const query = graphql`
             slug
           }
           frontmatter {
-            date
+            date(formatString: "MMM D, YYYY")
             title
           }
           excerpt
