@@ -26,7 +26,7 @@ export default ({ children }) => {
               Chad Adams
             </Typography>
             <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-              <Button color="inherit">Blogs</Button>
+              <Button color="inherit">Blog</Button>
             </Link>
           </Toolbar>
         </AppBar>
