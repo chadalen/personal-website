@@ -12,6 +12,10 @@ import { Link } from "gatsby";
 const styles = makeStyles({
   root: {
     flexGrow: 1
+  },
+  navLink: {
+    textDecoration: "none",
+    color: "black"
   }
 });
 
@@ -23,9 +27,11 @@ export default ({ children }) => {
         <AppBar position="static" color="default">
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.title}>
-              Chad Adams
+              <Link to="/" className={classes.navLink}>
+                Chad Adams
+              </Link>
             </Typography>
-            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Link to="/blogs" className={classes.navLink}>
               <Button color="inherit">Blog</Button>
             </Link>
           </Toolbar>
