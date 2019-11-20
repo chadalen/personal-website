@@ -31,12 +31,12 @@ export default ({ children }) => {
                 Chad Adams
               </Link>
             </Typography>
-            <Link to="/blogs" className={classes.navLink}>
-              <Button color="inherit">Blog</Button>
+            <Link to="/about" className={classes.navLink}>
+              <Button color="inherit">About</Button>
             </Link>
           </Toolbar>
         </AppBar>
-        <Container style={{ marginTop: "5px" }} maxWidth="md">
+        <Container style={{ marginTop: "5px", height: '100vh' }} maxWidth="lg">
           {children}
         </Container>
       </div>
