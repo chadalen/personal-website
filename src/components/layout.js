@@ -31,6 +31,12 @@ export default ({ children }) => {
                 Chad Adams
               </Link>
             </Typography>
+            <Link to="/blog" className={classes.navLink}>
+              <Button color="inherit">Blog</Button>
+            </Link>
+            <Link to="/projects" className={classes.navLink}>
+              <Button color="inherit">Projects</Button>
+            </Link>
             <Link to="/about" className={classes.navLink}>
               <Button color="inherit">About</Button>
             </Link>
