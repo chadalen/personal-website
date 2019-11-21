@@ -33,7 +33,7 @@ export default () => {
         technologies and learning something new. I'm originally from Wisconsin.
         I went to college at St Cloud Technical and Community College in St
         Cloud, MN. I'm also a certified Microsoft developer. I currently work at{" "}
-        <a href="https://www.nisc.coop/" target="_blank">
+        <a href="https://www.nisc.coop/" target="_blank" rel="noopener noreferrer">
           NISC
         </a>{" "}
         a Software Company here in North Dakota.
@@ -53,6 +53,7 @@ export default () => {
         target="_blank"
         className={classes.iconLink}
         style={{ marginRight: '5px' }}
+        rel="noopener noreferrer"
       >
         <GitHub />
       </a>
@@ -62,6 +63,7 @@ export default () => {
         href="https://linkedin.com/in/chadalen"
         target="_blank"
         className={classes.iconLink}
+        rel="noopener noreferrer"
       >
         <LinkedIn />
       </a>
