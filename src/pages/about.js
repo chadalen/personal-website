@@ -13,7 +13,7 @@ const styles = makeStyles({
     fontSize: "20px"
   },
   iconLink: {
-    color: 'black'
+    color: "black"
   }
 });
 
@@ -21,21 +21,24 @@ export default () => {
   const classes = styles();
   return (
     <Layout>
+      <div style={{paddingTop: '20px'}}>
       <Typography variant="h4">About Me</Typography>
       <Typography
         className={classes.summary}
         component="p"
         style={{ marginBottom: "2.5rem" }}
       >
-        Hi, I'm Chad Adams. I'm a Software Developer with a keen interest in
-        website and mobile development. My hobbies are... Coding, coding and
-        coding. No really.. I love to code. I'm always trying out the latest
-        technologies and learning something new. I'm originally from Wisconsin.
-        I went to college at St Cloud Technical and Community College in St
-        Cloud, MN. I'm also a certified Microsoft developer. I currently work at{" "}
-        <a href="https://www.nisc.coop/" target="_blank" rel="noopener noreferrer">
-          NISC
-        </a>{" "}
+        Hi, I'm Chad Adams. I'm a Software Developer from Bismarck, ND. I have a
+        keen interest in website and mobile development. I code all day.
+        Everyday. I love to code. Coding is my passion. I enjoy constantly
+        learning new technologies and teaching others what I have learned. I
+        love and support open source software. I went to college at St Cloud
+        Technical and Community College in St Cloud, MN. I'm also a certified Microsoft developer. I currently work at{" "}
+        <a
+          href="https://www.nisc.coop/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >NISC</a>{" "}
         a Software Company here in North Dakota.
       </Typography>
 
@@ -47,26 +50,27 @@ export default () => {
         For more info about me please see my public profiles on:
       </Typography>
 
-      <a 
+      <a
         title="GitHub"
         href="https://github.com/chadalen"
         target="_blank"
         className={classes.iconLink}
-        style={{ marginRight: '5px' }}
+        style={{ marginRight: "5px" }}
         rel="noopener noreferrer"
       >
-        <GitHub />
+        <GitHub fontSize="large" />
       </a>
 
-      <a 
+      <a
         title="LinkedIn"
         href="https://linkedin.com/in/chadalen"
         target="_blank"
         className={classes.iconLink}
         rel="noopener noreferrer"
       >
-        <LinkedIn />
+        <LinkedIn fontSize="large" />
       </a>
+      </div>
     </Layout>
   );
 };
