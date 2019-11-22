@@ -42,7 +42,7 @@ export default ({ children }) => {
             </Link>
           </Toolbar>
         </AppBar>
-        <Container style={{ marginTop: "5px", height: '100vh' }} maxWidth="lg">
+        <Container style={{ marginTop: "5px" }} maxWidth="lg">
           {children}
         </Container>
       </div>
