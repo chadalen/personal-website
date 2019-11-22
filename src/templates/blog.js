@@ -15,6 +15,14 @@ const useStyles = makeStyles(theme => ({
     fontSize: '20px',
     "& img": {
       maxWidth: "100%"
+    },
+    "& a": {
+      color: '#337ab7',
+      textDecoration: 'none',
+      '&:hover': {
+        color: '#23527c',
+        textDecoration: 'underline'
+      }
     }
   }
 }));
