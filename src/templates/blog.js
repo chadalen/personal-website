@@ -33,6 +33,7 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
+
       <Paper className={classes.root}>
         <div>
         <img

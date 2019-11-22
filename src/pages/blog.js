@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { Link as GatsbyLink, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
-import { Divider, Typography } from "@material-ui/core";
+import { Divider, Typography, Breadcrumbs, Paper } from "@material-ui/core";
 import Layout from "../components/layout";
 
 const styles = makeStyles({
@@ -18,6 +18,13 @@ const styles = makeStyles({
       color: '#23527c',
       textDecoration: 'underline'
     }
+  },
+  breadCrumbLink: {
+    color: 'rgba(0, 0, 0, 0.54)',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline'
+    }
   }
 });
 
@@ -26,17 +33,27 @@ export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
+
+      <Paper elevation={0} className={classes.paper} style={{marginTop: '20px'}}>
+        <Breadcrumbs aria-label="breadcrumb">
+          <GatsbyLink className={classes.breadCrumbLink} href="/">
+            Home
+          </GatsbyLink>
+          <Typography color="textPrimary">Blog</Typography>
+        </Breadcrumbs>
+      </Paper>
+
       <Typography variant="h3" style={{marginTop: '20px', marginBottom: '20px'}}>Blog</Typography>
       <Divider />
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
         <React.Fragment>
           <div style={{padding: '20px'}}>
-          <Link
+          <GatsbyLink
             to={node.fields.slug}
             className={classes.link}
           >
             <Typography variant="h4">{node.frontmatter.title}</Typography>
-          </Link>
+          </GatsbyLink>
 
           <Typography
             className={classes.date}
@@ -53,11 +70,11 @@ export default ({ data }) => {
             {node.excerpt}
           </Typography>
 
-          <Link
+          <GatsbyLink
           to={node.fields.slug}
           className={classes.link}>
           <Typography component="p">Read More...</Typography>
-          </Link>
+          </GatsbyLink>
           </div>
         </React.Fragment>
       ))}

@@ -1,9 +1,10 @@
 import React from "react";
 import Layout from "../components/layout";
-import { Typography } from "@material-ui/core";
+import { Typography, Breadcrumbs, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import GitHub from "@material-ui/icons/GitHub";
 import LinkedIn from "@material-ui/icons/LinkedIn";
+import { Link as GatsbyLink } from "gatsby";
 
 const styles = makeStyles({
   date: {
@@ -14,6 +15,13 @@ const styles = makeStyles({
   },
   iconLink: {
     color: "black"
+  },
+  breadCrumbLink: {
+    color: 'rgba(0, 0, 0, 0.54)',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline'
+    }
   }
 });
 
@@ -21,6 +29,15 @@ export default () => {
   const classes = styles();
   return (
     <Layout>
+      <Paper elevation={0} className={classes.paper} style={{marginTop: '20px'}}>
+        <Breadcrumbs aria-label="breadcrumb">
+          <GatsbyLink className={classes.breadCrumbLink} href="/">
+            Home
+          </GatsbyLink>
+          <Typography color="textPrimary">About</Typography>
+        </Breadcrumbs>
+      </Paper>
+
       <div style={{paddingTop: '20px'}}>
       <Typography variant="h4">About Me</Typography>
       <Typography
