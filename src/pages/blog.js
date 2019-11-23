@@ -15,7 +15,7 @@ const styles = makeStyles({
   summary: {
     fontSize: "20px"
   },
-  linkTitle: {
+  link: {
     color: "#337ab7",
     textDecoration: "none",
     "&:hover": {
@@ -64,7 +64,7 @@ export default ({ data }) => {
         <React.Fragment>
           <Card style={{ marginBottom: "20px" }}>
             <CardContent>
-              <GatsbyLink to={node.fields.slug} className={classes.linkTitle}>
+              <GatsbyLink to={node.fields.slug} className={classes.link}>
                 <Typography variant="h4" component="h2" gutterBottom>
                   {node.frontmatter.title}
                 </Typography>

@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         textDecoration: 'underline'
       }
     }
-  }
+  },
 }));
 
 export default ({ data }) => {

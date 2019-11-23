@@ -22,6 +22,14 @@ const styles = makeStyles({
     '&:hover': {
       textDecoration: 'underline'
     }
+  },
+  link: {
+    color: "#337ab7",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#23527c",
+      textDecoration: "underline"
+    }
   }
 });
 
@@ -55,6 +63,7 @@ export default () => {
           href="https://www.nisc.coop/"
           target="_blank"
           rel="noopener noreferrer"
+          className={classes.link}
         >NISC</a>{" "}
         a Software Company here in North Dakota.
       </Typography>
