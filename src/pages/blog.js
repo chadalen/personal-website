@@ -8,20 +8,23 @@ import CardContent from "@material-ui/core/CardContent";
 import Layout from "../components/layout";
 import Button from "@material-ui/core/Button";
 
-const styles = makeStyles({
+const styles = makeStyles(theme => ({
   date: {
     fontSize: "16px"
   },
   summary: {
     fontSize: "20px"
   },
-  link: {
+  blogTitleLink: {
     color: "#337ab7",
     textDecoration: "none",
     "&:hover": {
       color: "#23527c",
       textDecoration: "underline"
     }
+  },
+  blogTitle: {
+    marginBottom: theme.spacing(0.5)
   },
   linkButton: {
     textDecoration: "none"
@@ -33,7 +36,7 @@ const styles = makeStyles({
       textDecoration: "underline"
     }
   }
-});
+}));
 
 export default ({ data }) => {
   console.log(data);
@@ -69,8 +72,8 @@ export default ({ data }) => {
                 <img src="/icons/icon-256x256.png" alt="Avatar" style={{width: '64px', marginRight: '10px'}} />
               </div>
                 <div>
-                <GatsbyLink to={node.fields.slug} className={classes.link}>
-                  <Typography variant="h4" component="h2" gutterBottom>
+                <GatsbyLink to={node.fields.slug} className={classes.blogTitleLink}>
+                  <Typography variant="h4" component="h2" className={classes.blogTitle} gutterBottom>
                     {node.frontmatter.title}
                   </Typography>
                 </GatsbyLink>
@@ -92,6 +95,12 @@ export default ({ data }) => {
               <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
                 <Button size="small">Read More</Button>
               </GatsbyLink>
+
+              <Typography 
+              className={classes.date}
+              color="textSecondary">
+                {`${node.timeToRead} min read`}
+              </Typography>
             </CardActions>
           </Card>
         </React.Fragment>

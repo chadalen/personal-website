@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2)
   },
   date: {
-    fontSize: '16px'
+    fontSize: '16px',
+    marginTop: theme.spacing(0.5),
   },
   content: {
     fontSize: '20px',
@@ -46,7 +47,7 @@ export default ({ data }) => {
         <div style={{display: "inline-block", position: "absolute"}}>
         <Typography variant="h4">{post.frontmatter.title}</Typography>
         <Typography className={classes.date} color="textSecondary" gutterBottom>
-          {post.frontmatter.date}
+          Chad Adams &#8226; {post.frontmatter.date} &#8226; {post.timeToRead} min read
         </Typography>
         </div>
 
@@ -77,6 +78,7 @@ export const query = graphql`
         title
         date(formatString: "MMM D, YYYY")
       }
+      timeToRead
     }
     site {
       siteMetadata {
