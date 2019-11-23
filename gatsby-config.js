@@ -1,7 +1,8 @@
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
-    title: `Title from siteMetadata`,
+    title: `Chad's Website`,
+    disqusShortname: 'chadalen-com'
   },
   plugins: [
     'gatsby-plugin-top-layout',

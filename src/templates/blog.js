@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography } from "@material-ui/core";
+import ReactDisqusComments from 'react-disqus-comments';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -56,6 +57,13 @@ export default ({ data }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </Paper>
+
+      <ReactDisqusComments
+        shortname={data.site.siteMetadata.disqusShortname}
+        identifier={post.id}
+        title={post.frontmatter.title}
+      />
+
     </Layout>
   );
 };
@@ -64,9 +72,15 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      id
       frontmatter {
         title
         date(formatString: "MMM D, YYYY")
+      }
+    }
+    site {
+      siteMetadata {
+        disqusShortname
       }
     }
   }
