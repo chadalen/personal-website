@@ -54,7 +54,7 @@ export default () => {
         style={{ marginBottom: "2.5rem" }}
       >
         Hi, I'm Chad Adams. I'm a Software Developer from Bismarck, ND. I have a
-        keen interest in website and mobile development. I code all day.
+        passion for website and mobile development. I code all day.
         Everyday. I love to code. Coding is my passion. I enjoy constantly
         learning new technologies and teaching others what I have learned. I
         love and support open source software. I went to college at St Cloud
