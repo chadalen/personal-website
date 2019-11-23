@@ -2,11 +2,11 @@ import React from "react";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import { Divider, Typography, Breadcrumbs, Paper } from "@material-ui/core";
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 import Layout from "../components/layout";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 const styles = makeStyles({
   date: {
@@ -16,23 +16,23 @@ const styles = makeStyles({
     fontSize: "20px"
   },
   linkTitle: {
-    color: '#337ab7',
-    textDecoration: 'none',
-    '&:hover': {
-      color: '#23527c',
-      textDecoration: 'underline'
+    color: "#337ab7",
+    textDecoration: "none",
+    "&:hover": {
+      color: "#23527c",
+      textDecoration: "underline"
     }
   },
   linkButton: {
-    textDecoration: 'none',
+    textDecoration: "none"
   },
   breadCrumbLink: {
-    color: 'rgba(0, 0, 0, 0.54)',
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline'
+    color: "rgba(0, 0, 0, 0.54)",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline"
     }
-  },
+  }
 });
 
 export default ({ data }) => {
@@ -40,8 +40,11 @@ export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
-
-      <Paper elevation={0} className={classes.paper} style={{marginTop: '20px'}}>
+      <Paper
+        elevation={0}
+        className={classes.paper}
+        style={{ marginTop: "20px" }}
+      >
         <Breadcrumbs aria-label="breadcrumb">
           <GatsbyLink className={classes.breadCrumbLink} href="/">
             Home
@@ -50,42 +53,39 @@ export default ({ data }) => {
         </Breadcrumbs>
       </Paper>
 
-      <Typography variant="h3" style={{marginTop: '20px', marginBottom: '20px'}}>Blog</Typography>
+      <Typography
+        variant="h3"
+        style={{ marginTop: "20px", marginBottom: "20px" }}
+      >
+        Blog
+      </Typography>
       <Divider />
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
         <React.Fragment>
-          <Card style={{marginBottom: '20px'}}>
-      <CardContent>
-      <GatsbyLink
-            to={node.fields.slug}
-            className={classes.linkTitle}
-          >
-        <Typography variant="h4" component="h2" gutterBottom>
-        {node.frontmatter.title}
-        </Typography>
-          </GatsbyLink>
+          <Card style={{ marginBottom: "20px" }}>
+            <CardContent>
+              <GatsbyLink to={node.fields.slug} className={classes.linkTitle}>
+                <Typography variant="h4" component="h2" gutterBottom>
+                  {node.frontmatter.title}
+                </Typography>
+              </GatsbyLink>
 
-        <Typography
-            className={classes.date}
-            color="textSecondary"
-            gutterBottom
-          >
-            Chad Adams &#8226; {node.frontmatter.date}
-          </Typography>
+              <Typography
+                className={classes.date}
+                color="textSecondary"
+                gutterBottom
+              >
+                Chad Adams &#8226; {node.frontmatter.date}
+              </Typography>
 
-        <Typography component="p">
-        {node.excerpt}
-        </Typography>
-      </CardContent>
-      <CardActions>
-      <GatsbyLink
-            to={node.fields.slug}
-            className={classes.linkButton}
-          >
-        <Button size="small">Read More</Button>
-          </GatsbyLink>
-      </CardActions>
-    </Card>
+              <Typography component="p">{node.excerpt}</Typography>
+            </CardContent>
+            <CardActions>
+              <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
+                <Button size="small">Read More</Button>
+              </GatsbyLink>
+            </CardActions>
+          </Card>
         </React.Fragment>
       ))}
     </Layout>
