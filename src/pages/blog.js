@@ -64,19 +64,27 @@ export default ({ data }) => {
         <React.Fragment>
           <Card style={{ marginBottom: "20px" }}>
             <CardContent>
-              <GatsbyLink to={node.fields.slug} className={classes.link}>
-                <Typography variant="h4" component="h2" gutterBottom>
-                  {node.frontmatter.title}
+              <div style={{display: 'flex'}}>
+              <div>
+                <img src="/icons/icon-256x256.png" alt="Avatar" style={{width: '64px', marginRight: '10px'}} />
+              </div>
+                <div>
+                <GatsbyLink to={node.fields.slug} className={classes.link}>
+                  <Typography variant="h4" component="h2" gutterBottom>
+                    {node.frontmatter.title}
+                  </Typography>
+                </GatsbyLink>
+  
+                <Typography
+                  className={classes.date}
+                  color="textSecondary"
+                  gutterBottom
+                >
+                  Chad Adams &#8226; {node.frontmatter.date}
                 </Typography>
-              </GatsbyLink>
-
-              <Typography
-                className={classes.date}
-                color="textSecondary"
-                gutterBottom
-              >
-                Chad Adams &#8226; {node.frontmatter.date}
-              </Typography>
+                </div>
+              </div>
+              <hr />
 
               <Typography component="p">{node.excerpt}</Typography>
             </CardContent>
