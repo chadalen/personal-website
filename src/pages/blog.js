@@ -2,7 +2,11 @@ import React from "react";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import { Divider, Typography, Breadcrumbs, Paper } from "@material-ui/core";
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import Layout from "../components/layout";
+import Button from '@material-ui/core/Button';
 
 const styles = makeStyles({
   date: {
@@ -11,7 +15,7 @@ const styles = makeStyles({
   summary: {
     fontSize: "20px"
   },
-  link: {
+  linkTitle: {
     color: '#337ab7',
     textDecoration: 'none',
     '&:hover': {
@@ -19,13 +23,16 @@ const styles = makeStyles({
       textDecoration: 'underline'
     }
   },
+  linkButton: {
+    textDecoration: 'none',
+  },
   breadCrumbLink: {
     color: 'rgba(0, 0, 0, 0.54)',
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline'
     }
-  }
+  },
 });
 
 export default ({ data }) => {
@@ -47,35 +54,38 @@ export default ({ data }) => {
       <Divider />
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
         <React.Fragment>
-          <div style={{padding: '20px'}}>
-          <GatsbyLink
+          <Card style={{marginBottom: '20px'}}>
+      <CardContent>
+      <GatsbyLink
             to={node.fields.slug}
-            className={classes.link}
+            className={classes.linkTitle}
           >
-            <Typography variant="h4">{node.frontmatter.title}</Typography>
+        <Typography variant="h4" component="h2" gutterBottom>
+        {node.frontmatter.title}
+        </Typography>
           </GatsbyLink>
 
-          <Typography
+        <Typography
             className={classes.date}
             color="textSecondary"
             gutterBottom
           >
-            {node.frontmatter.date}
+            Chad Adams &#8226; {node.frontmatter.date}
           </Typography>
 
-          <Typography
-            className={classes.summary}
-            component="p"
+        <Typography component="p">
+        {node.excerpt}
+        </Typography>
+      </CardContent>
+      <CardActions>
+      <GatsbyLink
+            to={node.fields.slug}
+            className={classes.linkButton}
           >
-            {node.excerpt}
-          </Typography>
-
-          <GatsbyLink
-          to={node.fields.slug}
-          className={classes.link}>
-          <Typography component="p">Read More...</Typography>
+        <Button size="small">Read More</Button>
           </GatsbyLink>
-          </div>
+      </CardActions>
+    </Card>
         </React.Fragment>
       ))}
     </Layout>
