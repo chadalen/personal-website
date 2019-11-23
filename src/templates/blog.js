@@ -38,7 +38,7 @@ export default ({ data }) => {
         <div>
         <img
           style={{ width: "64px", marginRight: "10px", position: "relative" }}
-          src="/avatar.png"
+          src="/icons/icon-256x256.png"
           alt="Avatar"
         />
 
