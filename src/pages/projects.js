@@ -105,7 +105,7 @@ export default ({ data }) => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: ASC, fields: [frontmatter___title] }
       limit: 25
       filter: { fields: { slug: { regex: "/^/projects/" } } }
     ) {
