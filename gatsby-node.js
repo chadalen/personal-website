@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `blogs` })
+    const slug = createFilePath({ node, getNode, basePath: `data` })
     createNodeField({
       node,
       name: `slug`,
@@ -13,11 +13,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return graphql(`
+  const blogTemplate = path.resolve(`./src/templates/blog.js`)
+  const projectTemplate = path.resolve(`./src/templates/project.js`)
+
+  let result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: {fields: {slug: {regex: "/^/blog/"}}}) {
         edges {
           node {
             fields {
@@ -27,17 +30,47 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/blog.js`),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-        },
-      })
+  `)
+
+  const blogs = result.data.allMarkdownRemark.edges;
+  blogs.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: blogTemplate,
+      context: {
+        slug: node.fields.slug,
+      },
     })
   })
+
+  result = await graphql(`
+    {
+      allMarkdownRemark(filter: {fields: {slug: {regex: "/^/projects/"}}}) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              description
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const projects = result.data.allMarkdownRemark.edges;
+  projects.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: projectTemplate,
+      context: {
+        slug: node.fields.slug,
+      },
+    })
+  })
+
 }

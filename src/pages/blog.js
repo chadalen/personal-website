@@ -111,10 +111,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 25
-    ) {
+    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, limit: 25, filter: {fields: {slug: {regex: "/^/blog/"}}}) {
       edges {
         node {
           fields {
