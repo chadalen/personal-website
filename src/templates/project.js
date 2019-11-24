@@ -47,7 +47,7 @@ export default ({ data }) => {
         <div style={{display: "inline-block", position: "absolute"}}>
         <Typography variant="h4">{post.frontmatter.title}</Typography>
         <Typography className={classes.date} color="textSecondary" gutterBottom>
-          Chad Adams &#8226; {post.frontmatter.date} &#8226; {post.timeToRead} min read
+          Chad Adams &#8226; {post.timeToRead} min read
         </Typography>
         </div>
 
