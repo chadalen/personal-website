@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Layout from "../components/layout";
 import Button from "@material-ui/core/Button";
+import Chip from "@material-ui/core/Chip";
 
 const styles = makeStyles(theme => ({
   date: {
@@ -35,6 +36,9 @@ const styles = makeStyles(theme => ({
     "&:hover": {
       textDecoration: "underline"
     }
+  },
+  chip: {
+    margin: theme.spacing(0.5)
   }
 }));
 
@@ -67,24 +71,48 @@ export default ({ data }) => {
         <React.Fragment>
           <Card style={{ marginBottom: "20px" }}>
             <CardContent>
-              <div style={{display: 'flex'}}>
-              <div>
-                <img src="/icons/icon-256x256.png" alt="Avatar" style={{width: '64px', marginRight: '10px'}} />
-              </div>
+              <div style={{ display: "flex" }}>
                 <div>
-                <GatsbyLink to={node.fields.slug} className={classes.blogTitleLink}>
-                  <Typography variant="h4" component="h2" className={classes.blogTitle} gutterBottom>
-                    {node.frontmatter.title}
+                  <img
+                    src="/icons/icon-256x256.png"
+                    alt="Avatar"
+                    style={{ width: "64px", marginRight: "10px" }}
+                  />
+                </div>
+                <div>
+                  <GatsbyLink
+                    to={node.fields.slug}
+                    className={classes.blogTitleLink}
+                  >
+                    <Typography
+                      variant="h4"
+                      component="h2"
+                      className={classes.blogTitle}
+                      gutterBottom
+                    >
+                      {node.frontmatter.title}
+                    </Typography>
+                  </GatsbyLink>
+
+                  <Typography
+                    className={classes.date}
+                    color="textSecondary"
+                    gutterBottom
+                  >
+                    Chad Adams &#8226; {node.frontmatter.date}
                   </Typography>
-                </GatsbyLink>
-  
-                <Typography
-                  className={classes.date}
-                  color="textSecondary"
-                  gutterBottom
-                >
-                  Chad Adams &#8226; {node.frontmatter.date}
-                </Typography>
+
+                  <div>
+                    {node.frontmatter.tags.map((data, index) => {
+                      return (
+                        <Chip
+                          key={index}
+                          label={data}
+                          className={classes.chip}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               <hr />
@@ -96,9 +124,7 @@ export default ({ data }) => {
                 <Button size="small">Read More</Button>
               </GatsbyLink>
 
-              <Typography 
-              className={classes.date}
-              color="textSecondary">
+              <Typography className={classes.date} color="textSecondary">
                 {`${node.timeToRead} min read`}
               </Typography>
             </CardActions>
@@ -111,7 +137,11 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, limit: 25, filter: {fields: {slug: {regex: "/^/blog/"}}}) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 25
+      filter: { fields: { slug: { regex: "/^/blog/" } } }
+    ) {
       edges {
         node {
           fields {
@@ -120,6 +150,7 @@ export const query = graphql`
           frontmatter {
             date(formatString: "MMM D, YYYY")
             title
+            tags
           }
           excerpt
           timeToRead

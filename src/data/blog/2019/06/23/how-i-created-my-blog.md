@@ -1,6 +1,7 @@
 ---
 title: "How I Created My Blog"
 date: "2019-06-23"
+tags: ['reactjs', 'gatsbyjs']
 ---
 
 I finally setup my blog. I'm using [Gatsby](https://www.gatsbyjs.org/) and [React](https://reactjs.org/). The reason why I love Gatsby for a personal website is because...

@@ -1,6 +1,7 @@
 ---
 title: "Introduction"
 date: "2019-06-22"
+tags: []
 ---
 
 A brief introduction about myself. My name is Chad Adams, I am a 25 year old Software Developer from Minnesota, USA. I am a Full Stack developer. I enjoy writing UI's because I like making software visually appealing and useful. I used to create desktop apps and sell them for a living. I have recently moved towards web apps because I believe they are the future. Cross-platform is important if you want to reach a bigger audience; every device supports JavaScript, HTML and CSS.

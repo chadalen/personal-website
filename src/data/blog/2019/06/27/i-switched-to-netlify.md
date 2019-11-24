@@ -1,9 +1,7 @@
 ---
-
 title: "I Switched To Netlify"
-
 date: "2019-06-27"
-
+tags: ['netlify']
 ---
 
 Previously, I was using [GitHub Pages](https://pages.github.com/) to host my blog. I switched to Netlify after encountering a strange issue with GitHub Pages. Every time I deployed to GitHub pages I would have to go to the repository settings and add the custom subdomain back. That issue was frustrating and oddly enough I was looking for an alternative. I came across [Netlify](https://www.netlify.com/) and I instantly fell in love with it. 
