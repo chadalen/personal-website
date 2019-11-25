@@ -8,11 +8,7 @@ module.exports = {
     'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-material-ui',
-      // If you want to use styled components you should change the injection order.
       options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
       },
     },
     {
@@ -22,7 +18,42 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+              languageExtensions: [
+                {
+                  language: "superscript",
+                  extend: "javascript",
+                  definition: {
+                    superscript_types: /(SuperType)/,
+                  },
+                  insertBefore: {
+                    function: {
+                      superscript_keywords: /(superif|superelse)/,
+                    },
+                  },
+                },
+              ],
+              prompt: {
+                user: "root",
+                host: "localhost",
+                global: false,
+              },
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
