@@ -75,7 +75,7 @@ HttpParams.prototype.setNonNull = function(this: HttpParams, key: string, value:
 
 ```
 
-The first import we need to let this file be aware of Angular's HttpParams. The second import is our patched HttpParams. Using both of these imports will merge the 2 declarations together. So if we accessed an instance of HttpParams within this class we will get both all the functions Angular provides with the addition of the new method we added.
+The first import we need to let this file be aware of Angular's HttpParams. The second import is our patched HttpParams. Using both of these imports will merge the 2 declarations together. So if we accessed an instance of HttpParams within this class we will get all the functions Angular provides with the addition of the new method we added.
 
 The second part to this is actually providing the implementation for our extension method. The first param is what makes this method an extension method. This is so we don't have to pass in HttpParams to this method. The second and third parameters are copying what Angular's HttpParams#set has.
 
