@@ -18,7 +18,7 @@ I ran into a scenario at work where using Angular's `HttpParams` does not have a
 
 Let's say I need to make an api call and this api call has query params. Some of these query params may be null however.. When the params are null I do not want them to be included in the url.
 
-If I used the current behavior of HttpParams#set or HttpParams#append will include the null values so this code.
+If I used the current behavior of HttpParams#set or HttpParams#append both will include the null values so this code.
 ```typescript
 const queryParams = new HttpParams()
       .set('customerId', '12345')
