@@ -17,10 +17,10 @@ const styles = makeStyles({
     color: "black"
   },
   breadCrumbLink: {
-    color: 'rgba(0, 0, 0, 0.54)',
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline'
+    color: "rgba(0, 0, 0, 0.54)",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline"
     }
   },
   link: {
@@ -37,7 +37,11 @@ export default () => {
   const classes = styles();
   return (
     <Layout>
-      <Paper elevation={0} className={classes.paper} style={{marginTop: '20px'}}>
+      <Paper
+        elevation={0}
+        className={classes.paper}
+        style={{ marginTop: "20px" }}
+      >
         <Breadcrumbs aria-label="breadcrumb">
           <GatsbyLink className={classes.breadCrumbLink} href="/">
             Home
@@ -46,56 +50,90 @@ export default () => {
         </Breadcrumbs>
       </Paper>
 
-      <div style={{paddingTop: '20px'}}>
-      <Typography variant="h4">About Me</Typography>
-      <Typography
-        className={classes.summary}
-        component="p"
-        style={{ marginBottom: "2.5rem" }}
-      >
-        Hi, I'm Chad Adams. I'm a Software Developer from Bismarck, ND. I have a
-        passion for website and mobile development. I code all day.
-        Everyday. I love to code. Coding is my passion. I enjoy constantly
-        learning new technologies and teaching others what I have learned. I
-        love and support open source software. I went to college at St Cloud
-        Technical and Community College in St Cloud, MN. I'm also a certified Microsoft developer. I currently work at{" "}
+      <div style={{ paddingTop: "20px" }}>
+        <Typography variant="h4">About Me</Typography>
+        <hr />
+        <Typography
+          className={classes.summary}
+          component="p"
+          style={{ marginBottom: "2.5rem" }}
+        >
+          I'm a Software Developer from Bismarck, ND. I develop all types of
+          software, ranging from websites, to mobile apps, to desktop apps.
+          Coding is my passion. I enjoy writing software that helps makes
+          peoples lives easier.
+          <br />
+          <br />
+          I grew up in a small town in Wisconsin called Luck. I have an
+          associate's degree in Computer Programming at St Cloud Technical and
+          Community College in St Cloud, MN.
+          <br />
+          <br />
+          I'm a certified Microsoft developer. After college I worked at
+          ColdSpring Granite Company as a Software developer in ColdSpring, MN.
+          I was there for over a year in which we primarily worked with the
+          Microsoft stack. (C#, ASP.NET, SQL Server). After ColdSpring I
+          consulted with them for a few months then worked at my current job at{" "}
+          <a
+            href="https://www.nisc.coop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.link}
+          >
+            NISC
+          </a>{" "}
+          as a Software Associate in Mandan, ND.
+        </Typography>
+
+        <Typography
+          variant="h5"
+          style={{ marginBottom: "10px", fontWeight: "bold" }}
+        >
+          Social Networks
+        </Typography>
+
         <a
-          href="https://www.nisc.coop/"
+          title="GitHub"
+          href="https://github.com/chadalen"
           target="_blank"
+          className={classes.iconLink}
+          style={{ marginRight: "5px" }}
           rel="noopener noreferrer"
-          className={classes.link}
-        >NISC</a>{" "}
-        a Software Company here in North Dakota.
-      </Typography>
+        >
+          <GitHub fontSize="large" />
+        </a>
 
-      <Typography
-        className={classes.summary}
-        component="p"
-        style={{ marginBottom: "2.5rem" }}
-      >
-        For more info about me please see my public profiles on:
-      </Typography>
+        <a
+          title="LinkedIn"
+          href="https://linkedin.com/in/chadalen"
+          target="_blank"
+          className={classes.iconLink}
+          rel="noopener noreferrer"
+        >
+          <LinkedIn fontSize="large" />
+        </a>
 
-      <a
-        title="GitHub"
-        href="https://github.com/chadalen"
-        target="_blank"
-        className={classes.iconLink}
-        style={{ marginRight: "5px" }}
-        rel="noopener noreferrer"
-      >
-        <GitHub fontSize="large" />
-      </a>
+        <Typography
+          variant="h5"
+          style={{ marginTop: "10px", fontWeight: "bold" }}
+        >
+          Contact me
+        </Typography>
 
-      <a
-        title="LinkedIn"
-        href="https://linkedin.com/in/chadalen"
-        target="_blank"
-        className={classes.iconLink}
-        rel="noopener noreferrer"
-      >
-        <LinkedIn fontSize="large" />
-      </a>
+        <Typography
+          component="b"
+          style={{ marginTop: "10px", fontWeight: "bold", whiteSpace: 'pre' }}
+        >
+          Email:&nbsp;
+          </Typography>
+
+        <Typography
+          className={classes.summary}
+          component="p"
+          style={{ marginBottom: "2.5rem", display: 'inline-block' }}
+        >
+          me@chadalen.com
+        </Typography>
       </div>
     </Layout>
   );
