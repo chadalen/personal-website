@@ -6,7 +6,7 @@ import { Paper } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2)
+    padding: theme.spacing(1, 2)
   },
   content: {
     fontSize: "20px",
@@ -20,6 +20,16 @@ const useStyles = makeStyles(theme => ({
         color: "#23527c",
         textDecoration: "underline"
       }
+    },
+    "& h1": {
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1)
+    },
+    "& h2": {
+      marginBottom: '0px'
+    },
+    "& p": {
+      marginTop: '0px'
     }
   },
 }));
