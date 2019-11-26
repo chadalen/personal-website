@@ -122,7 +122,7 @@ export default () => {
 
         <Typography
           component="b"
-          style={{ marginTop: "10px", fontWeight: "bold", whiteSpace: 'pre' }}
+          style={{ fontWeight: "bold", whiteSpace: 'pre' }}
         >
           Email:&nbsp;
           </Typography>
@@ -130,9 +130,23 @@ export default () => {
         <Typography
           className={classes.summary}
           component="p"
-          style={{ marginBottom: "2.5rem", display: 'inline-block' }}
+          style={{ display: 'inline-block' }}
         >
           me@chadalen.com
+        </Typography>
+
+        <Typography
+          variant="h5"
+          style={{ marginTop: "10px", fontWeight: "bold" }}
+        >
+          About this site
+        </Typography>
+        <Typography
+          className={classes.summary}
+          component="p"
+          style={{ display: 'inline-block' }}
+        >
+          This site was developed using React and Gatsby hosted on Netlify.
         </Typography>
       </div>
     </Layout>
