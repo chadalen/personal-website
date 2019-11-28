@@ -68,7 +68,7 @@ export default ({ data }) => {
       </Typography>
       <Divider />
       {data.allMarkdownRemark.edges.map(({ node }, index) => (
-        <React.Fragment>
+        <div key={index}>
           <Card style={{ marginBottom: "20px" }}>
             <CardContent>
               <div style={{ display: "flex" }}>
@@ -129,7 +129,7 @@ export default ({ data }) => {
               </Typography>
             </CardActions>
           </Card>
-        </React.Fragment>
+        </div>
       ))}
     </Layout>
   );
