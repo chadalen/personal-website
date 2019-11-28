@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default ({ data }) => {
-  console.log(data);
   const classes = useStyles();
   const post = data.markdownRemark;
   return (

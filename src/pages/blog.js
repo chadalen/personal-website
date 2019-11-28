@@ -43,7 +43,6 @@ const styles = makeStyles(theme => ({
 }));
 
 export default ({ data }) => {
-  console.log(data);
   const classes = styles();
   return (
     <Layout>
@@ -53,7 +52,7 @@ export default ({ data }) => {
         style={{ marginTop: "20px" }}
       >
         <Breadcrumbs aria-label="breadcrumb">
-          <GatsbyLink className={classes.breadCrumbLink} href="/">
+          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
             Home
           </GatsbyLink>
           <Typography color="textPrimary">Blog</Typography>
