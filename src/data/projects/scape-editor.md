@@ -1,6 +1,7 @@
 ---
 title: "Scape Editor"
 description: "A highly extensible legacy RuneScape file system editor"
+tags: ['open-source', 'kotlin', 'desktop-app']
 ---
 
 # Scape Editor

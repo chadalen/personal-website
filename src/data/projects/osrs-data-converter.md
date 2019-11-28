@@ -1,6 +1,7 @@
 ---
 title: "OldSchool RuneScape Data Converter"
 description: "A tool to convert latest OSRS data into RuneScape's legacy 317 file system format"
+tags: ['open-source', 'kotlin', 'java', 'desktop-app']
 ---
 
 # OldSchool RuneScape Data Converter (OSDC)

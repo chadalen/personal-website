@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Layout from "../components/layout";
 import Button from "@material-ui/core/Button";
+import Chip from "@material-ui/core/Chip";
 
 const styles = makeStyles(theme => ({
   date: {
@@ -35,6 +36,9 @@ const styles = makeStyles(theme => ({
     "&:hover": {
       textDecoration: "underline"
     }
+  },
+  chip: {
+    margin: theme.spacing(0.5)
   }
 }));
 
@@ -84,6 +88,20 @@ export default ({ data }) => {
               <hr />
 
               <Typography component="p">{node.frontmatter.description}</Typography>
+
+
+              <div>
+                    {node.frontmatter.tags.map((data, index) => {
+                      return (
+                        <Chip
+                          key={index}
+                          label={data}
+                          className={classes.chip}
+                        />
+                      );
+                    })}
+                  </div>
+
             </CardContent>
             <CardActions>
               <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
@@ -117,6 +135,7 @@ export const query = graphql`
             date(formatString: "MMM D, YYYY")
             title
             description
+            tags
           }
           excerpt
           timeToRead

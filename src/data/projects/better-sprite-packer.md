@@ -1,6 +1,7 @@
 ---
 title: "Better Sprite Packer"
 description: "A random-access sprite packer for games"
+tags: ['open-source', 'kotlin', 'desktop-app']
 ---
 
 **Better Sprite Packer 3**
