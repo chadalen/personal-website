@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
-import { Divider, Typography, Breadcrumbs, Paper } from "@material-ui/core";
+import { Divider, Typography, Breadcrumbs } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -46,18 +46,12 @@ export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
-      <Paper
-        elevation={0}
-        className={classes.paper}
-        style={{ marginTop: "20px" }}
-      >
-        <Breadcrumbs aria-label="breadcrumb">
-          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-            Home
-          </GatsbyLink>
-          <Typography color="textPrimary">Projects</Typography>
-        </Breadcrumbs>
-      </Paper>
+      <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
+        <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
+          Home
+        </GatsbyLink>
+        <Typography color="textPrimary">Projects</Typography>
+      </Breadcrumbs>
 
       <Typography
         variant="h3"
@@ -87,21 +81,17 @@ export default ({ data }) => {
               </div>
               <hr />
 
-              <Typography component="p">{node.frontmatter.description}</Typography>
-
+              <Typography component="p">
+                {node.frontmatter.description}
+              </Typography>
 
               <div>
-                    {node.frontmatter.tags.map((data, index) => {
-                      return (
-                        <Chip
-                          key={index}
-                          label={data}
-                          className={classes.chip}
-                        />
-                      );
-                    })}
-                  </div>
-
+                {node.frontmatter.tags.map((data, index) => {
+                  return (
+                    <Chip key={index} label={data} className={classes.chip} />
+                  );
+                })}
+              </div>
             </CardContent>
             <CardActions>
               <GatsbyLink to={node.fields.slug} className={classes.linkButton}>

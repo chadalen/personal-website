@@ -1,11 +1,11 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Link as GatsbyLink, graphql } from "gatsby";
 import Layout from "../components/layout";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper } from "@material-ui/core";
+import { Paper, Breadcrumbs, Divider, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  contentWrapper: {
     padding: theme.spacing(1, 2)
   },
   content: {
@@ -26,12 +26,19 @@ const useStyles = makeStyles(theme => ({
       marginBottom: theme.spacing(1)
     },
     "& h2": {
-      marginBottom: '0px'
+      marginBottom: "0px"
     },
     "& p": {
-      marginTop: '0px'
+      marginTop: "0px"
     }
   },
+  breadCrumbLink: {
+    color: "rgba(0, 0, 0, 0.54)",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline"
+    }
+  }
 }));
 
 export default ({ data }) => {
@@ -39,12 +46,29 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <Paper className={classes.root}>
-        <div
-          className={classes.content}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-      </Paper>
+      <div className={classes.root}>
+        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
+          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
+            Home
+          </GatsbyLink>
+          <Typography color="textPrimary">About</Typography>
+        </Breadcrumbs>
+
+        <Typography
+          variant="h3"
+          style={{ marginTop: "20px", marginBottom: "20px" }}
+        >
+          About
+        </Typography>
+        <Divider />
+
+        <Paper className={classes.contentWrapper}>
+          <div
+            className={classes.content}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </Paper>
+      </div>
     </Layout>
   );
 };

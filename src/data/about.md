@@ -1,4 +1,3 @@
-# About Me
 I'm a Software Developer from Bismarck, ND. I develop all types of software, ranging from websites, to mobile apps, to desktop apps. Coding is my passion. I enjoy writing software that helps makes peoples lives easier.
 
 I grew up in a small town in Wisconsin called Luck. I have an associate's degree in Computer Programming at St Cloud Technical and Community College in St Cloud, MN.

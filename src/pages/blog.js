@@ -46,18 +46,12 @@ export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
-      <Paper
-        elevation={0}
-        className={classes.paper}
-        style={{ marginTop: "20px" }}
-      >
-        <Breadcrumbs aria-label="breadcrumb">
-          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-            Home
-          </GatsbyLink>
-          <Typography color="textPrimary">Blog</Typography>
-        </Breadcrumbs>
-      </Paper>
+      <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
+        <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
+          Home
+        </GatsbyLink>
+        <Typography color="textPrimary">Blog</Typography>
+      </Breadcrumbs>
 
       <Typography
         variant="h3"
