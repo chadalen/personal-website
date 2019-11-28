@@ -1,1 +1,1 @@
-My personal blog: [blog.chadalen.com](https://blog.chadalen.com/)
+My personal website: [chadalen.com](https://chadalen.com/)
