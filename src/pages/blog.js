@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
-import { Divider, Typography, Breadcrumbs, Paper } from "@material-ui/core";
+import { Divider, Typography, Breadcrumbs } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -67,7 +67,7 @@ export default ({ data }) => {
               <div style={{ display: "flex" }}>
                 <div>
                   <img
-                    src="/icons/icon-256x256.png"
+                    src="/icons/icon.png"
                     alt="Avatar"
                     style={{ width: "64px", marginRight: "10px" }}
                   />

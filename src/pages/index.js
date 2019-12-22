@@ -26,7 +26,8 @@ const styles = makeStyles(theme => ({
     color: "#E31B6D"
   },
   avatar: {
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
+    maxWidth: '384px'
   }
 }));
 
@@ -35,7 +36,7 @@ export default () => {
   return (
     <Layout>
       <div className={classes.wrapper}>
-        <img src="/icons/icon-384x384.png" alt="Avatar" className={classes.avatar} />
+        <img src="/icons/icon.png" alt="Avatar" className={classes.avatar} />
         <div className={classes.text}>
           Hello, I'm <span className={classes.highlight}>Chad Adams</span>.
         </div>
