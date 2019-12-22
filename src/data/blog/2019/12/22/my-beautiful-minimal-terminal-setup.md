@@ -18,5 +18,10 @@ tags: ['hyper', 'starship', 'fish shell']
 # Theme
 [Hyper Material Theme](https://github.com/equinusocio/hyper-material-theme) - I'm a big fan of Google Material. I use this because it's simple and clean.
 
+# Font
+[Fira Code](https://github.com/tonsky/FiraCode) - I use this font because it looks clean, it's easy on the eyes and I enjoy the programming ligatures.
+
 # Plugins
-The only plugin I use is `hyper-material-theme`. I try to keep the terminal as minimal as possible.
+I try to keep the terminal as minimal as possible so I don't like to use that many plugins.
+* [hyper-material-theme](https://github.com/equinusocio/hyper-material-theme)
+* [hyper-font-ligatures](https://github.com/tolbertam/hyper-font-ligatures)
