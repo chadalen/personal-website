@@ -24,7 +24,7 @@ export default ({ children }) => {
   return (
     <React.Fragment>
       <div className={classes.root}>
-        <AppBar position="static" color="default">
+        <AppBar position="fixed" color="default">
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.title}>
               <Link to="/" className={classes.navLink}>
@@ -42,7 +42,7 @@ export default ({ children }) => {
             </Link>
           </Toolbar>
         </AppBar>
-        <Container style={{ marginTop: "5px" }} maxWidth="lg">
+        <Container style={{ marginTop: "85px" }} maxWidth="lg">
           {children}
         </Container>
       </div>
