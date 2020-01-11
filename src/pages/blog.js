@@ -67,7 +67,7 @@ export default ({ data }) => {
               <div style={{ display: "flex" }}>
                 <div>
                   <img
-                    src="/icons/icon.png"
+                    src="/icons/avatar-square.png"
                     alt="Avatar"
                     style={{ width: "64px", marginRight: "10px", borderRadius: '5%' }}
                   />

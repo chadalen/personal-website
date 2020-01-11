@@ -2,4 +2,7 @@ node_modules
 .cache/
 public/*
 !public/favicon.ico
-!public/icons/icon.png
+!public/icons
+public/icons/*
+!/public/icons/avatar-square.png
+!public/icons/avatar-circle.png

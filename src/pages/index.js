@@ -37,7 +37,7 @@ export default () => {
   return (
     <Layout>
       <div className={classes.wrapper}>
-        <img src="/icons/icon.png" alt="Avatar" className={classes.avatar} />
+        <img src="/icons/avatar-circle.png" alt="Avatar" className={classes.avatar} />
         <div className={classes.text}>
           Hello, I'm <span className={classes.highlight}>Chad Adams</span>.
         </div>
