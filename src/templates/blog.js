@@ -45,7 +45,7 @@ export default ({ data }) => {
                   <img
                     src="/icons/icon.png"
                     alt="Avatar"
-                    style={{ width: "64px", marginRight: "10px" }}
+                    style={{ width: "64px", marginRight: "10px", borderRadius: '5%' }}
                   />
                 </div>
                 <div>

@@ -27,7 +27,8 @@ const styles = makeStyles(theme => ({
   },
   avatar: {
     marginBottom: theme.spacing(1),
-    maxWidth: '384px'
+    maxWidth: '384px',
+    borderRadius: '50%'
   }
 }));
 

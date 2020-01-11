@@ -38,7 +38,7 @@ export default ({ data }) => {
       <Paper className={classes.root}>
         <div>
         <img
-          style={{ width: "64px", marginRight: "10px", position: "relative" }}
+          style={{ width: "64px", marginRight: "10px", position: "relative", borderRadius: '5%' }}
           src="/icons/icon.png"
           alt="Avatar"
         />
