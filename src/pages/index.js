@@ -39,11 +39,10 @@ const styles = makeStyles(theme => ({
   root: {
     width: "100%",
     height: "100vh",
-    overflowX: "scroll"
   },
   textAlignCenter: {
     textAlign: "center"
-  }
+  },
 }));
 
 function Intro(props) {
@@ -68,7 +67,7 @@ function Intro(props) {
 function AboutMe(props) {
   const { classes } = props;
   return (
-    <div className={classes.page}>
+    <div id="about" className={classes.page} style={{paddingTop: '85px'}}>
       <Card>
         <h2 className={classes.textAlignCenter}>About</h2>
         <Divider />
@@ -123,7 +122,7 @@ function AboutMe(props) {
 function Certifications(props) {
   const { classes } = props;
   return (
-    <div className={classes.page}>
+    <div id="certifications" className={classes.page} style={{paddingTop: '85px'}}>
       <Card>
         <Typography
           variant="h4"

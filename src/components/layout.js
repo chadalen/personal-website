@@ -10,15 +10,15 @@ import {
 import { Link } from "gatsby";
 
 const styles = makeStyles({
-  root: {
-    flexGrow: 1
-  },
   navLink: {
     textDecoration: "none",
     color: "black",
   },
-  title: {
+  flexGrow1: {
     flexGrow: 1
+  },
+  brand: {
+    display: 'inline-block'
   }
 });
 
@@ -26,14 +26,28 @@ export default ({ children }) => {
   const classes = styles();
   return (
     <React.Fragment>
-      <div className={classes.root}>
+      <div className={classes.flexGrow1}>
         <AppBar position="fixed" color="default">
           <Toolbar>
-            <Typography variant="h6" color="inherit" className={classes.title}>
-              <Link to="/" className={classes.navLink}>
-                Chad Adams
-              </Link>
-            </Typography>
+            <div className={classes.flexGrow1}>
+              <Typography variant="h6" color="inherit" className={classes.brand}>
+                <Link to="/" className={classes.navLink}>
+                  Chad Adams
+                </Link>
+              </Typography>
+
+            <Link to="/" className={classes.navLink}>
+              <Button color="inherit">Home</Button>
+            </Link>
+
+            <Link to="#about" className={classes.navLink}>
+              <Button color="inherit">About</Button>
+            </Link>
+
+            <Link to="#certifications" className={classes.navLink}>
+              <Button color="inherit">Certifications</Button>
+            </Link>
+            </div>
             <Link to="/blog" className={classes.navLink}>
               <Button color="inherit">Blog</Button>
             </Link>
