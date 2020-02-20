@@ -15,7 +15,10 @@ const styles = makeStyles({
   },
   navLink: {
     textDecoration: "none",
-    color: "black"
+    color: "black",
+  },
+  title: {
+    flexGrow: 1
   }
 });
 
@@ -36,9 +39,6 @@ export default ({ children }) => {
             </Link>
             <Link to="/projects" className={classes.navLink}>
               <Button color="inherit">Projects</Button>
-            </Link>
-            <Link to="/about" className={classes.navLink}>
-              <Button color="inherit">About</Button>
             </Link>
           </Toolbar>
         </AppBar>
