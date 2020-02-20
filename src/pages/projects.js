@@ -46,6 +46,7 @@ export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
+      <div style={{paddingTop: '85px'}}>
       <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
         <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
           Home
@@ -105,6 +106,7 @@ export default ({ data }) => {
           </Card>
         </div>
       ))}
+      </div>
     </Layout>
   );
 };

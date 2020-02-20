@@ -48,7 +48,7 @@ const styles = makeStyles(theme => ({
 function Intro(props) {
   const { classes } = props;
   return (
-    <div className={classes.page}>
+    <section id="intro" className={classes.page} style={{paddingTop: '85px'}}>
       <div className={classes.wrapper}>
         <img
           src="/icons/avatar-circle.png"
@@ -60,14 +60,14 @@ function Intro(props) {
         </div>
         <div className={classes.text}>I'm a full-stack web developer.</div>
       </div>
-    </div>
+    </section>
   );
 }
 
 function AboutMe(props) {
   const { classes } = props;
   return (
-    <div id="about" className={classes.page} style={{paddingTop: '85px'}}>
+    <section id="about" className={classes.page} style={{paddingTop: '85px'}}>
       <Card>
         <h2 className={classes.textAlignCenter}>About</h2>
         <Divider />
@@ -115,14 +115,14 @@ function AboutMe(props) {
           </Typography>
         </CardContent>
       </Card>
-    </div>
+    </section>
   );
 }
 
 function Certifications(props) {
   const { classes } = props;
   return (
-    <div id="certifications" className={classes.page} style={{paddingTop: '85px'}}>
+    <section id="certifications" className={classes.page} style={{paddingTop: '85px'}}>
       <Card>
         <Typography
           variant="h4"
@@ -132,7 +132,7 @@ function Certifications(props) {
         </Typography>
         <Divider />
       </Card>
-    </div>
+    </section>
   )
 }
 

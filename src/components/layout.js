@@ -8,19 +8,60 @@ import {
   Button
 } from "@material-ui/core";
 import { Link } from "gatsby";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const styles = makeStyles({
   navLink: {
     textDecoration: "none",
-    color: "black",
+    color: "black"
   },
   flexGrow1: {
     flexGrow: 1
   },
   brand: {
-    display: 'inline-block'
+    display: "inline-block"
   }
 });
+
+function HomeLinks(props) {
+  const { classes } = props;
+  const url = window.location.pathname;
+  console.log("url", url);
+
+  if (url === "/") {
+    return (
+      <>
+        <AnchorLink href="#intro" className={classes.navLink}>
+          <Button color="inherit">Home</Button>
+        </AnchorLink>
+
+        <AnchorLink href="#about" className={classes.navLink}>
+          <Button color="inherit">About</Button>
+        </AnchorLink>
+
+        <AnchorLink href="#certifications" className={classes.navLink}>
+          <Button color="inherit">Certifications</Button>
+        </AnchorLink>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Link to="#intro" className={classes.navLink}>
+        <Button color="inherit">Home</Button>
+      </Link>
+
+      <Link to="#about" className={classes.navLink}>
+        <Button color="inherit">About</Button>
+      </Link>
+
+      <Link to="#certifications" className={classes.navLink}>
+        <Button color="inherit">Certifications</Button>
+      </Link>
+    </>
+  );
+}
 
 export default ({ children }) => {
   const classes = styles();
@@ -30,23 +71,17 @@ export default ({ children }) => {
         <AppBar position="fixed" color="default">
           <Toolbar>
             <div className={classes.flexGrow1}>
-              <Typography variant="h6" color="inherit" className={classes.brand}>
+              <Typography
+                variant="h6"
+                color="inherit"
+                className={classes.brand}
+              >
                 <Link to="/" className={classes.navLink}>
                   Chad Adams
                 </Link>
               </Typography>
 
-            <Link to="/" className={classes.navLink}>
-              <Button color="inherit">Home</Button>
-            </Link>
-
-            <Link to="#about" className={classes.navLink}>
-              <Button color="inherit">About</Button>
-            </Link>
-
-            <Link to="#certifications" className={classes.navLink}>
-              <Button color="inherit">Certifications</Button>
-            </Link>
+              <HomeLinks classes={classes} />
             </div>
             <Link to="/blog" className={classes.navLink}>
               <Button color="inherit">Blog</Button>
@@ -56,9 +91,7 @@ export default ({ children }) => {
             </Link>
           </Toolbar>
         </AppBar>
-        <Container style={{ marginTop: "85px" }} maxWidth="lg">
-          {children}
-        </Container>
+        <Container maxWidth="lg">{children}</Container>
       </div>
     </React.Fragment>
   );
