@@ -2,7 +2,12 @@ import React from "react";
 import Layout from "../components/layout";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import { Divider, Typography, CardContent } from "@material-ui/core";
+import {
+  Divider,
+  Typography,
+  CardContent,
+  CardActionArea
+} from "@material-ui/core";
 
 const styles = makeStyles(theme => ({
   wrapper: {
@@ -38,17 +43,21 @@ const styles = makeStyles(theme => ({
   },
   root: {
     width: "100%",
-    height: "100vh",
+    height: "100vh"
   },
   textAlignCenter: {
     textAlign: "center"
   },
+  badge: {
+    maxWidth: "192px",
+    maxHeight: "192px"
+  }
 }));
 
 function Intro(props) {
   const { classes } = props;
   return (
-    <section id="intro" className={classes.page} style={{paddingTop: '85px'}}>
+    <section id="intro" className={classes.page} style={{ paddingTop: "85px" }}>
       <div className={classes.wrapper}>
         <img
           src="/icons/avatar-circle.png"
@@ -67,12 +76,9 @@ function Intro(props) {
 function AboutMe(props) {
   const { classes } = props;
   return (
-    <section id="about" className={classes.page} style={{paddingTop: '85px'}}>
+    <section id="about" className={classes.page} style={{ paddingTop: "85px" }}>
       <Card>
-      <Typography
-          variant="h4"
-          className={classes.textAlignCenter}
-        >
+        <Typography variant="h4" className={classes.textAlignCenter}>
           About
         </Typography>
         <Divider />
@@ -126,19 +132,70 @@ function AboutMe(props) {
 
 function Certifications(props) {
   const { classes } = props;
+
+  const onClickCertification = (url) => {
+    window.open(url, '_blank');
+  }
+
   return (
-    <section id="certifications" className={classes.page} style={{paddingTop: '85px'}}>
-      <Card>
-        <Typography
-          variant="h4"
-          className={classes.textAlignCenter}
-        >
+    <section
+      id="certifications"
+      className={classes.page}
+      style={{ paddingTop: "85px" }}
+    >
+      <div style={{ marginBottom: "16px" }}>
+        <Typography variant="h4" className={classes.textAlignCenter}>
           Certifications
         </Typography>
+
         <Divider />
-      </Card>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Card style={{ display: "inline-block", marginRight: "16px" }}
+          onClick={() => onClickCertification('https://www.microsoft.com/en-us/learning/exam-98-361.aspx')}
+        >
+          <CardActionArea>
+            <CardContent>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <img src="images/mta-badge-1.png" className={classes.badge} />
+              </div>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+
+        <Card style={{ display: "inline-block" }}
+          onClick={() => onClickCertification('https://www.microsoft.com/en-us/learning/exam-98-388.aspx')}
+        >
+          <CardActionArea>
+            <CardContent>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <img src="images/mta-badge-2.png" className={classes.badge} />
+              </div>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </div>
     </section>
-  )
+  );
 }
 
 export default () => {
