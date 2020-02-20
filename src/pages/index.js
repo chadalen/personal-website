@@ -77,34 +77,42 @@ function AboutMe(props) {
   const { classes } = props;
   return (
     <section id="about" className={classes.page} style={{ paddingTop: "85px" }}>
-      <Card>
+      <div style={{ marginBottom: "16px" }}>
         <Typography variant="h4" className={classes.textAlignCenter}>
-          About
+          About Me
         </Typography>
+
         <Divider />
+      </div>
+
+      <Card>
         <CardContent>
           <Typography>
-            I grew up in a small town in Wisconsin called Luck. I have an
-            associate's degree in Computer Programming from St Cloud Technical
-            and Community College located in St Cloud, MN.
+            My name is Chad Adams. I'm a Full-Stack Developer from Mandan, North
+            Dakota. I specialize in working on websites, mobile apps and desktop
+            applications. Coding is my passion. I enjoy writing software that
+            helps makes our lives easier.
           </Typography>
           <br />
           <Typography>
-            I'm a Full Stack Developer from Bismarck, ND. I develop all types of
-            software, ranging from websites, mobile apps, and desktop apps.
-            Coding is my passion. I enjoy writing software that helps makes
-            peoples lives easier.
+            I first started programming when I was 12 years old. I played a game
+            called "RuneScape" and a friend introduced me to RuneScape private
+            servers. From there I spent most of my time working on tools for the
+            community.
           </Typography>
           <br />
 
           <Typography>
-            I was first introduced to programming at the age of 12 when I used
-            to play a game called RuneScape. I was fascinated by how the game
-            worked. I wanted to create my own version of the game so I worked on
-            RuneScape private servers. The first programming language I used was
-            Java because that was the language RuneScape was made in. I’m a big
-            advocate for open-source software. I love Linux, my favorite linux
-            distrobution is Ubuntu.
+            I have an associates degree in Computer Programming from St Cloud
+            Technical and Community College. I love to code, but I also love to
+            be an entrepreneur. So I am currently pursuing a bachelor in
+            Information Systems from Arizona State University.
+          </Typography>
+          <br />
+
+          <Typography>
+            I’m a big advocate for open-source software. I love Linux, my
+            favorite linux distrobution is Ubuntu.
           </Typography>
           <br />
 
@@ -112,8 +120,7 @@ function AboutMe(props) {
             Throughout the years I have worked with numerous programming
             languages including: C#, Java, Kotlin, Python, JavaScript, PHP,
             Golang, Lua, Dart and TypeScript. Out of the programming languages I
-            have used my favorite so far is Kotlin because I enjoy the syntax
-            and the language has little to no boilerplate.
+            have used my favorite so far is Kotlin because I enjoy the syntax.
           </Typography>
 
           <br />
@@ -133,9 +140,9 @@ function AboutMe(props) {
 function Certifications(props) {
   const { classes } = props;
 
-  const onClickCertification = (url) => {
-    window.open(url, '_blank');
-  }
+  const onClickCertification = url => {
+    window.open(url, "_blank");
+  };
 
   return (
     <section
@@ -158,8 +165,13 @@ function Certifications(props) {
           justifyContent: "center"
         }}
       >
-        <Card style={{ display: "inline-block", marginRight: "16px" }}
-          onClick={() => onClickCertification('https://www.microsoft.com/en-us/learning/exam-98-361.aspx')}
+        <Card
+          style={{ display: "inline-block", marginRight: "16px" }}
+          onClick={() =>
+            onClickCertification(
+              "https://www.microsoft.com/en-us/learning/exam-98-361.aspx"
+            )
+          }
         >
           <CardActionArea>
             <CardContent>
@@ -176,8 +188,13 @@ function Certifications(props) {
           </CardActionArea>
         </Card>
 
-        <Card style={{ display: "inline-block" }}
-          onClick={() => onClickCertification('https://www.microsoft.com/en-us/learning/exam-98-388.aspx')}
+        <Card
+          style={{ display: "inline-block" }}
+          onClick={() =>
+            onClickCertification(
+              "https://www.microsoft.com/en-us/learning/exam-98-388.aspx"
+            )
+          }
         >
           <CardActionArea>
             <CardContent>
