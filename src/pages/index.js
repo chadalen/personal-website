@@ -69,7 +69,12 @@ function AboutMe(props) {
   return (
     <section id="about" className={classes.page} style={{paddingTop: '85px'}}>
       <Card>
-        <h2 className={classes.textAlignCenter}>About</h2>
+      <Typography
+          variant="h4"
+          className={classes.textAlignCenter}
+        >
+          About
+        </Typography>
         <Divider />
         <CardContent>
           <Typography>
