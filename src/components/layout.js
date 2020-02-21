@@ -181,7 +181,7 @@ export default ({ children }) => {
   const classes = styles();
   const theme = useTheme();
 
-  const hideNavbarItems = useWindowSize().width < 630;
+  const hideNavbarItems = useWindowSize().width <= 500;
   return (
     <React.Fragment>
       <div className={classes.flexGrow1}>
