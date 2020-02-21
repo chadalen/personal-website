@@ -69,7 +69,7 @@ export default ({ children }) => {
     <React.Fragment>
       <div className={classes.flexGrow1}>
         <AppBar position="fixed" color="default">
-          <Toolbar>
+          <Toolbar variant="dense">
             <div className={classes.flexGrow1}>
               <Typography
                 variant="h6"
