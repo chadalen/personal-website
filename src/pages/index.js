@@ -2,11 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import {
-  Typography,
-  CardContent,
-  CardActionArea
-} from "@material-ui/core";
+import { Typography, CardContent, CardActionArea } from "@material-ui/core";
 
 const styles = makeStyles(theme => ({
   wrapper: {
@@ -112,7 +108,9 @@ function AboutMe(props) {
         </CardContent>
       </Card>
 
-      <Certifications classes={classes} />
+      <div style={{ marginTop: theme.spacing(2) }}>
+        <Certifications classes={classes} />
+      </div>
     </section>
   );
 }
@@ -127,9 +125,13 @@ function Certifications(props) {
   const theme = useTheme();
   return (
     <>
-        <Typography variant="h4" className={classes.textAlignCenter} style={{marginBottom: theme.spacing(2)}}>
-          Certifications
-        </Typography>
+      <Typography
+        variant="h4"
+        className={classes.textAlignCenter}
+        style={{ marginBottom: theme.spacing(2) }}
+      >
+        Certifications
+      </Typography>
 
       <div
         style={{
