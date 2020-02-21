@@ -38,60 +38,62 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <Paper className={classes.root}>
+      <div style={{ paddingTop: "60px" }}>
+        <Paper className={classes.root}>
+          <div style={{ display: "flex" }}>
+            <div>
+              <img
+                src="/icons/avatar-square.png"
+                alt="Avatar"
+                style={{
+                  width: "64px",
+                  marginRight: "10px",
+                  borderRadius: "5%"
+                }}
+              />
+            </div>
+            <div>
+              <Typography
+                variant="h4"
+                component="h2"
+                className={classes.blogTitle}
+                gutterBottom
+              >
+                {post.frontmatter.title}
+              </Typography>
 
-      <div style={{ display: "flex" }}>
-                <div>
-                  <img
-                    src="/icons/avatar-square.png"
-                    alt="Avatar"
-                    style={{ width: "64px", marginRight: "10px", borderRadius: '5%' }}
-                  />
-                </div>
-                <div>
-                <Typography
-                      variant="h4"
-                      component="h2"
-                      className={classes.blogTitle}
-                      gutterBottom
-                    >
-                      {post.frontmatter.title}
-                    </Typography>
+              <Typography
+                className={classes.date}
+                color="textSecondary"
+                gutterBottom
+              >
+                Chad Adams &#8226; {post.frontmatter.date} &#8226;{" "}
+                {post.timeToRead} min read
+              </Typography>
 
-                  <Typography
-                    className={classes.date}
-                    color="textSecondary"
-                    gutterBottom
-                  >
-                    Chad Adams &#8226; {post.frontmatter.date} &#8226; {post.timeToRead} min read
-                  </Typography>
-
-                  <div>
-                    {post.frontmatter.tags.map((data, index) => {
-                      return (
-                        <Chip
-                          key={index}
-                          label={data}
-                          className={classes.chip}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
+              <div>
+                {post.frontmatter.tags.map((data, index) => {
+                  return (
+                    <Chip key={index} label={data} className={classes.chip} />
+                  );
+                })}
               </div>
-              <hr />
+            </div>
+          </div>
+          <hr />
 
-        <div
-          className={classes.content}
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          <div
+            className={classes.content}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </Paper>
+
+        <ReactDisqusComments
+          shortname={data.site.siteMetadata.disqusShortname}
+          identifier={post.id}
+          title={post.frontmatter.title}
         />
-      </Paper>
-
-      <ReactDisqusComments
-        shortname={data.site.siteMetadata.disqusShortname}
-        identifier={post.id}
-        title={post.frontmatter.title}
-      />
+      </div>
     </Layout>
   );
 };
