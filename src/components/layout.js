@@ -71,7 +71,7 @@ function HomeLinks(props) {
     return null;
   }
 
-  const url = (typeof window === 'object' ? window.location.pathname : '');
+  const url = typeof window === "object" ? window.location.pathname : "";
 
   if (url === "/") {
     return (
@@ -120,19 +120,29 @@ function ShowHamburgerMenu(props) {
   );
 }
 
+function Brand(props) {
+  const { classes } = props;
+  return (
+    <Typography variant="h6" color="inherit" className={classes.brand}>
+      <Link to="/" className={classes.navLink}>
+        Chad Adams
+      </Link>
+    </Typography>
+  );
+}
+
 function ShowToolbarContent(props) {
-  const { classes, hide } = props;
+  const { classes, hide, drawerOpen } = props;
   if (hide) {
-    return null;
+    if (drawerOpen) {
+      return null;
+    }
+    return <Brand classes={classes} />;
   }
   return (
     <>
       <div className={classes.flexGrow1} style={{ display: "flex" }}>
-        <Typography variant="h6" color="inherit" className={classes.brand}>
-          <Link to="/" className={classes.navLink}>
-            Chad Adams
-          </Link>
-        </Typography>
+        <Brand classes={classes} />
         <HomeLinks classes={classes} />
       </div>
       <Link to="/blog" className={classes.navLink}>
@@ -203,7 +213,11 @@ export default ({ children }) => {
               handleDrawerOpen={handleDrawerOpen}
               hide={!hideNavbarItems || open}
             />
-            <ShowToolbarContent classes={classes} hide={hideNavbarItems} />
+            <ShowToolbarContent
+              classes={classes}
+              hide={hideNavbarItems}
+              drawerOpen={open}
+            />
           </Toolbar>
         </AppBar>
         <Drawer
@@ -236,7 +250,11 @@ export default ({ children }) => {
               { name: "About", route: "#about" },
               { name: "Certifications", route: "#certifications" }
             ].map(item => (
-              <Link to={item.route} key={item.name} style={{ textDecoration: "none", color: "inherit" }}>
+              <Link
+                to={item.route}
+                key={item.name}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <ListItem button>
                   <ListItemText primary={item.name}></ListItemText>
                 </ListItem>
