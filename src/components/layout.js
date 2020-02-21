@@ -85,16 +85,8 @@ function HomeLinks(props) {
 
   return (
     <>
-      <Link to="#intro" className={classes.navLink}>
-        <Button color="inherit">Home</Button>
-      </Link>
-
       <Link to="#about" className={classes.navLink}>
         <Button color="inherit">About</Button>
-      </Link>
-
-      <Link to="#certifications" className={classes.navLink}>
-        <Button color="inherit">Certifications</Button>
       </Link>
     </>
   );
