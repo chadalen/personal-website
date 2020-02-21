@@ -70,7 +70,7 @@ export default ({ children }) => {
       <div className={classes.flexGrow1}>
         <AppBar position="fixed" color="default">
           <Toolbar variant="dense">
-            <div className={classes.flexGrow1}>
+            <div className={classes.flexGrow1} style={{ display: "flex" }}>
               <Typography
                 variant="h6"
                 color="inherit"
