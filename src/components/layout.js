@@ -71,8 +71,7 @@ function HomeLinks(props) {
     return null;
   }
 
-  const url = window.location.pathname;
-  console.log("url", url);
+  const url = (typeof window === 'object' ? window.location.pathname : '');
 
   if (url === "/") {
     return (
