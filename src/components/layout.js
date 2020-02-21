@@ -201,7 +201,7 @@ export default ({ children }) => {
           <Toolbar variant="dense">
             <ShowHamburgerMenu
               handleDrawerOpen={handleDrawerOpen}
-              hide={!hideNavbarItems}
+              hide={!hideNavbarItems || open}
             />
             <ShowToolbarContent classes={classes} hide={hideNavbarItems} />
           </Toolbar>
