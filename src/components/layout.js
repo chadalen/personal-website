@@ -123,7 +123,7 @@ function ShowHamburgerMenu(props) {
 }
 
 function ShowToolbarContent(props) {
-  const { classes, handleDrawerOpen, hide } = props;
+  const { classes, hide } = props;
   if (hide) {
     return null;
   }
@@ -205,11 +205,7 @@ export default ({ children }) => {
               handleDrawerOpen={handleDrawerOpen}
               hide={!hideNavbarItems}
             />
-            <ShowToolbarContent
-              classes={classes}
-              hide={hideNavbarItems}
-              handleDrawerOpen={handleDrawerOpen}
-            />
+            <ShowToolbarContent classes={classes} hide={hideNavbarItems} />
           </Toolbar>
         </AppBar>
         <Drawer
@@ -237,17 +233,27 @@ export default ({ children }) => {
           </div>
           <Divider />
           <List>
-            {["Home", "About", "Certifications"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text}></ListItemText>
-              </ListItem>
+            {[
+              { name: "Home", route: "#intro" },
+              { name: "About", route: "#about" },
+              { name: "Certifications", route: "#certifications" }
+            ].map(item => (
+              <Link to={item.route} key={item.name} style={{ textDecoration: "none", color: "inherit" }}>
+                <ListItem button>
+                  <ListItemText primary={item.name}></ListItemText>
+                </ListItem>
+              </Link>
             ))}
             <Divider />
             {[
               { name: "Blog", route: "/blog" },
               { name: "Projects", route: "/projects" }
-            ].map((item) => (
-              <Link to={item.route} key={item.name} style={{textDecoration: 'none', color: 'inherit'}}>
+            ].map(item => (
+              <Link
+                to={item.route}
+                key={item.name}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <ListItem button key={item.name}>
                   <ListItemText primary={item.name}></ListItemText>
                 </ListItem>
