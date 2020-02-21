@@ -182,7 +182,7 @@ function Certifications(props) {
                   justifyContent: "center"
                 }}
               >
-                <img src="images/mta-badge-1.png" className={classes.badge} />
+                <img src="images/mta-badge-1.png" alt="mta-badge-1" className={classes.badge} />
               </div>
             </CardContent>
           </CardActionArea>
@@ -205,7 +205,7 @@ function Certifications(props) {
                   justifyContent: "center"
                 }}
               >
-                <img src="images/mta-badge-2.png" className={classes.badge} />
+                <img src="images/mta-badge-2.png" alt="mta-badge-2" className={classes.badge} />
               </div>
             </CardContent>
           </CardActionArea>
