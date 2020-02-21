@@ -1,9 +1,8 @@
 import React from "react";
 import Layout from "../components/layout";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import {
-  Divider,
   Typography,
   CardContent,
   CardActionArea
@@ -75,14 +74,13 @@ function Intro(props) {
 
 function AboutMe(props) {
   const { classes } = props;
+  const theme = useTheme();
   return (
     <section id="about" className={classes.page} style={{ paddingTop: "85px" }}>
-      <div style={{ marginBottom: "16px" }}>
+      <div style={{ marginBottom: theme.spacing(2) }}>
         <Typography variant="h4" className={classes.textAlignCenter}>
           About Me
         </Typography>
-
-        <Divider />
       </div>
 
       <Card>
@@ -113,6 +111,8 @@ function AboutMe(props) {
           <br />
         </CardContent>
       </Card>
+
+      <Certifications classes={classes} />
     </section>
   );
 }
@@ -124,19 +124,12 @@ function Certifications(props) {
     window.open(url, "_blank");
   };
 
+  const theme = useTheme();
   return (
-    <section
-      id="certifications"
-      className={classes.page}
-      style={{ paddingTop: "85px" }}
-    >
-      <div style={{ marginBottom: "16px" }}>
-        <Typography variant="h4" className={classes.textAlignCenter}>
+    <>
+        <Typography variant="h4" className={classes.textAlignCenter} style={{marginBottom: theme.spacing(2)}}>
           Certifications
         </Typography>
-
-        <Divider />
-      </div>
 
       <div
         style={{
@@ -199,7 +192,7 @@ function Certifications(props) {
           </CardActionArea>
         </Card>
       </div>
-    </section>
+    </>
   );
 }
 
@@ -210,7 +203,6 @@ export default () => {
       <div className={classes.root}>
         <Intro classes={classes} />
         <AboutMe classes={classes} />
-        <Certifications classes={classes} />
       </div>
     </Layout>
   );

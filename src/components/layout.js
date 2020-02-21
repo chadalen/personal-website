@@ -76,16 +76,8 @@ function HomeLinks(props) {
   if (url === "/") {
     return (
       <>
-        <AnchorLink href="#intro" className={classes.navLink}>
-          <Button color="inherit">Home</Button>
-        </AnchorLink>
-
         <AnchorLink href="#about" className={classes.navLink}>
           <Button color="inherit">About</Button>
-        </AnchorLink>
-
-        <AnchorLink href="#certifications" className={classes.navLink}>
-          <Button color="inherit">Certifications</Button>
         </AnchorLink>
       </>
     );
@@ -246,9 +238,7 @@ export default ({ children }) => {
           <Divider />
           <List>
             {[
-              { name: "Home", route: "#intro" },
               { name: "About", route: "#about" },
-              { name: "Certifications", route: "#certifications" }
             ].map(item => (
               <Link
                 to={item.route}
