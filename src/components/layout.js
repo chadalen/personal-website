@@ -190,7 +190,6 @@ export default ({ children }) => {
   const theme = useTheme();
 
   const hideNavbarItems = useWindowSize().width < 630;
-  console.log(hideNavbarItems);
   return (
     <React.Fragment>
       <div className={classes.flexGrow1}>
@@ -244,10 +243,15 @@ export default ({ children }) => {
               </ListItem>
             ))}
             <Divider />
-            {["Blog", "Projects"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text}></ListItemText>
-              </ListItem>
+            {[
+              { name: "Blog", route: "/blog" },
+              { name: "Projects", route: "/projects" }
+            ].map((item) => (
+              <Link to={item.route} key={item.name} style={{textDecoration: 'none', color: 'inherit'}}>
+                <ListItem button key={item.name}>
+                  <ListItemText primary={item.name}></ListItemText>
+                </ListItem>
+              </Link>
             ))}
           </List>
         </Drawer>
