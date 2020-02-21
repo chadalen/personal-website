@@ -89,48 +89,28 @@ function AboutMe(props) {
         <CardContent>
           <Typography>
             My name is Chad Adams. I'm a Full-Stack Developer from Mandan, North
-            Dakota. I specialize in working on websites, mobile apps and desktop
-            applications. Coding is my passion. I enjoy writing software that
-            helps makes our lives easier.
-          </Typography>
-          <br />
-          <Typography>
-            I first started programming when I was 12 years old. I played a game
-            called "RuneScape" and a friend introduced me to RuneScape private
-            servers. From there I spent most of my time working on tools for the
-            community.
+            Dakota. I develop all types of software, but I primarily work with
+            websites and mobile apps. Coding is my passion. I enjoy writing
+            software that helps makes our lives easier. I first started to code
+            around 12 years old when a friend of mine introduced me to RuneScape
+            private servers.
           </Typography>
           <br />
 
           <Typography>
             I have an associates degree in Computer Programming from St Cloud
-            Technical and Community College. I love to code, but I also love to
-            be an entrepreneur. So I am currently pursuing a bachelor in
-            Information Systems from Arizona State University.
+            Technical and Community College. I am currently pursuing a bachelors
+            in Information Systems from Arizona State University.
           </Typography>
           <br />
 
           <Typography>
             I’m a big advocate for open-source software. I love Linux, my
-            favorite linux distrobution is Ubuntu.
+            favorite linux distrobution is Ubuntu. I love reading books, writing
+            blogs, working on my startup business, spending time with family and
+            learning new technologies.
           </Typography>
           <br />
-
-          <Typography>
-            Throughout the years I have worked with numerous programming
-            languages including: C#, Java, Kotlin, Python, JavaScript, PHP,
-            Golang, Lua, Dart and TypeScript. Out of the programming languages I
-            have used my favorite so far is Kotlin because I enjoy the syntax.
-          </Typography>
-
-          <br />
-
-          <Typography>
-            I am currently working on two projects. A mobile app for IOS and
-            Android using Flutter. I am also working on an E-Commerce website in
-            my spare time. In my spare time I am also studying for the AWS
-            Certified Solutions Architect certification.
-          </Typography>
         </CardContent>
       </Card>
     </section>
@@ -182,7 +162,11 @@ function Certifications(props) {
                   justifyContent: "center"
                 }}
               >
-                <img src="images/mta-badge-1.png" alt="mta-badge-1" className={classes.badge} />
+                <img
+                  src="images/mta-badge-1.png"
+                  alt="mta-badge-1"
+                  className={classes.badge}
+                />
               </div>
             </CardContent>
           </CardActionArea>
@@ -205,7 +189,11 @@ function Certifications(props) {
                   justifyContent: "center"
                 }}
               >
-                <img src="images/mta-badge-2.png" alt="mta-badge-2" className={classes.badge} />
+                <img
+                  src="images/mta-badge-2.png"
+                  alt="mta-badge-2"
+                  className={classes.badge}
+                />
               </div>
             </CardContent>
           </CardActionArea>
