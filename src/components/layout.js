@@ -214,11 +214,7 @@ export default ({ children }) => {
           }}
         >
           <div className={classes.drawerHeader}>
-            <Typography variant="h6" color="inherit" className={classes.brand}>
-              <Link to="/" className={classes.navLink}>
-                Chad Adams
-              </Link>
-            </Typography>
+            <Brand classes={classes} />
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === "ltr" ? (
                 <ChevronLeftIcon />
