@@ -13,12 +13,12 @@ import {
   ListItemText
 } from "@material-ui/core";
 import { Link } from "gatsby";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import clsx from "clsx";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const drawerWidth = 200;
 
@@ -71,23 +71,11 @@ function HomeLinks(props) {
     return null;
   }
 
-  const url = typeof window === "object" ? window.location.pathname : "";
-
-  if (url === "/") {
-    return (
-      <>
-        <AnchorLink href="#about" className={classes.navLink}>
-          <Button color="inherit">About</Button>
-        </AnchorLink>
-      </>
-    );
-  }
-
   return (
     <>
-      <Link to="#about" className={classes.navLink}>
+      <AnchorLink to="/#about" className={classes.navLink}>
         <Button color="inherit">About</Button>
-      </Link>
+      </AnchorLink>
     </>
   );
 }
@@ -108,9 +96,9 @@ function Brand(props) {
   const { classes } = props;
   return (
     <Typography variant="h6" color="inherit" className={classes.brand}>
-      <Link to="/" className={classes.navLink}>
+      <AnchorLink to="/#intro" className={classes.navLink}>
         Chad Adams
-      </Link>
+      </AnchorLink>
     </Typography>
   );
 }
@@ -225,9 +213,7 @@ export default ({ children }) => {
           </div>
           <Divider />
           <List>
-            {[
-              { name: "About", route: "#about" },
-            ].map(item => (
+            {[{ name: "About", route: "#about" }].map(item => (
               <Link
                 to={item.route}
                 key={item.name}

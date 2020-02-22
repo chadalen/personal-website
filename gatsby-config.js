@@ -5,6 +5,12 @@ module.exports = {
     disqusShortname: 'chadalen-com'
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
+    },
     'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-material-ui',

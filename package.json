@@ -18,6 +18,7 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.1.2",
     "gatsby": "^2.10.0",
+    "gatsby-plugin-anchor-links": "^1.1.0",
     "gatsby-plugin-manifest": "^2.2.29",
     "gatsby-plugin-material-ui": "^2.0.1",
     "gatsby-plugin-react-helmet": "^3.1.0",
@@ -26,7 +27,6 @@
     "gatsby-transformer-remark": "^2.5.0",
     "prismjs": "^1.17.1",
     "react": "^16.8.6",
-    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1"
