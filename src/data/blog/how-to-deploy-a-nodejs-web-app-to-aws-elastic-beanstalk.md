@@ -4,12 +4,6 @@ date: "2020-03-09"
 tags: ['aws', 'elastic beanstalk']
 ---
 
----
-title: "How To Deploy A Node.js App To Elastic Beanstalk"
-date: "2020-03-09"
-tags: ['aws']
----
-
 ### Intro
 
 For this tutorial we are going to take a [Node.js](https://nodejs.org/en/) app and deploy it to Amazon Web Services ([AWS](https://aws.amazon.com/)) via [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/). I'm going to assume you already know what AWS (Amazon Web Services) and Elastic Beanstalk is. Also I'm going to assume you have a node.js app already but if you don't you can follow step 1 for an example.
