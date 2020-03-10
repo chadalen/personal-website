@@ -52,7 +52,7 @@ CMD [ "npm", "start" ]
 
 To breakdown this file
 `FROM node:13-alpine`
-I'm using alpine because this will reduce the footprint of your Docker application. This basically tells Docker to use the alphine linux os which is designed to be secure and lightweight.
+I'm using alpine because this will reduce the footprint of your Docker application. This basically tells Docker to use the [alphine linux os](https://alpinelinux.org/) which is designed to be secure and lightweight.
 
 This line tells docker where to place your application within the docker container. This will create a folder /usr/src/app at the root directory.
 `WORKDIR /usr/src/app`
