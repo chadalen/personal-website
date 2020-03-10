@@ -1,6 +1,6 @@
 ---
 title: "How To Deploy Node.js Web App To AWS Elastic Beanstalk"
-date: "2019-06-23"
+date: "2020-03-09"
 tags: ['aws', 'elastic beanstalk']
 ---
 
