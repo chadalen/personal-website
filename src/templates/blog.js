@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
         color: "#23527c",
         textDecoration: "underline"
       }
+    },
+    "& p, h1, h2, h3, h4": {
+      whiteSpace: 'pre-wrap'
     }
   },
   chip: {

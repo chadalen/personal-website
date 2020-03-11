@@ -9,10 +9,14 @@ tags: ['aws', 'elastic beanstalk']
 For this tutorial we are going to take a [Node.js](https://nodejs.org/en/) app and deploy it to Amazon Web Services ([AWS](https://aws.amazon.com/)) via [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/). I'm going to assume you already know what AWS (Amazon Web Services) and Elastic Beanstalk is. Also I'm going to assume you have a node.js app already but if you don't you can follow step 1 for an example.
 
 ###  1. Create a Node.js app (Skip this step if you already have one)
+
+Let's create a Node.js app
 ```npm init```
+
 You can install any web server but for a simple web server I'll install express.js
 ```npm install express --save```
-Create file named "app.js" add the following
+
+Create a file named "app.js" and add the following
 ```javascript
 var express = require('express');
 var app = express();
@@ -25,12 +29,15 @@ app.listen(3000, function () {
 ```
 To run the command type
 ```node app.js```
+
 To make sure the app is working, visit http://localhost:3000 in a browser and you should see "Hello World!"
 
 ### 2. Dockerize your node.js app
-We are going to use [Docker](https://www.docker.com/) because Docker makes deploying to any platform a breeze. To begin create an acocunt at [https://hub.docker.com/](https://hub.docker.com/) if you don't already have an account. Once you have an account, we will create a `Dockerfile`. This file is basically an instruction on how to package and run your application using Docker.
+We are going to use [Docker](https://www.docker.com/) because Docker makes deploying to any platform a breeze. To begin create an account at [https://hub.docker.com/](https://hub.docker.com/)
 
-So create a file called "Dockerfile" next to your node's `package.json`.
+Once you have an account, we will create a `Dockerfile`. This file is basically an instruction on how to package and run your application using Docker.
+
+So create a file named "Dockerfile" next to your node's `package.json`.
 ```
 FROM node:13-alpine
 
@@ -52,6 +59,7 @@ CMD [ "npm", "start" ]
 
 To breakdown this file
 `FROM node:13-alpine`
+
 I'm using alpine because this will reduce the footprint of your Docker application. This basically tells Docker to use the [alphine linux os](https://alpinelinux.org/) which is designed to be secure and lightweight.
 
 This line tells docker where to place your application within the docker container. This will create a folder /usr/src/app at the root directory.
@@ -60,7 +68,7 @@ This line tells docker where to place your application within the docker contain
 This line tells docker to copy the package.json file so we can install only the dependencies in the next line.
 `COPY package*.json ./`
 
-This tells docker to first install the dependencies, then remove the cached dependencies. When we install depenencies in npm or yarn, it caches the dependencies so if we run npm install it doesn't have to fetch the dependencies again. We clean the dependencies here because we don't need to install any dependencies again. Also this will significantly reduce the size of your application.
+This tells docker to first install the dependencies, then remove the cached dependencies. When we install dependencies using npm; npm will cache the dependencies so if we run "npm install" again it doesn't have to fetch the dependencies again. We clean the dependencies here because we don't need to install dependencies again from within a docker container. Also this will significantly reduce the size of your application.
 ```
 RUN npm install && \
 		npm cache clean
@@ -106,7 +114,6 @@ If you already have an account log on and go to "AWS Management Console" then se
     }
   ]
 }
-  
 ```
 
 This line just tells AWS what version this Dockerrun.aws.json file is.
@@ -117,17 +124,16 @@ These lines tell AWS what the name of your Docker image is. This will grab the i
 "Image": {
     "Name": "yourdockerhubusername/your-image-name"
   }
-  ```
+```
   
-  These lines tell docker what ports to use when it runs the docker file. e.g to replicate the same command we used previously `docker run -p 80:3000 yourdockerhubusername/your-image-name:latest`
-  ```
-    "Ports": [
-    {
-      "ContainerPort": 3000,
-      "HostPort": 80
-    }
-  ]
-  ```
+These lines tell docker what ports to use when it runs the docker file. e.g to replicate the same command we used previously `docker run -p 80:3000 yourdockerhubusername/your-image-name:latest`
+```
+  "Ports": [
+  {
+    "ContainerPort": 3000,
+    "HostPort": 80
+  }
+]
+```
   
-  "HostPort" is the external port, "ContainerPort" is the internal port. After uploading click "create environment", then wait a minute and the status should show up green and saying successful. Once successful go to "Dashboard" then look for the URL at the top should be something like this
-  "http://yourapp-env-1.eba-49gfb7qp.us-east-2.elasticbeanstalk.com/", click that and you should be able to see your web app.
+"HostPort" is the external port, "ContainerPort" is the internal port. After uploading click "create environment", then wait a minute and the status should show up green and saying successful. Once successful go to "Dashboard" then look for the URL at the top should be something like this "http://yourapp-env-1.eba-49gfb7qp.us-east-2.elasticbeanstalk.com/", click that and you should be able to see your web app.
