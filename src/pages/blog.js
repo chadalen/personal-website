@@ -46,85 +46,92 @@ export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
-      <div style={{paddingTop: '50px'}}>
-      <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
-        <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-          Home
-        </GatsbyLink>
-        <Typography color="textPrimary">Blog</Typography>
-      </Breadcrumbs>
+      <div style={{ paddingTop: "50px" }}>
+        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
+          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
+            Home
+          </GatsbyLink>
+          <Typography color="textPrimary">Blog</Typography>
+        </Breadcrumbs>
 
-      <Typography
-        variant="h3"
-        style={{ marginTop: "20px", marginBottom: "20px" }}
-      >
-        Blog
-      </Typography>
-      <Divider />
-      {data.allMarkdownRemark.edges.map(({ node }, index) => (
-        <div key={index}>
-          <Card style={{ marginBottom: "20px" }}>
-            <CardContent>
-              <div style={{ display: "flex" }}>
-                <div>
-                  <img
-                    src="/icons/avatar-square.png"
-                    alt="Avatar"
-                    style={{ width: "64px", marginRight: "10px", borderRadius: '5%' }}
-                  />
-                </div>
-                <div>
-                  <GatsbyLink
-                    to={node.fields.slug}
-                    className={classes.blogTitleLink}
-                  >
+        <Typography
+          variant="h3"
+          style={{ marginTop: "20px", marginBottom: "20px" }}
+        >
+          Blog
+        </Typography>
+        <Divider />
+        {data.allMarkdownRemark.nodes.map((node, index) => (
+          <div key={index}>
+            <Card style={{ marginBottom: "20px" }}>
+              <CardContent>
+                <div style={{ display: "flex" }}>
+                  <div>
+                    <img
+                      src="/icons/avatar-square.png"
+                      alt="Avatar"
+                      style={{
+                        width: "64px",
+                        marginRight: "10px",
+                        borderRadius: "5%"
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <GatsbyLink
+                      to={node.fields.slug}
+                      className={classes.blogTitleLink}
+                    >
+                      <Typography
+                        variant="h4"
+                        component="h2"
+                        className={classes.blogTitle}
+                        gutterBottom
+                      >
+                        {node.frontmatter.title}
+                      </Typography>
+                    </GatsbyLink>
+
                     <Typography
-                      variant="h4"
-                      component="h2"
-                      className={classes.blogTitle}
+                      className={classes.date}
+                      color="textSecondary"
                       gutterBottom
                     >
-                      {node.frontmatter.title}
+                      Chad Adams &#8226; {node.frontmatter.date}
                     </Typography>
-                  </GatsbyLink>
 
-                  <Typography
-                    className={classes.date}
-                    color="textSecondary"
-                    gutterBottom
-                  >
-                    Chad Adams &#8226; {node.frontmatter.date}
-                  </Typography>
-
-                  <div>
-                    {node.frontmatter.tags.map((data, index) => {
-                      return (
-                        <Chip
-                          key={index}
-                          label={data}
-                          className={classes.chip}
-                        />
-                      );
-                    })}
+                    <div>
+                      {node.frontmatter.tags.map((data, index) => {
+                        return (
+                          <Chip
+                            key={index}
+                            label={data}
+                            className={classes.chip}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <hr />
+                <hr />
 
-              <Typography component="p">{node.excerpt}</Typography>
-            </CardContent>
-            <CardActions>
-              <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
-                <Button size="small">Read More</Button>
-              </GatsbyLink>
+                <Typography component="p">{node.excerpt}</Typography>
+              </CardContent>
+              <CardActions>
+                <GatsbyLink
+                  to={node.fields.slug}
+                  className={classes.linkButton}
+                >
+                  <Button size="small">Read More</Button>
+                </GatsbyLink>
 
-              <Typography className={classes.date} color="textSecondary">
-                {`${node.timeToRead} min read`}
-              </Typography>
-            </CardActions>
-          </Card>
-        </div>
-      ))}
+                <Typography className={classes.date} color="textSecondary">
+                  {`${node.timeToRead} min read`}
+                </Typography>
+              </CardActions>
+            </Card>
+          </div>
+        ))}
       </div>
     </Layout>
   );
@@ -135,22 +142,20 @@ export const query = graphql`
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 25
-      filter: { fields: { slug: { regex: "/^/blog/" } } }
+      filter: { fields: { slug: { regex: "^/blog/" } } }
     ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMM D, YYYY")
-            title
-            tags
-          }
-          excerpt
-          timeToRead
-          html
+      nodes {
+        fields {
+          slug
         }
+        timeToRead
+        frontmatter {
+          date(formatString: "MMM D, YYYY")
+          tags
+          title
+        }
+        excerpt
+        html
       }
     }
   }
