@@ -70,5 +70,11 @@ module.exports = {
         vendorPrefixes: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    }
   ],
 }
