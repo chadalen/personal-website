@@ -13,6 +13,7 @@ export default function TopLayout(props) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
         />
+        <meta name="description" content="Chad Adams Personal Website" />
         <title>Chad Adams</title>
         <link
           href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
