@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import { Typography, CardContent, CardActionArea } from "@material-ui/core";
+import { graphql } from "gatsby"
 
 const styles = makeStyles(theme => ({
   wrapper: {
@@ -50,12 +51,12 @@ const styles = makeStyles(theme => ({
 }));
 
 function Intro(props) {
-  const { classes } = props;
+  const { classes, data } = props;
   return (
     <section id="intro" className={classes.page} style={{ paddingTop: "85px" }}>
       <div className={classes.wrapper}>
         <img
-          src="/icons/avatar-circle.png"
+          src={data.file.childImageSharp.resize.src}
           alt="Avatar"
           className={classes.avatar}
         />
@@ -198,14 +199,26 @@ function Certifications(props) {
   );
 }
 
-export default () => {
+export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
       <div className={classes.root}>
-        <Intro classes={classes} />
+        <Intro data={data} classes={classes} />
         <AboutMe classes={classes} />
       </div>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query MyQuery {
+    file(relativePath: { eq: "data/images/avatar-circle.png" }) {
+      childImageSharp {
+        resize(width: 384, toFormat: WEBP, quality: 75) {
+          src
+        }
+      }
+    }
+  }
+`

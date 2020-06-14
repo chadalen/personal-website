@@ -18,18 +18,23 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.1.2",
     "gatsby": "^2.10.0",
+    "gatsby-image": "^2.4.7",
     "gatsby-plugin-anchor-links": "^1.1.0",
     "gatsby-plugin-manifest": "^2.2.29",
     "gatsby-plugin-material-ui": "^2.0.1",
     "gatsby-plugin-react-helmet": "^3.1.0",
+    "gatsby-plugin-sharp": "^2.6.11",
+    "gatsby-plugin-styled-jsx": "^3.3.4",
     "gatsby-remark-prismjs": "^3.3.24",
     "gatsby-source-filesystem": "^2.1.0",
     "gatsby-transformer-remark": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.5.5",
     "prismjs": "^1.17.1",
     "react": "^16.8.6",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "styled-jsx": "^3.3.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

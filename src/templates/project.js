@@ -39,12 +39,11 @@ export default ({ data }) => {
         <div>
           <img
             style={{
-              width: "64px",
               marginRight: "10px",
               position: "relative",
               borderRadius: "5%"
             }}
-            src="/icons/avatar-square.png"
+            src={data.file.childImageSharp.resize.src}
             alt="Avatar"
           />
 
@@ -90,6 +89,14 @@ export const query = graphql`
     site {
       siteMetadata {
         disqusShortname
+      }
+    }
+
+    file(relativePath: { eq: "data/images/avatar-square.png" }) {
+      childImageSharp {
+        resize(width: 64, toFormat: WEBP, quality: 75) {
+          src
+        }
       }
     }
   }
