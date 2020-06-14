@@ -74,7 +74,7 @@ function HomeLinks(props) {
   return (
     <>
       <AnchorLink to="/#about" className={classes.navLink}>
-        <Button color="inherit">About</Button>
+        <Button color="inherit" aria-label="About">About</Button>
       </AnchorLink>
     </>
   );
@@ -118,10 +118,10 @@ function ShowToolbarContent(props) {
         <HomeLinks classes={classes} />
       </div>
       <Link to="/blog" className={classes.navLink}>
-        <Button color="inherit">Blog</Button>
+        <Button color="inherit" aria-label="Blog">Blog</Button>
       </Link>
       <Link to="/projects" className={classes.navLink}>
-        <Button color="inherit">Projects</Button>
+        <Button color="inherit" aria-label="Projects">Projects</Button>
       </Link>
     </>
   );

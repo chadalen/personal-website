@@ -96,7 +96,7 @@ export default ({ data }) => {
             </CardContent>
             <CardActions>
               <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
-                <Button size="small">Read More</Button>
+                <Button size="small" aria-label="Read More">Read More</Button>
               </GatsbyLink>
 
               <Typography className={classes.date} color="textSecondary">
