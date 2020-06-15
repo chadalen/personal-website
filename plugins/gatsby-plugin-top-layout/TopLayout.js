@@ -17,7 +17,7 @@ export default function TopLayout(props) {
         <title>Chad Adams</title>
         <link
           href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
+          rel="preconnect"
         />
       </Helmet>
       <ThemeProvider theme={theme}>
