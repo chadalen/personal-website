@@ -3,51 +3,51 @@ import Layout from "../components/layout";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import { Typography, CardContent, CardActionArea } from "@material-ui/core";
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
   wrapper: {
     height: "75vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   text: {
     [theme.breakpoints.up("md")]: {
-      fontSize: "48px"
+      fontSize: "48px",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "28px"
+      fontSize: "28px",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "20px"
+      fontSize: "20px",
     },
-    whiteSpace: "pre"
+    whiteSpace: "pre",
   },
   highlight: {
-    color: "#E31B6D"
+    color: "#E31B6D",
   },
   avatar: {
     marginBottom: theme.spacing(1),
     maxWidth: "384px",
-    borderRadius: "50%"
+    borderRadius: "50%",
   },
   page: {
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   root: {
     width: "100%",
-    height: "100vh"
+    height: "100vh",
   },
   textAlignCenter: {
-    textAlign: "center"
+    textAlign: "center",
   },
   badge: {
     maxWidth: "192px",
-    maxHeight: "192px"
-  }
+    maxHeight: "192px",
+  },
 }));
 
 function Intro(props) {
@@ -56,7 +56,7 @@ function Intro(props) {
     <section id="intro" className={classes.page} style={{ paddingTop: "85px" }}>
       <div className={classes.wrapper}>
         <img
-          src={data.file.childImageSharp.resize.src}
+          src={data.avatar.childImageSharp.resize.src}
           alt="Avatar"
           className={classes.avatar}
         />
@@ -70,7 +70,7 @@ function Intro(props) {
 }
 
 function AboutMe(props) {
-  const { classes } = props;
+  const { classes, data } = props;
   const theme = useTheme();
   return (
     <section id="about" className={classes.page} style={{ paddingTop: "85px" }}>
@@ -110,16 +110,16 @@ function AboutMe(props) {
       </Card>
 
       <div style={{ marginTop: theme.spacing(2) }}>
-        <Certifications classes={classes} />
+        <Certifications data={data} classes={classes} />
       </div>
     </section>
   );
 }
 
 function Certifications(props) {
-  const { classes } = props;
+  const { classes, data } = props;
 
-  const onClickCertification = url => {
+  const onClickCertification = (url) => {
     window.open(url, "_blank");
   };
 
@@ -138,7 +138,7 @@ function Certifications(props) {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center"
+          justifyContent: "center",
         }}
       >
         <Card
@@ -155,11 +155,11 @@ function Certifications(props) {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center"
+                  justifyContent: "center",
                 }}
               >
                 <img
-                  src="images/mta-badge-1.png"
+                  src={data.mta1.childImageSharp.resize.src}
                   alt="mta-badge-1"
                   className={classes.badge}
                 />
@@ -182,11 +182,11 @@ function Certifications(props) {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center"
+                  justifyContent: "center",
                 }}
               >
                 <img
-                  src="images/mta-badge-2.png"
+                  src={data.mta2.childImageSharp.resize.src}
                   alt="mta-badge-2"
                   className={classes.badge}
                 />
@@ -205,20 +205,38 @@ export default ({ data }) => {
     <Layout>
       <div className={classes.root}>
         <Intro data={data} classes={classes} />
-        <AboutMe classes={classes} />
+        <AboutMe data={data} classes={classes} />
       </div>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query MyQuery {
-    file(relativePath: { eq: "data/images/avatar-circle.png" }) {
-      childImageSharp {
-        resize(width: 384, toFormat: WEBP, quality: 75) {
-          src
-        }
+  query MyQuery($avatarWidth: Int = 384, $mtaWidth: Int = 192) {
+    avatar: file(relativePath: { eq: "data/images/avatar-circle.png" }) {
+      ...avatarFragment
+    }
+    mta1: file(relativePath: { eq: "data/images/mta-badge-1.png" }) {
+      ...mtaFragment
+    }
+    mta2: file(relativePath: { eq: "data/images/mta-badge-2.png" }) {
+      ...mtaFragment
+    }
+  }
+
+  fragment avatarFragment on File {
+    childImageSharp {
+      resize(width: $avatarWidth, toFormat: WEBP, quality: 75) {
+        src
       }
     }
   }
-`
+
+  fragment mtaFragment on File {
+    childImageSharp {
+      resize(width: $mtaWidth, toFormat: WEBP, quality: 75) {
+        src
+      }
+    }
+  }
+`;
