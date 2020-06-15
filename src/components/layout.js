@@ -10,7 +10,7 @@ import {
   Divider,
   List,
   ListItem,
-  ListItemText
+  ListItemText,
 } from "@material-ui/core";
 import { Link } from "gatsby";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -22,23 +22,23 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const drawerWidth = 200;
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
   navLink: {
     textDecoration: "none",
-    color: "black"
+    color: "black",
   },
   flexGrow1: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   brand: {
-    display: "inline-block"
+    display: "inline-block",
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
   },
   drawerHeader: {
     display: "flex",
@@ -46,22 +46,22 @@ const styles = makeStyles(theme => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
     ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  }
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
 }));
 
 function HomeLinks(props) {
@@ -74,7 +74,9 @@ function HomeLinks(props) {
   return (
     <>
       <AnchorLink to="/#about" className={classes.navLink}>
-        <Button color="inherit" aria-label="About">About</Button>
+        <Button color="inherit" aria-label="About">
+          About
+        </Button>
       </AnchorLink>
     </>
   );
@@ -86,7 +88,7 @@ function ShowHamburgerMenu(props) {
     return null;
   }
   return (
-    <IconButton edge="start" color="inherit" onClick={handleDrawerOpen}>
+    <IconButton edge="start" color="inherit" onClick={handleDrawerOpen} aria-label="Show hamburger menu">
       <MenuIcon />
     </IconButton>
   );
@@ -118,10 +120,14 @@ function ShowToolbarContent(props) {
         <HomeLinks classes={classes} />
       </div>
       <Link to="/blog" className={classes.navLink}>
-        <Button color="inherit" aria-label="Blog">Blog</Button>
+        <Button color="inherit" aria-label="Blog">
+          Blog
+        </Button>
       </Link>
       <Link to="/projects" className={classes.navLink}>
-        <Button color="inherit" aria-label="Projects">Projects</Button>
+        <Button color="inherit" aria-label="Projects">
+          Projects
+        </Button>
       </Link>
     </>
   );
@@ -133,7 +139,7 @@ function useWindowSize() {
   function getSize() {
     return {
       width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
+      height: isClient ? window.innerHeight : undefined,
     };
   }
 
@@ -177,7 +183,7 @@ export default ({ children }) => {
           position="fixed"
           color="default"
           className={clsx(classes.appBar, {
-            [classes.appBarShift]: open
+            [classes.appBarShift]: open,
           })}
         >
           <Toolbar variant="dense">
@@ -198,12 +204,15 @@ export default ({ children }) => {
           anchor="left"
           open={open}
           classes={{
-            paper: classes.drawerPaper
+            paper: classes.drawerPaper,
           }}
         >
           <div className={classes.drawerHeader}>
             <Brand classes={classes} />
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton
+              onClick={handleDrawerClose}
+              aria-label="Open or Close Drawer"
+            >
               {theme.direction === "ltr" ? (
                 <ChevronLeftIcon />
               ) : (
@@ -212,8 +221,8 @@ export default ({ children }) => {
             </IconButton>
           </div>
           <Divider />
-          <List>
-            {[{ name: "About", route: "#about" }].map(item => (
+          <List aria-label="Navigation buttons">
+            {[{ name: "About", route: "#about" }].map((item) => (
               <Link
                 to={item.route}
                 key={item.name}
@@ -227,8 +236,8 @@ export default ({ children }) => {
             <Divider />
             {[
               { name: "Blog", route: "/blog" },
-              { name: "Projects", route: "/projects" }
-            ].map(item => (
+              { name: "Projects", route: "/projects" },
+            ].map((item) => (
               <Link
                 to={item.route}
                 key={item.name}
