@@ -11,8 +11,6 @@ previewImage: /images/uploads/screen-shot-2020-07-06-at-3.12.44-am.png
 ---
 This was a website I made for Turmoil.io
 
-
-
 **Tech Stack**
 
 * React.js (Frontend)
@@ -21,8 +19,6 @@ This was a website I made for Turmoil.io
 * Stripe (Payment Processor)
 * Node.js
 * SendGrid (Email Delivery Service)
-
-
 
 **Media**
 
@@ -37,3 +33,5 @@ This was a website I made for Turmoil.io
 ![](/images/uploads/screen-shot-2020-07-06-at-3.14.11-am.png)
 
 ![](/images/uploads/screen-shot-2020-07-06-at-3.16.39-am.png)
+
+![](/images/uploads/screen-shot-2020-07-06-at-3.16.57-am.png)
