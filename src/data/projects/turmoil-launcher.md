@@ -5,6 +5,7 @@ description: A game launcher for Turmoil.io
 tags:
   - vue.js
   - javascript
+  - electron.js
   - desktop-app
 ---
 **Turmoil Launcher**
