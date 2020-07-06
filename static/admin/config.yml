@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: chadalen/personal-website
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: blog
+    label: Blog
+    folder: src/data/blog
+    create: true
+    fields:
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { name: tags, label: Tags, widget: list }
+      - { name: body, label: Body, widget: markdown }

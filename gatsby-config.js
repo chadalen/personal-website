@@ -94,5 +94,6 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
+    `gatsby-plugin-netlify-cms`
   ],
 }
