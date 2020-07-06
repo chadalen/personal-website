@@ -1,9 +1,12 @@
 ---
-title: "Turmoil.io Launcher"
-description: "A game launcher for Turmoil.io"
-tags: ['vue.js', 'javascript', 'desktop-app']
+date: 2020-07-06T06:32:23.410Z
+title: Turmoil.io Launcher
+description: A game launcher for Turmoil.io
+tags:
+  - vue.js
+  - javascript
+  - desktop-app
 ---
-
 **Turmoil Launcher**
 Is a tool designed to keep a players game client updated. This was made for [Turmoil.io](https://turmoil.io).
 ![image1](https://i.imgur.com/MYSngLc.png)
@@ -17,3 +20,19 @@ Is a tool designed to keep a players game client updated. This was made for [Tur
 * Pulls blog posts from turmoil.io's website database
 * Tells the user how many players are online (Not realtime but updates every 5 seconds)
 * Tells the user if the server is online (Not realtime but updates every 5 seconds)
+
+
+
+**Media**
+
+Check for client and launcher update. Also let user select a Java version if they have more than 1 version of Java installed
+
+![](/images/uploads/2020-07-06-01.22.26.gif)
+
+Users can checkout the latest updates and announcements.
+
+![](/images/uploads/2020-07-06-01.30.55.gif)
+
+Users can browse community made YouTube videos of the game
+
+![](/images/uploads/2020-07-06-01.25.08.gif)
