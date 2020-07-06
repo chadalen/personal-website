@@ -37,4 +37,4 @@ Users can browse community made YouTube videos of the game
 
 Clicking "Play Now" button will launch the game client
 
-![](/images/uploads/screen-shot-2020-07-06-at-1.47.18-am.png)
+![](/images/uploads/screen-shot-2020-07-06-at-1.50.18-am.png)
