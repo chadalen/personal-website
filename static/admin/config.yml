@@ -15,3 +15,13 @@ collections:
       - { name: title, label: Title }
       - { name: tags, label: Tags, widget: list }
       - { name: body, label: Body, widget: markdown }
+  - name: projects
+    label: Projects
+    folder: src/data/projects
+    create: true
+    fields:
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { name: description, label: Description, widget: text }
+      - { name: tags, label: Tags, widget: list }
+      - { name: body, label: Body, widget: markdown }
