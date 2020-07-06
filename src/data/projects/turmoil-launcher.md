@@ -34,3 +34,7 @@ Users can checkout the latest updates and announcements.
 Users can browse community made YouTube videos of the game
 
 ![browse-videos](/images/uploads/2020-07-06-01.25.08.gif)
+
+Clicking "Play Now" button will launch the game client
+
+![](/images/uploads/screen-shot-2020-07-06-at-1.47.18-am.png)
