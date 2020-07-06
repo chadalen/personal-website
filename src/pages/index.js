@@ -63,7 +63,7 @@ function Intro(props) {
         <div className={classes.text}>
           Hello, I'm <span className={classes.highlight}>Chad Adams</span>.
         </div>
-        <div className={classes.text}>I'm a full-stack web developer.</div>
+        <div className={classes.text}>I'm a Full-Stack Developer.</div>
       </div>
     </section>
   );
