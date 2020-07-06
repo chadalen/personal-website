@@ -100,7 +100,7 @@ export default ({ data }) => {
                     </Typography>
 
                     <div>
-                      {node.frontmatter.tags.map((data, index) => {
+                      {node.frontmatter.tags && node.frontmatter.tags.map((data, index) => {
                         return (
                           <Chip
                             key={index}

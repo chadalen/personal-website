@@ -74,7 +74,7 @@ export default ({ data }) => {
               </Typography>
 
               <div>
-                {post.frontmatter.tags.map((data, index) => {
+                {post.frontmatter.tags && post.frontmatter.tags.map((data, index) => {
                   return (
                     <Chip key={index} label={data} className={classes.chip} />
                   );
