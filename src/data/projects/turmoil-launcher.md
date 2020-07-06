@@ -21,18 +21,16 @@ Is a tool designed to keep a players game client updated. This was made for [Tur
 * Tells the user how many players are online (Not realtime but updates every 5 seconds)
 * Tells the user if the server is online (Not realtime but updates every 5 seconds)
 
-
-
 **Media**
 
-Check for client and launcher update. Also let user select a Java version if they have more than 1 version of Java installed
+Keeps the users client and launcher updated. Also lets the user select a Java version if they have more than 1 Java version installed.
 
-![](/images/uploads/2020-07-06-01.22.26.gif)
+![reset-launcher](/images/uploads/2020-07-06-01.22.26.gif)
 
 Users can checkout the latest updates and announcements.
 
-![](/images/uploads/2020-07-06-01.30.55.gif)
+![browse-announcements](/images/uploads/2020-07-06-01.30.55.gif)
 
 Users can browse community made YouTube videos of the game
 
-![](/images/uploads/2020-07-06-01.25.08.gif)
+![browse-videos](/images/uploads/2020-07-06-01.25.08.gif)
