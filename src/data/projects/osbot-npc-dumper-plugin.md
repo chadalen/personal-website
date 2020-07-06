@@ -2,6 +2,7 @@
 title: "OSBot Npc Dumper Plugin"
 description: "A plugin for OSBot that gathers npc spawn data"
 tags: ['open-source', 'java']
+previewImage: "https://i.imgur.com/rFbeNMY.png"
 ---
 
 # OSBot Npc Dumper Plugin (1.1)

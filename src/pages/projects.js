@@ -8,104 +8,151 @@ import CardContent from "@material-ui/core/CardContent";
 import Layout from "../components/layout";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
   date: {
-    fontSize: "16px"
+    fontSize: "16px",
   },
   summary: {
-    fontSize: "20px"
+    fontSize: "20px",
   },
   blogTitleLink: {
     color: "#337ab7",
     textDecoration: "none",
     "&:hover": {
       color: "#23527c",
-      textDecoration: "underline"
-    }
+      textDecoration: "underline",
+    },
   },
   blogTitle: {
-    marginBottom: theme.spacing(0.5)
+    marginBottom: theme.spacing(0.5),
   },
   linkButton: {
-    textDecoration: "none"
+    textDecoration: "none",
   },
   breadCrumbLink: {
     color: "rgba(0, 0, 0, 0.54)",
     textDecoration: "none",
     "&:hover": {
-      textDecoration: "underline"
-    }
+      textDecoration: "underline",
+    },
   },
   chip: {
-    margin: theme.spacing(0.5)
-  }
+    margin: theme.spacing(0.5),
+  },
+  cardContentWrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: '100%',
+    height: '100%'
+  },
+  preview: {
+    display: 'flex',
+    alignItems: 'center',
+    "& img": {
+      maxWidth: "512px",
+      maxHeight: "384px",
+    },
+  },
 }));
 
 export default ({ data }) => {
   const classes = styles();
   return (
     <Layout>
-      <div style={{paddingTop: '50px'}}>
-      <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
-        <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-          Home
-        </GatsbyLink>
-        <Typography color="textPrimary">Projects</Typography>
-      </Breadcrumbs>
+      <div style={{ paddingTop: "50px" }}>
+        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
+          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
+            Home
+          </GatsbyLink>
+          <Typography color="textPrimary">Projects</Typography>
+        </Breadcrumbs>
 
-      <Typography
-        variant="h3"
-        style={{ marginTop: "20px", marginBottom: "20px" }}
-      >
-        Projects
-      </Typography>
-      <Divider />
-      {data.allMarkdownRemark.edges.map(({ node }, index) => (
-        <div key={index}>
-          <Card style={{ marginBottom: "20px" }}>
-            <CardContent>
-              <div>
+        <Typography
+          variant="h3"
+          style={{ marginTop: "20px", marginBottom: "20px" }}
+        >
+          Projects
+        </Typography>
+        <Divider />
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          <div key={index}>
+            <Card style={{ marginBottom: "20px" }}>
+              <CardContent>
+                <Grid container spacing={6}>
+                  <Grid item md={6}>
+                    <div className={classes.cardContentWrapper}>
+
+                    <div>
+                      <div>
+                        <GatsbyLink
+                          to={node.fields.slug}
+                          className={classes.blogTitleLink}
+                        >
+                          <Typography
+                            variant="h4"
+                            component="h2"
+                            className={classes.blogTitle}
+                            gutterBottom
+                          >
+                            {node.frontmatter.title}
+                          </Typography>
+                        </GatsbyLink>
+                      </div>
+                      <hr />
+
+                      <Typography component="p">
+                        {node.frontmatter.description}
+                      </Typography>
+
+                      <div>
+                        {node.frontmatter.tags.map((data, index) => {
+                          return (
+                            <Chip
+                              key={index}
+                              label={data}
+                              className={classes.chip}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    </div>
+                  </Grid>
+
+                  <Grid item md={6}>
+                    <div className={classes.preview}>
+                      {node.frontmatter.previewImage ? (
+                        <img
+                          src={node.frontmatter.previewImage}
+                          alt="preview"
+                        />
+                      ) : null}
+                    </div>
+                  </Grid>
+                </Grid>
+              </CardContent>
+              <CardActions>
                 <GatsbyLink
                   to={node.fields.slug}
-                  className={classes.blogTitleLink}
+                  className={classes.linkButton}
                 >
-                  <Typography
-                    variant="h4"
-                    component="h2"
-                    className={classes.blogTitle}
-                    gutterBottom
-                  >
-                    {node.frontmatter.title}
-                  </Typography>
+                  <Button size="small" aria-label="Read More">
+                    Read More
+                  </Button>
                 </GatsbyLink>
-              </div>
-              <hr />
 
-              <Typography component="p">
-                {node.frontmatter.description}
-              </Typography>
-
-              <div>
-                {node.frontmatter.tags.map((data, index) => {
-                  return (
-                    <Chip key={index} label={data} className={classes.chip} />
-                  );
-                })}
-              </div>
-            </CardContent>
-            <CardActions>
-              <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
-                <Button size="small" aria-label="Read More">Read More</Button>
-              </GatsbyLink>
-
-              <Typography className={classes.date} color="textSecondary">
-                {`${node.timeToRead} min read`}
-              </Typography>
-            </CardActions>
-          </Card>
-        </div>
-      ))}
+                <Typography className={classes.date} color="textSecondary">
+                  {`${node.timeToRead} min read`}
+                </Typography>
+              </CardActions>
+            </Card>
+          </div>
+        ))}
       </div>
     </Layout>
   );
@@ -128,6 +175,7 @@ export const query = graphql`
             title
             description
             tags
+            previewImage
           }
           excerpt
           timeToRead

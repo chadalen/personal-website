@@ -5,7 +5,9 @@ description: A game launcher for Turmoil.io
 tags:
   - vue.js
   - javascript
+  - electron.js
   - desktop-app
+previewImage: "https://i.imgur.com/MYSngLc.png"
 ---
 **Turmoil Launcher**
 Is a tool designed to keep a players game client updated. This was made for [Turmoil.io](https://turmoil.io).

@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: chadalen/personal-website
+  branch: Staging
 
 media_folder: static/images/uploads
 public_folder: /images/uploads
@@ -24,4 +25,5 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description, widget: text }
       - { name: tags, label: Tags, widget: list }
+      - { name: previewImage, label: Preview Image, widget: image }
       - { name: body, label: Body, widget: markdown }

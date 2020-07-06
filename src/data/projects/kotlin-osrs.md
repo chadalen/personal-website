@@ -2,6 +2,7 @@
 title: "Kotlin OSRS"
 description: "The first open source RuneScape emulator written in Kotlin"
 tags: ['open-source', 'kotlin']
+previewImage: "https://i.imgur.com/CZaWkZt.gif"
 ---
 
 # Kotlin OSRS (aka BattleRune)

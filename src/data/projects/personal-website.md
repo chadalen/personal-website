@@ -2,6 +2,7 @@
 title: "Personal Website"
 description: "My personal website (chadalen.com)"
 tags: ['open-source', 'reactjs', 'gatsbyjs', 'graphql', 'netlify']
+previewImage: "https://i.imgur.com/O9hxTcq.png"
 ---
 
 # Personal Website
