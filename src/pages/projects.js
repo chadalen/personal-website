@@ -45,12 +45,12 @@ const styles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%",
   },
   preview: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     "& img": {
       maxWidth: "512px",
       maxHeight: "384px",
@@ -60,25 +60,24 @@ const styles = makeStyles((theme) => ({
 
 function ProjectCardList({ title, classes, data }) {
   const sortedData = data.sort((a, b) => {
-    return b.node.frontmatter.sort - a.node.frontmatter.sort
-  })
+    return b.node.frontmatter.sort - a.node.frontmatter.sort;
+  });
   return (
     <>
-        <Typography
-          variant="h3"
-          style={{ marginTop: "20px", marginBottom: "20px" }}
-        >
-          {title}
-        </Typography>
-        <Divider />
-        {sortedData.map(({ node }, index) => (
-          <div key={index}>
-            <Card style={{ marginBottom: "20px" }}>
-              <CardContent>
-                <Grid container spacing={6}>
-                  <Grid item md={6}>
-                    <div className={classes.cardContentWrapper}>
-
+      <Typography
+        variant="h3"
+        style={{ marginTop: "20px", marginBottom: "20px" }}
+      >
+        {title}
+      </Typography>
+      <Divider />
+      {sortedData.map(({ node }, index) => (
+        <div key={index}>
+          <Card style={{ marginBottom: "20px" }}>
+            <CardContent>
+              <Grid container spacing={6}>
+                <Grid item md={6}>
+                  <div className={classes.cardContentWrapper}>
                     <div>
                       <div>
                         <GatsbyLink
@@ -113,47 +112,44 @@ function ProjectCardList({ title, classes, data }) {
                         })}
                       </div>
                     </div>
-
-                    </div>
-                  </Grid>
-
-                  <Grid item md={6}>
-                    <div className={classes.preview}>
-                      {node.frontmatter.previewImage ? (
-                        <img
-                          src={node.frontmatter.previewImage}
-                          alt="preview"
-                        />
-                      ) : null}
-                    </div>
-                  </Grid>
+                  </div>
                 </Grid>
-              </CardContent>
-              <CardActions>
-                <GatsbyLink
-                  to={node.fields.slug}
-                  className={classes.linkButton}
-                >
-                  <Button size="small" aria-label="Read More">
-                    Read More
-                  </Button>
-                </GatsbyLink>
 
-                <Typography className={classes.date} color="textSecondary">
-                  {`${node.timeToRead} min read`}
-                </Typography>
-              </CardActions>
-            </Card>
-          </div>
-        ))}
+                <Grid item md={6}>
+                  <div className={classes.preview}>
+                    {node.frontmatter.previewImage ? (
+                      <img src={node.frontmatter.previewImage} alt="preview" />
+                    ) : null}
+                  </div>
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardActions>
+              <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
+                <Button size="small" aria-label="Read More">
+                  Read More
+                </Button>
+              </GatsbyLink>
+
+              <Typography className={classes.date} color="textSecondary">
+                {`${node.timeToRead} min read`}
+              </Typography>
+            </CardActions>
+          </Card>
+        </div>
+      ))}
     </>
-  )
+  );
 }
 
 export default ({ data }) => {
   const classes = styles();
-  const freelanceProjects = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.freelance)
-  const personalProjects = data.allMarkdownRemark.edges.filter(item => !item.node.frontmatter.freelance)
+  const freelanceProjects = data.allMarkdownRemark.edges.filter(
+    (item) => item.node.frontmatter.freelance
+  );
+  const personalProjects = data.allMarkdownRemark.edges.filter(
+    (item) => !item.node.frontmatter.freelance
+  );
   return (
     <Layout>
       <div style={{ paddingTop: "50px" }}>
@@ -164,8 +160,16 @@ export default ({ data }) => {
           <Typography color="textPrimary">Projects</Typography>
         </Breadcrumbs>
 
-        <ProjectCardList title="Freelance Projects" classes={classes} data={freelanceProjects} />
-        <ProjectCardList title="Personal Projects" classes={classes} data={personalProjects} />
+        <ProjectCardList
+          title="Freelance Projects"
+          classes={classes}
+          data={freelanceProjects}
+        />
+        <ProjectCardList
+          title="Personal Projects"
+          classes={classes}
+          data={personalProjects}
+        />
       </div>
     </Layout>
   );
