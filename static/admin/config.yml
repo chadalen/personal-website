@@ -26,4 +26,5 @@ collections:
       - { name: description, label: Description, widget: text }
       - { name: tags, label: Tags, widget: list }
       - { name: previewImage, label: Preview Image, widget: image }
+      - { name: freelance, label: Freelance?, widget: boolean }
       - { name: body, label: Body, widget: markdown }

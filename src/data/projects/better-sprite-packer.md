@@ -3,6 +3,7 @@ title: "Better Sprite Packer"
 description: "A random-access sprite packer for games"
 tags: ['open-source', 'kotlin', 'desktop-app']
 previewImage: "https://i.imgur.com/dBZei2e.png"
+sort: 4
 ---
 
 **Better Sprite Packer 3**

@@ -3,6 +3,7 @@ title: "Linux App Store"
 description: "A universal app store for Linux"
 tags: ['open-source', 'react', 'golang', 'postgres', 'python']
 previewImage: "https://i.imgur.com/Z3Lmpq3.png"
+sort: 7
 ---
 
 # Linux App Store

@@ -1,10 +1,12 @@
 ---
-title: "How To Add Multipart-Form Middleware in Next.js And Use It In An Api Route"
-date: "2020-03-15"
-tags: ['next.js', 'middleware', 'multipart-form']
+date: 2020-03-15
+title: How To Use A Multipart-Form In Next.js API Routes
+tags:
+  - next.js
+  - middleware
+  - multipart-form
 ---
-
-# How To Add Multipart-Form Middleware in Next.js And Use It In An Api Route
+# How To Use A Multipart-Form In Next.js API Routes
 
 If you're working with file uploads in [Next.js](https://nextjs.org/) and want to use their [API Routes](https://nextjs.org/docs/api-routes/introduction) you might have noticed that Next.js doesn't currently have this built in. We can quickly add this by creating a middleware to parse a multipart-form. For this tutorial I'm going to assume...
 
@@ -66,6 +68,7 @@ export const config = {
 ```
 
 Also you'll need to convert your exports to use `nextConnect` instead. Here's an example
+
 ```javascript
 import HttpStatus from 'http-status-codes'
 import middleware from '../../../middleware/middleware'

@@ -3,6 +3,7 @@ title: "OSDC"
 description: "A tool that converts OSRS data into their legacy format"
 tags: ['open-source', 'kotlin', 'java', 'desktop-app']
 previewImage: "http://i.imgur.com/47gGDhf.png"
+sort: 1
 ---
 
 # OldSchool RuneScape Data Converter (OSDC)
