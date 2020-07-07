@@ -60,6 +60,9 @@ const styles = makeStyles((theme) => ({
 }));
 
 function ProjectCardList({ title, classes, data }) {
+  const sortedData = data.sort((a, b) => {
+    return b.node.frontmatter.sort - a.node.frontmatter.sort
+  })
   return (
     <>
         <Typography
@@ -69,7 +72,7 @@ function ProjectCardList({ title, classes, data }) {
           {title}
         </Typography>
         <Divider />
-        {data.map(({ node }, index) => (
+        {sortedData.map(({ node }, index) => (
           <div key={index}>
             <Card style={{ marginBottom: "20px" }}>
               <CardContent>
@@ -188,6 +191,7 @@ export const query = graphql`
             tags
             previewImage
             freelance
+            sort
           }
           excerpt
           timeToRead
