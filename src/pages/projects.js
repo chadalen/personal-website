@@ -59,26 +59,17 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-export default ({ data }) => {
-  const classes = styles();
+function ProjectCardList({ title, classes, data }) {
   return (
-    <Layout>
-      <div style={{ paddingTop: "50px" }}>
-        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
-          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-            Home
-          </GatsbyLink>
-          <Typography color="textPrimary">Projects</Typography>
-        </Breadcrumbs>
-
+    <>
         <Typography
           variant="h3"
           style={{ marginTop: "20px", marginBottom: "20px" }}
         >
-          Projects
+          {title}
         </Typography>
         <Divider />
-        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+        {data.map(({ node }, index) => (
           <div key={index}>
             <Card style={{ marginBottom: "20px" }}>
               <CardContent>
@@ -153,6 +144,26 @@ export default ({ data }) => {
             </Card>
           </div>
         ))}
+    </>
+  )
+}
+
+export default ({ data }) => {
+  const classes = styles();
+  const freelanceProjects = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.freelance)
+  const personalProjects = data.allMarkdownRemark.edges.filter(item => !item.node.frontmatter.freelance)
+  return (
+    <Layout>
+      <div style={{ paddingTop: "50px" }}>
+        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
+          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
+            Home
+          </GatsbyLink>
+          <Typography color="textPrimary">Projects</Typography>
+        </Breadcrumbs>
+
+        <ProjectCardList title="Freelance Projects" classes={classes} data={freelanceProjects} />
+        <ProjectCardList title="Personal Projects" classes={classes} data={personalProjects} />
       </div>
     </Layout>
   );
@@ -176,6 +187,7 @@ export const query = graphql`
             description
             tags
             previewImage
+            freelance
           }
           excerpt
           timeToRead
