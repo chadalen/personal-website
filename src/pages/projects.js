@@ -8,7 +8,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Layout from "../components/layout";
 import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
-import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 
 const styles = makeStyles((theme) => ({
