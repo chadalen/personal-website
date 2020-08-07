@@ -29,6 +29,7 @@
     "gatsby-plugin-sharp": "^2.6.11",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-styled-jsx": "^3.3.4",
+    "gatsby-plugin-tailwindcss": "^1.0.3",
     "gatsby-remark-prismjs": "^3.3.24",
     "gatsby-source-filesystem": "^2.1.0",
     "gatsby-transformer-remark": "^2.5.0",
@@ -40,10 +41,12 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "styled-components": "^5.1.1",
-    "styled-jsx": "^3.3.0"
+    "styled-jsx": "^3.3.0",
+    "tailwindcss": "^1.6.2"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "twin.macro": "^1.7.0"
   },
   "repository": {
     "type": "git",

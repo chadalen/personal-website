@@ -4,6 +4,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import { Typography, CardContent, CardActionArea } from "@material-ui/core";
 import { graphql } from "gatsby";
+import "tailwindcss/dist/base.min.css";
 
 const styles = makeStyles((theme) => ({
   wrapper: {
@@ -60,6 +61,7 @@ function Intro(props) {
           alt="Avatar"
           className={classes.avatar}
         />
+
         <div className={classes.text}>
           Hello, I'm <span className={classes.highlight}>Chad Adams</span>.
         </div>
