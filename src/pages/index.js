@@ -61,7 +61,7 @@ function Intro(props) {
           className={classes.avatar}
         />
         <div className={classes.text}>
-          Hello, I'm <span className={classes.highlight}>Chad Adams</span>.
+          Hello, I'm <span className='text-purple-600'>Chad Adams</span>.
         </div>
         <div className={classes.text}>I'm a Full-Stack Developer.</div>
       </div>
