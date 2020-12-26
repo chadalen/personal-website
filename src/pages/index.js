@@ -1,8 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
-import Card from '@material-ui/core/Card';
-import { Typography, CardContent, CardActionArea } from '@material-ui/core';
 import { graphql } from 'gatsby';
+import Card from '../components/Card';
 
 function Intro(props) {
   const { data } = props;
@@ -36,33 +35,32 @@ function AboutMe(props) {
       <h1 className="text-4xl text-center mb-4">About Me</h1>
 
       <Card className="mb-4">
-        <CardContent>
-          <Typography>
-            My name is Chad Adams. I'm a Full-Stack Developer from Mandan, North
-            Dakota. I develop all types of software, but I primarily work with
-            websites and mobile apps. Coding is my passion. I enjoy writing
-            software that helps makes our lives easier. I first started to code
-            around 12 years old when a friend of mine introduced me to RuneScape
-            private servers.
-          </Typography>
-          <br />
+        <p>
+          My name is Chad Adams. I'm a Full-Stack Developer from Mandan, North
+          Dakota. I develop all types of software, but I primarily work with
+          websites and mobile apps. Coding is my passion. I enjoy writing
+          software that helps makes our lives easier. I first started to code
+          around 12 years old when a friend of mine introduced me to RuneScape
+          private servers.
+        </p>
+        <br />
 
-          <Typography>
-            I have an associates degree in Computer Programming from St Cloud
-            Technical and Community College. I am currently pursuing a bachelors
-            in Information Systems from Arizona State University.
-          </Typography>
-          <br />
+        <p>
+          I have an associates degree in Computer Programming from St Cloud
+          Technical and Community College. I am currently pursuing a bachelors
+          in Information Systems from Arizona State University.
+        </p>
+        <br />
 
-          <Typography>
-            I’m a big advocate for open-source software. I love Linux, my
-            favorite linux distrobution is Ubuntu. I love reading books, writing
-            blogs, working on my startup business, spending time with family and
-            learning new technologies.
-          </Typography>
-          <br />
-        </CardContent>
+        <p>
+          I’m a big advocate for open-source software. I love Linux, my favorite
+          linux distrobution is Ubuntu. I love reading books, writing blogs,
+          working on my startup business, spending time with family and learning
+          new technologies.
+        </p>
+        <br />
       </Card>
+
       <Certifications data={data} />
     </section>
   );
@@ -88,17 +86,13 @@ function Certifications(props) {
             )
           }
         >
-          <CardActionArea>
-            <CardContent>
-              <div className="flex items-center justify-center">
-                <img
-                  src={data.mta1.childImageSharp.resize.src}
-                  alt="mta-badge-1"
-                  style={{ maxWidth: '192px', maxHeight: '192px' }}
-                />
-              </div>
-            </CardContent>
-          </CardActionArea>
+          <div className="flex items-center justify-center">
+            <img
+              src={data.mta1.childImageSharp.resize.src}
+              alt="mta-badge-1"
+              style={{ maxWidth: '192px', maxHeight: '192px' }}
+            />
+          </div>
         </Card>
 
         <Card
@@ -109,17 +103,13 @@ function Certifications(props) {
             )
           }
         >
-          <CardActionArea>
-            <CardContent>
-              <div className="flex items-center justify-center">
-                <img
-                  src={data.mta2.childImageSharp.resize.src}
-                  alt="mta-badge-2"
-                  style={{ maxWidth: '192px', maxHeight: '192px' }}
-                />
-              </div>
-            </CardContent>
-          </CardActionArea>
+          <div className="flex items-center justify-center">
+            <img
+              src={data.mta2.childImageSharp.resize.src}
+              alt="mta-badge-2"
+              style={{ maxWidth: '192px', maxHeight: '192px' }}
+            />
+          </div>
         </Card>
       </div>
     </>
