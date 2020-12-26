@@ -1,86 +1,41 @@
-import React from "react";
-import Layout from "../components/layout";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import { Typography, CardContent, CardActionArea } from "@material-ui/core";
-import { graphql } from "gatsby";
-
-const styles = makeStyles((theme) => ({
-  wrapper: {
-    height: "75vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-  text: {
-    [theme.breakpoints.up("md")]: {
-      fontSize: "48px",
-    },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "28px",
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "20px",
-    },
-    whiteSpace: "pre",
-  },
-  highlight: {
-    color: "#E31B6D",
-  },
-  avatar: {
-    marginBottom: theme.spacing(1),
-    maxWidth: "384px",
-    borderRadius: "50%",
-  },
-  page: {
-    width: "100%",
-    height: "100%",
-  },
-  root: {
-    width: "100%",
-    height: "100vh",
-  },
-  textAlignCenter: {
-    textAlign: "center",
-  },
-  badge: {
-    maxWidth: "192px",
-    maxHeight: "192px",
-  },
-}));
+import React from 'react';
+import Layout from '../components/layout';
+import Card from '@material-ui/core/Card';
+import { Typography, CardContent, CardActionArea } from '@material-ui/core';
+import { graphql } from 'gatsby';
 
 function Intro(props) {
-  const { classes, data } = props;
+  const { data } = props;
   return (
-    <section id="intro" className={classes.page} style={{ paddingTop: "85px" }}>
-      <div className={classes.wrapper}>
+    <section
+      id="intro"
+      className="w-full h-screen flex justify-center items-center"
+    >
+      <div className="flex justify-center items-center flex-col">
         <img
           src={data.avatar.childImageSharp.resize.src}
           alt="Avatar"
-          className={classes.avatar}
+          className="mb-4"
+          style={{ maxWidth: '384px' }}
         />
-        <div className={classes.text}>
-          Hello, I'm <span className='text-purple-600'>Chad Adams</span>.
+        <div className="whitespace-pre text-3xl">
+          Hello, I'm <span className="text-pink-600">Chad Adams</span>.
         </div>
-        <div className={classes.text}>I'm a Full-Stack Developer.</div>
+        <div className="whitespace-pre text-3xl">
+          I'm a Full-Stack Developer.
+        </div>
       </div>
     </section>
   );
 }
 
 function AboutMe(props) {
-  const { classes, data } = props;
-  const theme = useTheme();
+  const { data } = props;
   return (
-    <section id="about" className={classes.page} style={{ paddingTop: "85px" }}>
-      <div style={{ marginBottom: theme.spacing(2) }}>
-        <Typography variant="h4" className={classes.textAlignCenter}>
-          About Me
-        </Typography>
-      </div>
+    <section id="about" className="w-full h-screen">
+      <h1 className="text-4xl text-center mb-4">About Me</h1>
 
-      <Card>
+      <Card className="mb-4">
         <CardContent>
           <Typography>
             My name is Chad Adams. I'm a Full-Stack Developer from Mandan, North
@@ -108,60 +63,38 @@ function AboutMe(props) {
           <br />
         </CardContent>
       </Card>
-
-      <div style={{ marginTop: theme.spacing(2) }}>
-        <Certifications data={data} classes={classes} />
-      </div>
+      <Certifications data={data} />
     </section>
   );
 }
 
 function Certifications(props) {
-  const { classes, data } = props;
+  const { data } = props;
 
   const onClickCertification = (url) => {
-    window.open(url, "_blank");
+    window.open(url, '_blank');
   };
 
-  const theme = useTheme();
   return (
     <>
-      <Typography
-        variant="h4"
-        className={classes.textAlignCenter}
-        style={{ marginBottom: theme.spacing(2) }}
-      >
-        Certifications
-      </Typography>
+      <h1 className="text-4xl text-center mb-4">Certifications</h1>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="flex items-center justify-center">
         <Card
-          style={{ display: "inline-block", marginRight: "16px" }}
+          className="inline-block mr-2"
           onClick={() =>
             onClickCertification(
-              "https://www.microsoft.com/en-us/learning/exam-98-361.aspx"
+              'https://www.microsoft.com/en-us/learning/exam-98-361.aspx'
             )
           }
         >
           <CardActionArea>
             <CardContent>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <div className="flex items-center justify-center">
                 <img
                   src={data.mta1.childImageSharp.resize.src}
                   alt="mta-badge-1"
-                  className={classes.badge}
+                  style={{ maxWidth: '192px', maxHeight: '192px' }}
                 />
               </div>
             </CardContent>
@@ -169,26 +102,20 @@ function Certifications(props) {
         </Card>
 
         <Card
-          style={{ display: "inline-block" }}
+          className="inline-block"
           onClick={() =>
             onClickCertification(
-              "https://www.microsoft.com/en-us/learning/exam-98-388.aspx"
+              'https://www.microsoft.com/en-us/learning/exam-98-388.aspx'
             )
           }
         >
           <CardActionArea>
             <CardContent>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <div className="flex items-center justify-center">
                 <img
                   src={data.mta2.childImageSharp.resize.src}
                   alt="mta-badge-2"
-                  className={classes.badge}
+                  style={{ maxWidth: '192px', maxHeight: '192px' }}
                 />
               </div>
             </CardContent>
@@ -200,13 +127,10 @@ function Certifications(props) {
 }
 
 export default ({ data }) => {
-  const classes = styles();
   return (
     <Layout>
-      <div className={classes.root}>
-        <Intro data={data} classes={classes} />
-        <AboutMe data={data} classes={classes} />
-      </div>
+      <Intro data={data} />
+      <AboutMe data={data} />
     </Layout>
   );
 };
