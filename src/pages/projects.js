@@ -1,149 +1,73 @@
-import React from "react";
-import { Link as GatsbyLink, graphql } from "gatsby";
-import { makeStyles } from "@material-ui/core/styles";
-import { Divider, Typography, Breadcrumbs } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Layout from "../components/layout";
-import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
-import Grid from "@material-ui/core/Grid";
+import React from 'react';
+import { Link as GatsbyLink, graphql } from 'gatsby';
+import Layout from '../components/layout';
+import Card from '../components/Card';
+import Tag from '../components/Tag';
+import Breadcrumb from '../components/Breadcrumb';
 
-const styles = makeStyles((theme) => ({
-  date: {
-    fontSize: "16px",
-  },
-  summary: {
-    fontSize: "20px",
-  },
-  blogTitleLink: {
-    color: "#337ab7",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#23527c",
-      textDecoration: "underline",
-    },
-  },
-  blogTitle: {
-    marginBottom: theme.spacing(0.5),
-  },
-  linkButton: {
-    textDecoration: "none",
-  },
-  breadCrumbLink: {
-    color: "rgba(0, 0, 0, 0.54)",
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-  chip: {
-    margin: theme.spacing(0.5),
-  },
-  cardContentWrapper: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: "100%",
-  },
-  preview: {
-    display: "flex",
-    alignItems: "center",
-    "& img": {
-      maxWidth: "512px",
-      maxHeight: "384px",
-    },
-  },
-}));
-
-function ProjectCardList({ title, classes, data }) {
+function ProjectCardList({ title, data }) {
   const sortedData = data.sort((a, b) => {
     return b.node.frontmatter.sort - a.node.frontmatter.sort;
   });
   return (
     <>
-      <Typography
-        variant="h3"
-        style={{ marginTop: "20px", marginBottom: "20px" }}
-      >
-        {title}
-      </Typography>
-      <Divider />
+      <h1 className="my-4 text-2xl">{title}</h1>
+
+      <hr className="my-4" />
+
       {sortedData.map(({ node }, index) => (
-        <div key={index}>
-          <Card style={{ marginBottom: "20px" }}>
-            <CardContent>
-              <Grid container spacing={6}>
-                <Grid item md={6}>
-                  <div className={classes.cardContentWrapper}>
+        <GatsbyLink key={index} to={node.fields.slug}>
+          <Card className="mb-4">
+            <div className="flex">
+              <div className="flex-1">
+                <div className="flex items-center justify-start h-full px-4">
+                  <div>
                     <div>
-                      <div>
-                        <GatsbyLink
-                          to={node.fields.slug}
-                          className={classes.blogTitleLink}
-                        >
-                          <Typography
-                            variant="h4"
-                            component="h2"
-                            className={classes.blogTitle}
-                            gutterBottom
-                          >
-                            {node.frontmatter.title}
-                          </Typography>
-                        </GatsbyLink>
-                      </div>
-                      <hr />
-
-                      <Typography component="p">
-                        {node.frontmatter.description}
-                      </Typography>
-
-                      <div>
-                        {node.frontmatter.tags.map((data, index) => {
-                          return (
-                            <Chip
-                              key={index}
-                              label={data}
-                              className={classes.chip}
-                            />
-                          );
-                        })}
-                      </div>
+                      <h1 className="text-2xl font-bold">
+                        {node.frontmatter.title}
+                      </h1>
                     </div>
-                  </div>
-                </Grid>
 
-                <Grid item md={6}>
-                  <div className={classes.preview}>
-                    {node.frontmatter.previewImage ? (
-                      <img src={node.frontmatter.previewImage} alt="preview" />
-                    ) : null}
-                  </div>
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions>
-              <GatsbyLink to={node.fields.slug} className={classes.linkButton}>
-                <Button size="small" aria-label="Read More">
-                  Read More
-                </Button>
-              </GatsbyLink>
+                    <hr className="my-4" />
 
-              <Typography className={classes.date} color="textSecondary">
-                {`${node.timeToRead} min read`}
-              </Typography>
-            </CardActions>
+                    <p className="mb-2 text-base">
+                      {node.frontmatter.description}
+                    </p>
+
+                    {node.frontmatter.tags.map((data, index) => {
+                      return (
+                        <Tag key={index} className="mr-2">
+                          {data}
+                        </Tag>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex-1">
+                {node.frontmatter.previewImage ? (
+                  <img
+                    src={node.frontmatter.previewImage}
+                    alt="preview"
+                    style={{
+                      maxWidth: '512px',
+                      maxHeight: '384px',
+                    }}
+                  />
+                ) : null}
+              </div>
+            </div>
+
+            <p className="text-base">{`${node.timeToRead} min read`}</p>
           </Card>
-        </div>
+        </GatsbyLink>
       ))}
     </>
   );
 }
 
 export default ({ data }) => {
-  const classes = styles();
   const freelanceProjects = data.allMarkdownRemark.edges.filter(
     (item) => item.node.frontmatter.freelance
   );
@@ -152,25 +76,14 @@ export default ({ data }) => {
   );
   return (
     <Layout>
-      <div style={{ paddingTop: "50px" }}>
-        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
-          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-            Home
-          </GatsbyLink>
-          <Typography color="textPrimary">Projects</Typography>
-        </Breadcrumbs>
+      <Breadcrumb className='mt-4'>
+        <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
 
-        <ProjectCardList
-          title="Freelance Projects"
-          classes={classes}
-          data={freelanceProjects}
-        />
-        <ProjectCardList
-          title="Personal Projects"
-          classes={classes}
-          data={personalProjects}
-        />
-      </div>
+        <Breadcrumb.Item>Projects</Breadcrumb.Item>
+      </Breadcrumb>
+
+      <ProjectCardList title="Freelance Projects" data={freelanceProjects} />
+      <ProjectCardList title="Personal Projects" data={personalProjects} />
     </Layout>
   );
 };
