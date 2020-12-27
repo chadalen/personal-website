@@ -1,137 +1,68 @@
-import React from "react";
-import { Link as GatsbyLink, graphql } from "gatsby";
-import { makeStyles } from "@material-ui/core/styles";
-import { Divider, Typography, Breadcrumbs } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Layout from "../components/layout";
-import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
-
-const styles = makeStyles(theme => ({
-  date: {
-    fontSize: "16px"
-  },
-  summary: {
-    fontSize: "20px"
-  },
-  blogTitleLink: {
-    color: "#337ab7",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#23527c",
-      textDecoration: "underline"
-    }
-  },
-  blogTitle: {
-    marginBottom: theme.spacing(0.5)
-  },
-  linkButton: {
-    textDecoration: "none"
-  },
-  breadCrumbLink: {
-    color: "rgba(0, 0, 0, 0.54)",
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline"
-    }
-  },
-  chip: {
-    margin: theme.spacing(0.5)
-  }
-}));
+import React from 'react';
+import { Link as GatsbyLink, graphql } from 'gatsby';
+import Layout from '../components/layout';
+import Card from '../components/Card';
+import Tag from '../components/Tag';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default ({ data }) => {
-  const classes = styles();
   return (
     <Layout>
-      <div style={{ paddingTop: "50px" }}>
-        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
-          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-            Home
-          </GatsbyLink>
-          <Typography color="textPrimary">Blog</Typography>
-        </Breadcrumbs>
-
-        <Typography
-          variant="h3"
-          style={{ marginTop: "20px", marginBottom: "20px" }}
-        >
+      <Breadcrumb aria-label="breadcrumb" className="mt-4">
+        <Breadcrumb.Item to={'/'}>
+          Home
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
           Blog
-        </Typography>
-        <Divider />
-        {data.allMarkdownRemark.nodes.map((node, index) => (
-          <div key={index}>
-            <Card style={{ marginBottom: "20px" }}>
-              <CardContent>
-                <div style={{ display: "flex" }}>
-                  <div>
-                    <img
-                      src={data.file.childImageSharp.resize.src}
-                      alt="Avatar"
-                      style={{
-                        marginRight: "10px",
-                        borderRadius: "5%"
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <GatsbyLink
-                      to={node.fields.slug}
-                      className={classes.blogTitleLink}
-                    >
-                      <Typography
-                        variant="h4"
-                        component="h2"
-                        className={classes.blogTitle}
-                        gutterBottom
-                      >
-                        {node.frontmatter.title}
-                      </Typography>
-                    </GatsbyLink>
+        </Breadcrumb.Item>
+      </Breadcrumb>
 
-                    <Typography
-                      className={classes.date}
-                      color="textSecondary"
-                      gutterBottom
-                    >
-                      Chad Adams &#8226; {node.frontmatter.date}
-                    </Typography>
+      <h1 className="my-4 text-2xl">Blog</h1>
 
-                    <div>
-                      {node.frontmatter.tags && node.frontmatter.tags.map((data, index) => {
-                        return (
-                          <Chip
-                            key={index}
-                            label={data}
-                            className={classes.chip}
-                          />
-                        );
-                      })}
-                    </div>
-                  </div>
+      {data.allMarkdownRemark.nodes.map((node, index) => (
+          <GatsbyLink key={index} to={node.fields.slug}>
+          <Card className="mb-4">
+            <div className="flex">
+              <div>
+                <img
+                  src={data.file.childImageSharp.resize.src}
+                  alt="Avatar"
+                  style={{
+                    marginRight: '10px',
+                    borderRadius: '5%',
+                  }}
+                />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold">
+                  {node.frontmatter.title}
+                </h1>
+
+                <div className="inline-block mb-2 text-base text-gray-400">
+                  Chad Adams &#8226; {node.frontmatter.date}
                 </div>
-                <hr />
 
-                <Typography component="p">{node.excerpt}</Typography>
-              </CardContent>
-              <CardActions>
-                <GatsbyLink
-                  to={node.fields.slug}
-                  className={classes.linkButton}
-                >
-                  <Button size="small" aria-label="Read More">Read More</Button>
-                </GatsbyLink>
+                <div className="mb-2">
+                  {node.frontmatter.tags &&
+                    node.frontmatter.tags.map((data, index) => {
+                      return (
+                        <Tag key={index} className="mr-2">
+                          {data}
+                        </Tag>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
 
-                <Typography className={classes.date} color="textSecondary">
-                  {`${node.timeToRead} min read`}
-                </Typography>
-              </CardActions>
-            </Card>
-          </div>
-        ))}
-      </div>
+            <hr className='mb-2' />
+
+            <p className="text-base mb-2">{node.excerpt}</p>
+
+            <p className="inline-block text-base">{`${node.timeToRead} min read`}</p>
+          </Card>
+        </GatsbyLink>
+      ))}
     </Layout>
   );
 };

@@ -250,7 +250,7 @@ export default ({ children }) => {
             ))}
           </List>
         </Drawer>
-        <Container maxWidth="lg">{children}</Container>
+        <Container maxWidth="lg" className='pt-16'>{children}</Container>
       </div>
     </React.Fragment>
   );
