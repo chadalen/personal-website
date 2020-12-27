@@ -27,10 +27,7 @@ export default ({ data }) => {
                 <img
                   src={data.file.childImageSharp.resize.src}
                   alt="Avatar"
-                  style={{
-                    marginRight: '10px',
-                    borderRadius: '5%',
-                  }}
+                  className='mr-2 rounded'
                 />
               </div>
               <div>

@@ -1,101 +1,82 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Typography } from "@material-ui/core";
-import ReactDisqusComments from "react-disqus-comments";
-import Chip from "@material-ui/core/Chip";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import ReactDisqusComments from 'react-disqus-comments';
+import Card from '../components/Card';
+import Tag from '../components/Tag';
+import styled from 'styled-components';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(3, 2)
-  },
-  date: {
-    fontSize: "16px",
-    marginTop: theme.spacing(0.5)
-  },
-  content: {
-    fontSize: "20px",
-    "& img": {
-      maxWidth: "100%"
-    },
-    "& a": {
-      color: "#337ab7",
-      textDecoration: "none",
-      "&:hover": {
-        color: "#23527c",
-        textDecoration: "underline"
-      }
-    },
-    "& p, h1, h2, h3, h4": {
-      whiteSpace: 'pre-wrap'
-    }
-  },
-  chip: {
-    margin: theme.spacing(0.5)
+const Content = styled.div`
+  h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: bold;
   }
-}));
+
+  h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: bold;
+  }
+
+  li {
+    list-style-type: disc;
+  }
+`;
 
 export default ({ data }) => {
-  const classes = useStyles();
   const post = data.markdownRemark;
   return (
     <Layout>
-      <div style={{ paddingTop: "60px" }}>
-        <Paper className={classes.root}>
-          <div style={{ display: "flex" }}>
-            <div>
-              <img
-                src={data.file.childImageSharp.resize.src}
-                alt="Avatar"
-                style={{
-                  marginRight: "10px",
-                  borderRadius: "5%"
-                }}
-              />
+      <Card className="mb-4">
+        <div className="flex">
+          <div>
+            <img
+              src={data.file.childImageSharp.resize.src}
+              alt="Avatar"
+              className="mr-2 rounded"
+            />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold">{post.frontmatter.title}</h1>
+
+            <div className="inline-block mb-2 text-base text-gray-400">
+              Chad Adams &#8226; {post.frontmatter.date} &#8226;{' '}
+              {post.timeToRead} min read
             </div>
+
             <div>
-              <Typography
-                variant="h4"
-                component="h2"
-                className={classes.blogTitle}
-                gutterBottom
-              >
-                {post.frontmatter.title}
-              </Typography>
-
-              <Typography
-                className={classes.date}
-                color="textSecondary"
-                gutterBottom
-              >
-                Chad Adams &#8226; {post.frontmatter.date} &#8226;{" "}
-                {post.timeToRead} min read
-              </Typography>
-
-              <div>
-                {post.frontmatter.tags && post.frontmatter.tags.map((data, index) => {
+              {post.frontmatter.tags &&
+                post.frontmatter.tags.map((data, index) => {
                   return (
-                    <Chip key={index} label={data} className={classes.chip} />
+                    <Tag key={index} className="mr-2">
+                      {data}
+                    </Tag>
                   );
                 })}
-              </div>
             </div>
           </div>
-          <hr />
+        </div>
 
-          <div
-            className={classes.content}
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-        </Paper>
+        <hr className="my-4" />
 
-        <ReactDisqusComments
-          shortname={data.site.siteMetadata.disqusShortname}
-          identifier={post.id}
-          title={post.frontmatter.title}
+        <Content
+          className="text-base px-4 pb-4"
+          dangerouslySetInnerHTML={{ __html: post.html }}
         />
-      </div>
+      </Card>
+
+      <ReactDisqusComments
+        shortname={data.site.siteMetadata.disqusShortname}
+        identifier={post.id}
+        title={post.frontmatter.title}
+      />
     </Layout>
   );
 };
