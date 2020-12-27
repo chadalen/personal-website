@@ -95,6 +95,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
-    'gatsby-plugin-postcss'
+    'gatsby-plugin-postcss',
+    `gatsby-plugin-styled-components`,
   ],
 }
