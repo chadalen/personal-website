@@ -90,7 +90,6 @@ function Certifications(props) {
             <img
               src={data.mta1.childImageSharp.resize.src}
               alt="mta-badge-1"
-              style={{ maxWidth: '192px', maxHeight: '192px' }}
             />
           </div>
         </Card>
@@ -107,7 +106,6 @@ function Certifications(props) {
             <img
               src={data.mta2.childImageSharp.resize.src}
               alt="mta-badge-2"
-              style={{ maxWidth: '192px', maxHeight: '192px' }}
             />
           </div>
         </Card>
