@@ -1,76 +1,84 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Typography } from "@material-ui/core";
-import ReactDisqusComments from "react-disqus-comments";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import Card from '../components/Card';
+import Tag from '../components/Tag';
+import Breadcrumb from '../components/Breadcrumb';
+import ReactDisqusComments from 'react-disqus-comments';
+import styled from 'styled-components';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(3, 2)
-  },
-  date: {
-    fontSize: "16px",
-    marginTop: theme.spacing(0.5)
-  },
-  content: {
-    fontSize: "20px",
-    "& img": {
-      maxWidth: "100%"
-    },
-    "& a": {
-      color: "#337ab7",
-      textDecoration: "none",
-      "&:hover": {
-        color: "#23527c",
-        textDecoration: "underline"
-      }
-    }
+const Content = styled.div`
+  h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: bold;
   }
-}));
+
+  h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: bold;
+  }
+
+  li {
+    list-style-type: disc;
+  }
+`;
 
 export default ({ data }) => {
-  const classes = useStyles();
   const post = data.markdownRemark;
   return (
     <Layout>
-      <div style={{paddingTop: '60px'}}>
-      <Paper className={classes.root}>
-        <div>
-          <img
-            style={{
-              marginRight: "10px",
-              position: "relative",
-              borderRadius: "5%"
-            }}
-            src={data.file.childImageSharp.resize.src}
-            alt="Avatar"
-          />
+      <Breadcrumb aria-label="breadcrumb" className="mt-4">
+        <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
+        <Breadcrumb.Item to={'/projects'}>Projects</Breadcrumb.Item>
+        <Breadcrumb.Item>{post.frontmatter.title}</Breadcrumb.Item>
+      </Breadcrumb>
 
-          <div style={{ display: "inline-block", position: "absolute" }}>
-            <Typography variant="h4">{post.frontmatter.title}</Typography>
-            <Typography
-              className={classes.date}
-              color="textSecondary"
-              gutterBottom
-            >
-              Chad Adams &#8226; {post.timeToRead} min read
-            </Typography>
+      <h1 className="my-4 text-2xl">Project</h1>
+
+      <Card>
+        <div className="flex">
+          <div>
+            <img
+              src={data.file.childImageSharp.resize.src}
+              alt="Avatar"
+              className="mr-2 rounded"
+            />
+          </div>
+
+          <div>
+            <h1 className="text-2xl font-bold">{post.frontmatter.title}</h1>
+
+            {post.frontmatter.tags &&
+              post.frontmatter.tags.map((data, index) => {
+                return (
+                  <Tag key={index} className="mr-2">
+                    {data}
+                  </Tag>
+                );
+              })}
           </div>
         </div>
-        <hr />
-        <div
-          className={classes.content}
+
+        <hr className="my-4" />
+        <Content
+          className="text-base px-4 pb-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-      </Paper>
+      </Card>
 
       <ReactDisqusComments
         shortname={data.site.siteMetadata.disqusShortname}
         identifier={post.id}
         title={post.frontmatter.title}
       />
-      </div>
     </Layout>
   );
 };
@@ -83,6 +91,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMM D, YYYY")
+        tags
       }
       timeToRead
     }
