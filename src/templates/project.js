@@ -43,14 +43,6 @@ export default ({ data }) => {
 
       <Card className="mb-4">
         <div className="flex">
-          <div className='mr-2'>
-            <img
-              src={data.file.childImageSharp.resize.src}
-              alt="Avatar"
-              className="rounded"
-            />
-          </div>
-
           <div>
             <h1 className="text-2xl font-bold">{post.frontmatter.title}</h1>
 
@@ -66,7 +58,7 @@ export default ({ data }) => {
         </div>
 
         <hr className="mb-4 mt-2" />
-        
+
         <Content
           className="text-base px-4 pb-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
