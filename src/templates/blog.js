@@ -35,13 +35,11 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <Breadcrumb aria-label="breadcrumb" className="mt-4">
+      <Breadcrumb aria-label="breadcrumb" className="my-4">
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
         <Breadcrumb.Item to={'/blog'}>Blog</Breadcrumb.Item>
         <Breadcrumb.Item>{post.frontmatter.title}</Breadcrumb.Item>
       </Breadcrumb>
-
-      <h1 className="my-4 text-2xl">Blog</h1>
 
       <Card className="mb-4">
         <div className="flex">

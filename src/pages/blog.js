@@ -8,7 +8,7 @@ import Breadcrumb from '../components/Breadcrumb';
 export default ({ data }) => {
   return (
     <Layout>
-      <Breadcrumb aria-label="breadcrumb" className="mt-4">
+      <Breadcrumb aria-label="breadcrumb" className="my-4">
         <Breadcrumb.Item to={'/'}>
           Home
         </Breadcrumb.Item>
@@ -16,8 +16,6 @@ export default ({ data }) => {
           Blog
         </Breadcrumb.Item>
       </Breadcrumb>
-
-      <h1 className="my-4 text-2xl">Blog</h1>
 
       {data.allMarkdownRemark.nodes.map((node, index) => (
           <GatsbyLink key={index} to={node.fields.slug}>
