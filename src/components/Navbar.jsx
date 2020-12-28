@@ -4,18 +4,18 @@ import clsx from 'clsx';
 
 export default () => {
   return (
-    <nav class="fixed bg-gray-800 w-full">
-      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="relative flex items-center justify-between h-16">
-          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+    <nav className="fixed bg-gray-800 w-full">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between h-16">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-expanded="false"
             >
-              <span class="sr-only">Open main menu</span>
+              <span className="sr-only">Open main menu</span>
 
               <svg
-                class="block h-6 w-6"
+                className="block h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -30,7 +30,7 @@ export default () => {
                 />
               </svg>
               <svg
-                class="hidden h-6 w-6"
+                className="hidden h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -46,8 +46,8 @@ export default () => {
               </svg>
             </button>
           </div>
-          <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="flex-shrink-0 flex items-center">
+          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex-shrink-0 flex items-center">
               <Link
                 to="/"
                 className="text-xl font-bold text-gray-300 hover:text-white"
@@ -55,24 +55,55 @@ export default () => {
                 Chad Adams
               </Link>
             </div>
-            <div class="hidden sm:block sm:ml-6">
-              <div class="flex space-x-4">
+            <div className="hidden sm:block sm:ml-6">
+              <div className="flex space-x-4">
+
                 <Link
                   to="/#about"
-                  className={clsx("text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium", { "text-white bg-gray-900 hover:bg-gray-900": window.location.hash === '#about' })}
+                  className={clsx(
+                    'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                    {
+                      'text-white bg-gray-900 hover:bg-gray-900':
+                        window.location.hash === '#about',
+                    },
+                    {
+                      'text-gray-300':
+                        !(window.location.hash === '#about'),
+                    }
+                  )}
                 >
                   About
                 </Link>
 
                 <Link
                   to="/blog"
-                  className={clsx("text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium", { "text-white bg-gray-900 hover:bg-gray-900": window.location.pathname === '/blog' } )}
+                  className={clsx(
+                    'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                    {
+                      'text-white bg-gray-900 hover:bg-gray-900':
+                        window.location.pathname === '/blog',
+                    },
+                    {
+                      'text-gray-300':
+                        !(window.location.pathname === '/blog'),
+                    }
+                  )}
                 >
                   Blogs
                 </Link>
                 <Link
                   to="/projects"
-                  className={clsx("text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium", { "text-white bg-gray-900 hover:bg-gray-900": window.location.pathname === '/projects' })}
+                  className={clsx(
+                    'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                    {
+                      'text-white bg-gray-900 hover:bg-gray-900':
+                        window.location.pathname === '/projects',
+                    },
+                    {
+                      'text-gray-300':
+                        !(window.location.pathname === '/projects'),
+                    }
+                  )}
                 >
                   Projects
                 </Link>
@@ -82,32 +113,45 @@ export default () => {
         </div>
       </div>
 
-      <div class="hidden sm:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-          <a
-            href="#"
-            class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+      <div className='hidden'>
+        <div className="px-2 pt-2 pb-3 space-y-1">
+          <Link
+            to="/#about"
+            className={clsx(
+              'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
+              {
+                'text-white bg-gray-900 hover:bg-gray-900':
+                  window.location.hash === '#about',
+              }
+            )}
           >
-            Dashboard
-          </a>
-          <a
-            href="#"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            About
+          </Link>
+
+          <Link
+            to="/blog"
+            className={clsx(
+              'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
+              {
+                'text-white bg-gray-900 hover:bg-gray-900':
+                  window.location.pathname === '/blog',
+              }
+            )}
           >
-            Team
-          </a>
-          <a
-            href="#"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            Blogs
+          </Link>
+          <Link
+            to="/projects"
+            className={clsx(
+              'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium',
+              {
+                'text-white bg-gray-900 hover:bg-gray-900':
+                  window.location.pathname === '/projects',
+              }
+            )}
           >
             Projects
-          </a>
-          <a
-            href="#"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Calendar
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
