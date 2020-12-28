@@ -16,7 +16,7 @@ function ProjectCardList({ title, data }) {
       {sortedData.map(({ node }, index) => (
         <GatsbyLink key={index} to={node.fields.slug}>
           <Card className="mb-4">
-            <div className="flex">
+            <div className="flex flex-col-reverse md:flex-row">
               <div className="flex-1">
                 <div className="flex items-center justify-start h-full px-4">
                   <div>
@@ -43,21 +43,18 @@ function ProjectCardList({ title, data }) {
                 </div>
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 mb-2 md:mb-0">
                 {node.frontmatter.previewImage ? (
                   <img
                     src={node.frontmatter.previewImage}
                     alt="preview"
                     style={{
-                      maxWidth: '512px',
-                      maxHeight: '384px',
+                      maxHeight: '256px',
                     }}
                   />
                 ) : null}
               </div>
             </div>
-
-            <p className="text-base">{`${node.timeToRead} min read`}</p>
           </Card>
         </GatsbyLink>
       ))}
@@ -108,7 +105,6 @@ export const query = graphql`
             sort
           }
           excerpt
-          timeToRead
           html
         }
       }
