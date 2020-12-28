@@ -66,7 +66,7 @@ export default ({ data }) => {
 
               <div className="inline-block text-base">
                 <div className="font-bold">Chad Adams</div>
-                <div className="text-base text-gray-400">
+                <div className="text-base text-gray-500">
                   {post.frontmatter.date} &#8226; {post.timeToRead} min read
                 </div>
               </div>
