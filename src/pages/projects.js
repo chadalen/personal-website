@@ -11,7 +11,7 @@ function ProjectCardList({ title, data }) {
   });
   return (
     <>
-      <h1 className="my-4 text-2xl">{title}</h1>
+      <h1 className="mb-2 text-2xl">{title}</h1>
 
       {sortedData.map(({ node }, index) => (
         <GatsbyLink key={index} to={node.fields.slug}>
@@ -74,7 +74,7 @@ export default ({ data }) => {
   );
   return (
     <Layout>
-      <Breadcrumb className='mt-4'>
+      <Breadcrumb className='mb-4 mt-2'>
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
 
         <Breadcrumb.Item>Projects</Breadcrumb.Item>

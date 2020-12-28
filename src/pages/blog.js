@@ -8,7 +8,7 @@ import Breadcrumb from '../components/Breadcrumb';
 export default ({ data }) => {
   return (
     <Layout>
-      <Breadcrumb aria-label="breadcrumb" className="my-4">
+      <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
         <Breadcrumb.Item to={'/'}>
           Home
         </Breadcrumb.Item>

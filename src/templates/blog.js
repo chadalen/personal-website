@@ -35,7 +35,7 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <Breadcrumb aria-label="breadcrumb" className="my-4">
+      <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
         <Breadcrumb.Item to={'/blog'}>Blog</Breadcrumb.Item>
         <Breadcrumb.Item>{post.frontmatter.title}</Breadcrumb.Item>
