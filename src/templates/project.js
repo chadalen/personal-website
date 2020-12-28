@@ -41,7 +41,7 @@ export default ({ data }) => {
         <Breadcrumb.Item>{post.frontmatter.title}</Breadcrumb.Item>
       </Breadcrumb>
 
-      <Card>
+      <Card className="mb-4">
         <div className="flex">
           <div>
             <img
