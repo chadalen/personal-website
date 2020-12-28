@@ -13,8 +13,6 @@ function ProjectCardList({ title, data }) {
     <>
       <h1 className="my-4 text-2xl">{title}</h1>
 
-      <hr className="my-4" />
-
       {sortedData.map(({ node }, index) => (
         <GatsbyLink key={index} to={node.fields.slug}>
           <Card className="mb-4">
