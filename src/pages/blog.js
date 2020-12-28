@@ -9,33 +9,16 @@ export default ({ data }) => {
   return (
     <Layout>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
-        <Breadcrumb.Item to={'/'}>
-          Home
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          Blog
-        </Breadcrumb.Item>
+        <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>Blog</Breadcrumb.Item>
       </Breadcrumb>
 
       {data.allMarkdownRemark.nodes.map((node, index) => (
-          <GatsbyLink key={index} to={node.fields.slug}>
+        <GatsbyLink key={index} to={node.fields.slug}>
           <Card className="mb-4">
             <div className="flex">
-              <div className='mr-2 hidden sm:block'>
-                <img
-                  src={data.file.childImageSharp.resize.src}
-                  alt="Avatar"
-                  className='rounded'
-                />
-              </div>
               <div>
-                <h1 className="text-2xl font-bold">
-                  {node.frontmatter.title}
-                </h1>
-
-                <div className="inline-block mb-2 text-base text-gray-400">
-                  Chad Adams &#8226; {node.frontmatter.date}
-                </div>
+                <h1 className="text-2xl font-bold">{node.frontmatter.title}</h1>
 
                 <div>
                   {node.frontmatter.tags &&
@@ -47,10 +30,25 @@ export default ({ data }) => {
                       );
                     })}
                 </div>
+
+                <div className="flex items-center mb-2">
+                  <img
+                    src={data.file.childImageSharp.resize.src}
+                    alt="Avatar"
+                    className="rounded inline-block mr-2"
+                  />
+
+                  <div className="inline-block text-base">
+                    <div className="font-bold">Chad Adams</div>
+                    <div className="text-base text-gray-500">
+                      {node.frontmatter.date} &#8226; {node.timeToRead} min read
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <hr className='mb-2' />
+            <hr className="mb-4 mt-2" />
 
             <p className="text-base mb-2">{node.excerpt}</p>
 
