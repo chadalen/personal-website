@@ -43,11 +43,11 @@ export default ({ data }) => {
 
       <Card className="mb-4">
         <div className="flex">
-          <div>
+          <div className='mr-2'>
             <img
               src={data.file.childImageSharp.resize.src}
               alt="Avatar"
-              className="mr-2 rounded"
+              className="rounded"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default ({ data }) => {
             {post.frontmatter.tags &&
               post.frontmatter.tags.map((data, index) => {
                 return (
-                  <Tag key={index} className="mr-2">
+                  <Tag key={index} className="mr-2 mb-2">
                     {data}
                   </Tag>
                 );
@@ -65,7 +65,8 @@ export default ({ data }) => {
           </div>
         </div>
 
-        <hr className="my-4" />
+        <hr className="mb-4 mt-2" />
+        
         <Content
           className="text-base px-4 pb-4"
           dangerouslySetInnerHTML={{ __html: post.html }}

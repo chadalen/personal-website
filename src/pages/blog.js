@@ -21,11 +21,11 @@ export default ({ data }) => {
           <GatsbyLink key={index} to={node.fields.slug}>
           <Card className="mb-4">
             <div className="flex">
-              <div>
+              <div className='mr-2 hidden sm:block'>
                 <img
                   src={data.file.childImageSharp.resize.src}
                   alt="Avatar"
-                  className='mr-2 rounded'
+                  className='rounded'
                 />
               </div>
               <div>
@@ -37,11 +37,11 @@ export default ({ data }) => {
                   Chad Adams &#8226; {node.frontmatter.date}
                 </div>
 
-                <div className="mb-2">
+                <div>
                   {node.frontmatter.tags &&
                     node.frontmatter.tags.map((data, index) => {
                       return (
-                        <Tag key={index} className="mr-2">
+                        <Tag key={index} className="mr-2 mb-2">
                           {data}
                         </Tag>
                       );

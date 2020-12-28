@@ -34,7 +34,7 @@ function ProjectCardList({ title, data }) {
 
                     {node.frontmatter.tags.map((data, index) => {
                       return (
-                        <Tag key={index} className="mr-2">
+                        <Tag key={index} className="mr-2 mb-2">
                           {data}
                         </Tag>
                       );

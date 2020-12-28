@@ -62,7 +62,7 @@ export default ({ data }) => {
               {post.frontmatter.tags &&
                 post.frontmatter.tags.map((data, index) => {
                   return (
-                    <Tag key={index} className="mr-2">
+                    <Tag key={index} className="mr-2 mb-2">
                       {data}
                     </Tag>
                   );
@@ -71,7 +71,7 @@ export default ({ data }) => {
           </div>
         </div>
 
-        <hr className="my-4" />
+        <hr className="mb-4 mt-2" />
 
         <Content
           className="text-base px-4 pb-4"
