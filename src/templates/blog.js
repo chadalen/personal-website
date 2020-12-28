@@ -44,19 +44,7 @@ export default ({ data }) => {
       <Card className="mb-4">
         <div className="flex">
           <div>
-            <img
-              src={data.file.childImageSharp.resize.src}
-              alt="Avatar"
-              className="mr-2 rounded"
-            />
-          </div>
-          <div>
             <h1 className="text-2xl font-bold">{post.frontmatter.title}</h1>
-
-            <div className="inline-block mb-2 text-base text-gray-400">
-              Chad Adams &#8226; {post.frontmatter.date} &#8226;{' '}
-              {post.timeToRead} min read
-            </div>
 
             <div>
               {post.frontmatter.tags &&
@@ -67,6 +55,21 @@ export default ({ data }) => {
                     </Tag>
                   );
                 })}
+            </div>
+
+            <div className='flex items-center mb-2'>
+              <img
+                src={data.file.childImageSharp.resize.src}
+                alt="Avatar"
+                className="rounded inline-block mr-2"
+              />
+
+              <div className="inline-block text-base">
+                <div className="font-bold">Chad Adams</div>
+                <div className="text-base text-gray-400">
+                  {post.frontmatter.date} &#8226; {post.timeToRead} min read
+                </div>
+              </div>
             </div>
           </div>
         </div>
