@@ -11,12 +11,6 @@ module.exports = {
         offset: -100
       }
     },
-    'gatsby-plugin-top-layout',
-    {
-      resolve: 'gatsby-plugin-material-ui',
-      options: {
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
