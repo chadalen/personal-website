@@ -57,14 +57,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-styled-jsx`,
-      options: {
-        optimizeForSpeed: true,
-        sourceMaps: false,
-        vendorPrefixes: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
         lang: 'en'
