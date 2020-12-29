@@ -31,10 +31,10 @@ const Content = styled.div`
   }
 `;
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   const post = data.markdownRemark;
   return (
-    <Layout>
+    <Layout location={location}>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
         <Breadcrumb.Item to={'/projects'}>Projects</Breadcrumb.Item>

@@ -5,9 +5,9 @@ import Card from '../components/Card';
 import Tag from '../components/Tag';
 import Breadcrumb from '../components/Breadcrumb';
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
         <Breadcrumb.Item>Blog</Breadcrumb.Item>

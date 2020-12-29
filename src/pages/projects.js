@@ -62,7 +62,7 @@ function ProjectCardList({ title, data }) {
   );
 }
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   const freelanceProjects = data.allMarkdownRemark.edges.filter(
     (item) => item.node.frontmatter.freelance
   );
@@ -70,8 +70,8 @@ export default ({ data }) => {
     (item) => !item.node.frontmatter.freelance
   );
   return (
-    <Layout>
-      <Breadcrumb className='mb-4 mt-2'>
+    <Layout location={location}>
+      <Breadcrumb className="mb-4 mt-2">
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
 
         <Breadcrumb.Item>Projects</Breadcrumb.Item>

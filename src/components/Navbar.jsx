@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
 
-export default () => {
+export default ({ location }) => {
   return (
     <nav className="fixed bg-gray-800 w-full">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -64,11 +64,11 @@ export default () => {
                     'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                     {
                       'text-white bg-gray-900 hover:bg-gray-900':
-                        window.location.hash === '#about',
+                        location.hash === '#about',
                     },
                     {
                       'text-gray-300':
-                        !(window.location.hash === '#about'),
+                        !(location.hash === '#about'),
                     }
                   )}
                 >
@@ -81,11 +81,11 @@ export default () => {
                     'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                     {
                       'text-white bg-gray-900 hover:bg-gray-900':
-                        window.location.pathname === '/blog',
+                        location.pathname === '/blog',
                     },
                     {
                       'text-gray-300':
-                        !(window.location.pathname === '/blog'),
+                        !(location.pathname === '/blog'),
                     }
                   )}
                 >
@@ -97,11 +97,11 @@ export default () => {
                     'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                     {
                       'text-white bg-gray-900 hover:bg-gray-900':
-                        window.location.pathname === '/projects',
+                        location.pathname === '/projects',
                     },
                     {
                       'text-gray-300':
-                        !(window.location.pathname === '/projects'),
+                        !(location.pathname === '/projects'),
                     }
                   )}
                 >
@@ -121,7 +121,7 @@ export default () => {
               'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
               {
                 'text-white bg-gray-900 hover:bg-gray-900':
-                  window.location.hash === '#about',
+                  location.hash === '#about',
               }
             )}
           >
@@ -134,7 +134,7 @@ export default () => {
               'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
               {
                 'text-white bg-gray-900 hover:bg-gray-900':
-                  window.location.pathname === '/blog',
+                  location.pathname === '/blog',
               }
             )}
           >
@@ -146,7 +146,7 @@ export default () => {
               'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium',
               {
                 'text-white bg-gray-900 hover:bg-gray-900':
-                  window.location.pathname === '/projects',
+                  location.pathname === '/projects',
               }
             )}
           >

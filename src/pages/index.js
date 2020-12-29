@@ -87,10 +87,7 @@ function Certifications(props) {
           }
         >
           <div className="flex items-center justify-center">
-            <img
-              src={data.mta1.childImageSharp.resize.src}
-              alt="mta-badge-1"
-            />
+            <img src={data.mta1.childImageSharp.resize.src} alt="mta-badge-1" />
           </div>
         </Card>
 
@@ -103,10 +100,7 @@ function Certifications(props) {
           }
         >
           <div className="flex items-center justify-center">
-            <img
-              src={data.mta2.childImageSharp.resize.src}
-              alt="mta-badge-2"
-            />
+            <img src={data.mta2.childImageSharp.resize.src} alt="mta-badge-2" />
           </div>
         </Card>
       </div>
@@ -114,9 +108,9 @@ function Certifications(props) {
   );
 }
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <Intro data={data} />
       <AboutMe data={data} />
     </Layout>

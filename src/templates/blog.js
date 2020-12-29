@@ -31,10 +31,10 @@ const Content = styled.div`
   }
 `;
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   const post = data.markdownRemark;
   return (
-    <Layout>
+    <Layout location={location}>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
         <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
         <Breadcrumb.Item to={'/blog'}>Blog</Breadcrumb.Item>
@@ -57,7 +57,7 @@ export default ({ data }) => {
                 })}
             </div>
 
-            <div className='flex items-center mb-2'>
+            <div className="flex items-center mb-2">
               <img
                 src={data.file.childImageSharp.resize.src}
                 alt="Avatar"
