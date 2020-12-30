@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
 
 export default ({ location }) => {
+  const [open, setOpen] = useState(false);
   return (
     <nav className="fixed bg-gray-800 w-full">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-600"
               aria-expanded="false"
+              onClick={() => setOpen(!open)}
             >
               <span className="sr-only">Open main menu</span>
 
               <svg
-                className="block h-6 w-6"
+                className={clsx({ block: !open }, { hidden: open }, 'h-6 w-6')}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -30,7 +32,7 @@ export default ({ location }) => {
                 />
               </svg>
               <svg
-                className="hidden h-6 w-6"
+                className={clsx({ hidden: !open }, { block: open }, 'h-6 w-6')}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -57,7 +59,6 @@ export default ({ location }) => {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-
                 <Link
                   to="/#about"
                   className={clsx(
@@ -67,8 +68,7 @@ export default ({ location }) => {
                         location.hash === '#about',
                     },
                     {
-                      'text-gray-300':
-                        !(location.hash === '#about'),
+                      'text-gray-300': !(location.hash === '#about'),
                     }
                   )}
                 >
@@ -84,8 +84,7 @@ export default ({ location }) => {
                         location.pathname === '/blog',
                     },
                     {
-                      'text-gray-300':
-                        !(location.pathname === '/blog'),
+                      'text-gray-300': !(location.pathname === '/blog'),
                     }
                   )}
                 >
@@ -100,8 +99,7 @@ export default ({ location }) => {
                         location.pathname === '/projects',
                     },
                     {
-                      'text-gray-300':
-                        !(location.pathname === '/projects'),
+                      'text-gray-300': !(location.pathname === '/projects'),
                     }
                   )}
                 >
@@ -113,7 +111,7 @@ export default ({ location }) => {
         </div>
       </div>
 
-      <div className='hidden'>
+      <div className={clsx({ 'hidden': !open, block: open }, 'sm:hidden')}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           <Link
             to="/#about"
