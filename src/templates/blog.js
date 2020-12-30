@@ -109,9 +109,9 @@ export const query = graphql`
       }
     }
 
-    file(relativePath: { eq: "data/images/avatar-square.png" }) {
+    file(relativePath: { eq: "data/images/avatar-circle.png" }) {
       childImageSharp {
-        resize(width: 64, toFormat: WEBP, quality: 75) {
+        resize(width: 48, toFormat: WEBP, quality: 75) {
           src
         }
       }
