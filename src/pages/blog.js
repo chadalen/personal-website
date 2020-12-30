@@ -18,7 +18,23 @@ export default ({ location, data }) => {
           <Card className="mb-4">
             <div className="flex">
               <div>
-                <h1 className="text-2xl font-bold">{node.frontmatter.title}</h1>
+              <div className="flex items-center mb-2">
+                  <img
+                    src={data.file.childImageSharp.resize.src}
+                    alt="Avatar"
+                    className="rounded inline-block mr-2"
+                  />
+
+                  <div className="inline-block text-base">
+                    <div className="font-bold">Chad Adams</div>
+                    <div className="text-base text-gray-500">
+                      {node.frontmatter.date}
+                    </div>
+                  </div>
+                </div>
+
+
+                <h1 className="text-2xl font-bold mb-2">{node.frontmatter.title}</h1>
 
                 <div>
                   {node.frontmatter.tags &&
@@ -29,21 +45,6 @@ export default ({ location, data }) => {
                         </Tag>
                       );
                     })}
-                </div>
-
-                <div className="flex items-center mb-2">
-                  <img
-                    src={data.file.childImageSharp.resize.src}
-                    alt="Avatar"
-                    className="rounded inline-block mr-2"
-                  />
-
-                  <div className="inline-block text-base">
-                    <div className="font-bold">Chad Adams</div>
-                    <div className="text-base text-gray-500">
-                      {node.frontmatter.date} &#8226; {node.timeToRead} min read
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -82,9 +83,9 @@ export const query = graphql`
       }
     }
 
-    file(relativePath: { eq: "data/images/avatar-square.png" }) {
+    file(relativePath: { eq: "data/images/avatar-circle.png" }) {
       childImageSharp {
-        resize(width: 64, toFormat: WEBP, quality: 75) {
+        resize(width: 48, toFormat: WEBP, quality: 75) {
           src
         }
       }
