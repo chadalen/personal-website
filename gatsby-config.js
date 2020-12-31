@@ -5,6 +5,7 @@ module.exports = {
     disqusShortname: 'chadalen-com'
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
@@ -81,7 +82,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
-    'gatsby-plugin-postcss',
-    `gatsby-plugin-styled-components`,
   ],
 }

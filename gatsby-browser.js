@@ -1,4 +1,1 @@
-import "tailwindcss/base.css"
-import "tailwindcss/components.css"
-import "tailwindcss/utilities.css"
-import "prismjs/themes/prism-tomorrow.css"
+import './src/styles/global.css';
