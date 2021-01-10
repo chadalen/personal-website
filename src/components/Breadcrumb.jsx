@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
+// import Link from 'next/link'
 import clsx from 'clsx';
 
 function Breadcrumb({ children, className, ...props }) {
@@ -21,7 +21,8 @@ function BreadcrumbItem({ children, className, to, ...props }) {
           )}
           {...props}
         >
-          <GatsbyLink to={to}>{children}</GatsbyLink>
+          {/* <Link href={'/'}>{children}</Link> */}
+          <span>{children}</span>
         </li>
 
         <li className='inline-block mr-2 text-base'>

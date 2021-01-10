@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import clsx from 'clsx';
 
-export default ({ location }) => {
+export default function Navbar() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   return (
     <nav className="fixed bg-gray-800 w-full">
@@ -50,60 +52,62 @@ export default ({ location }) => {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <Link
-                to="/"
-                className="text-xl font-bold text-gray-300 hover:text-white"
-              >
-                Chad Adams
+              <Link href="/">
+                <a className="text-xl font-bold text-gray-300 hover:text-white">
+                  Chad Adams
+                </a>
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link
-                  to="/#about"
-                  className={clsx(
-                    'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
-                    {
-                      'text-white bg-gray-900 hover:bg-gray-900':
-                        location.hash === '#about',
-                    },
-                    {
-                      'text-gray-300': !(location.hash === '#about'),
-                    }
-                  )}
-                >
-                  About
+                <Link href="/#about">
+                  <a
+                    className={clsx(
+                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                      {
+                        'text-white bg-gray-900 hover:bg-gray-900':
+                          router.asPath === '/#about',
+                      },
+                      {
+                        'text-gray-300': !(router.asPath === '/#about'),
+                      }
+                    )}
+                  >
+                    About
+                  </a>
                 </Link>
 
-                <Link
-                  to="/blog"
-                  className={clsx(
-                    'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
-                    {
-                      'text-white bg-gray-900 hover:bg-gray-900':
-                        location.pathname === '/blog',
-                    },
-                    {
-                      'text-gray-300': !(location.pathname === '/blog'),
-                    }
-                  )}
-                >
-                  Blogs
+                <Link href="/blog">
+                  <a
+                    className={clsx(
+                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                      {
+                        'text-white bg-gray-900 hover:bg-gray-900':
+                          router.pathname === '/blog',
+                      },
+                      {
+                        'text-gray-300': !(router.pathname === '/blog'),
+                      }
+                    )}
+                  >
+                    Blogs
+                  </a>
                 </Link>
-                <Link
-                  to="/projects"
-                  className={clsx(
-                    'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
-                    {
-                      'text-white bg-gray-900 hover:bg-gray-900':
-                        location.pathname === '/projects',
-                    },
-                    {
-                      'text-gray-300': !(location.pathname === '/projects'),
-                    }
-                  )}
-                >
-                  Projects
+                <Link href="/projects">
+                  <a
+                    className={clsx(
+                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                      {
+                        'text-white bg-gray-900 hover:bg-gray-900':
+                          router.pathname === '/projects',
+                      },
+                      {
+                        'text-gray-300': !(router.pathname === '/projects'),
+                      }
+                    )}
+                  >
+                    Projects
+                  </a>
                 </Link>
               </div>
             </div>
@@ -111,47 +115,50 @@ export default ({ location }) => {
         </div>
       </div>
 
-      <div className={clsx({ 'hidden': !open, block: open }, 'sm:hidden')}>
+      <div className={clsx({ hidden: !open, block: open }, 'sm:hidden')}>
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link
-            to="/#about"
-            className={clsx(
-              'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
-              {
-                'text-white bg-gray-900 hover:bg-gray-900':
-                  location.hash === '#about',
-              }
-            )}
-          >
-            About
+          <Link href="/#about">
+            <a
+              className={clsx(
+                'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
+                {
+                  'text-white bg-gray-900 hover:bg-gray-900':
+                    router.pathname === '#about',
+                }
+              )}
+            >
+              About
+            </a>
           </Link>
 
-          <Link
-            to="/blog"
-            className={clsx(
-              'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
-              {
-                'text-white bg-gray-900 hover:bg-gray-900':
-                  location.pathname === '/blog',
-              }
-            )}
-          >
-            Blogs
+          <Link href="/blog">
+            <a
+              className={clsx(
+                'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
+                {
+                  'text-white bg-gray-900 hover:bg-gray-900':
+                    router.pathname === '/blog',
+                }
+              )}
+            >
+              Blogs
+            </a>
           </Link>
-          <Link
-            to="/projects"
-            className={clsx(
-              'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium',
-              {
-                'text-white bg-gray-900 hover:bg-gray-900':
-                  location.pathname === '/projects',
-              }
-            )}
-          >
-            Projects
+          <Link href="/projects">
+            <a
+              className={clsx(
+                'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium',
+                {
+                  'text-white bg-gray-900 hover:bg-gray-900':
+                    router.pathname === '/projects',
+                }
+              )}
+            >
+              Projects
+            </a>
           </Link>
         </div>
       </div>
     </nav>
   );
-};
+}
