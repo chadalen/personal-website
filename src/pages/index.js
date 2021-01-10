@@ -1,9 +1,5 @@
 import React from 'react';
 
-export default () => {
-  return (
-    <div>
-      Hello world!
-    </div>
-  )
+export default function Page() {
+  return <div className='text-red-500'>Hello world!</div>;
 }

@@ -13,11 +13,11 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
-    "autoprefixer": "^10.1.0",
+    "autoprefixer": "^10.2.1",
     "clsx": "^1.1.1",
     "netlify-cms-app": "^2.12.16",
     "next": "^10.0.5",
-    "postcss": "^8.2.2",
+    "postcss": "^8.2.4",
     "prismjs": "^1.21.0",
     "react": "^16.8.6",
     "react-disqus-comments": "^1.4.0",
