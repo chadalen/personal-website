@@ -24,7 +24,7 @@ export default function Page({ blogs }) {
                     src='/images/avatar-circle.png'
                     alt="Avatar"
                     className="rounded inline-block mr-2"
-                    style={{ width: '64px' }}
+                    style={{ width: '48px' }}
                   />
 
                   <div className="inline-block text-base">
