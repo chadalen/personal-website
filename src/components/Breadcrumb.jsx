@@ -1,5 +1,5 @@
 import React from 'react';
-// import Link from 'next/link'
+import Link from 'next/link'
 import clsx from 'clsx';
 
 function Breadcrumb({ children, className, ...props }) {
@@ -21,8 +21,7 @@ function BreadcrumbItem({ children, className, to, ...props }) {
           )}
           {...props}
         >
-          {/* <Link href={'/'}>{children}</Link> */}
-          <span>{children}</span>
+          <Link href={'/'}>{children}</Link>
         </li>
 
         <li className='inline-block mr-2 text-base'>
