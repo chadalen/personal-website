@@ -63,38 +63,6 @@ export default function Page({ blogs }) {
   );
 };
 
-// export const query = graphql`
-//   query {
-//     allMarkdownRemark(
-//       sort: { order: DESC, fields: [frontmatter___date] }
-//       limit: 25
-//       filter: { fields: { slug: { regex: "^/blog/" } } }
-//     ) {
-//       nodes {
-//         fields {
-//           slug
-//         }
-//         timeToRead
-//         frontmatter {
-//           date(formatString: "MMM D, YYYY")
-//           tags
-//           title
-//         }
-//         excerpt
-//         html
-//       }
-//     }
-
-//     file(relativePath: { eq: "data/images/avatar-circle.png" }) {
-//       childImageSharp {
-//         resize(width: 48, toFormat: WEBP, quality: 75) {
-//           src
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export async function getStaticProps() {
   const blogs = getAllBlogs([
     'title',
