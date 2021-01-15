@@ -7,7 +7,6 @@ import Breadcrumb from '../components/Breadcrumb';
 import { getAllBlogs } from '../../lib/api';
 
 export default function Page({ blogs }) {
-  console.log(blogs)
   return (
     <Layout>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
@@ -16,7 +15,8 @@ export default function Page({ blogs }) {
       </Breadcrumb>
 
       {blogs.map((blog, index) => (
-        <Link key={index} href={blog.slug}>
+        <Link key={index} href={`/blog/${blog.slug}`} passHref>
+          <a>
           <Card className="mb-4">
             <div className="flex">
               <div>
@@ -57,6 +57,7 @@ export default function Page({ blogs }) {
 
             <p className="inline-block text-base">{blog.timeToRead}</p>
           </Card>
+          </a>
         </Link>
       ))}
     </Layout>
