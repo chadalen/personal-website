@@ -1,6 +1,6 @@
 ---
 title: "How I Created My Blog"
-date: "2019-06-23"
+date: "2019-06-23T05:45:33.567Z"
 excerpt: "A tutorial on how I created my blog website."
 tags: ['tutorial', 'reactjs', 'gatsbyjs']
 ---

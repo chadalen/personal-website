@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import Tag from '../components/Tag';
 import Breadcrumb from '../components/Breadcrumb';
 import { getAllBlogs } from '../../lib/api';
+import DateFormatter from '../components/DateFormatter';
 
 export default function Page({ blogs }) {
   return (
@@ -30,8 +31,15 @@ export default function Page({ blogs }) {
 
                   <div className="inline-block text-base">
                     <div className="font-bold">Chad Adams</div>
-                    <div className="text-base text-gray-500">
-                      {blog.date}
+
+                    <DateFormatter
+                      className="text-sm text-gray-500 mr-2"
+                      dateString={blog.date}
+                      formatString='MMM d, yyyy'
+                    />
+
+                    <div className='inline-block text-sm text-gray-500'>
+                      ({blog.ago})
                     </div>
                   </div>
                 </div>
@@ -68,6 +76,7 @@ export async function getStaticProps() {
     'tags',
     'excerpt',
     'timeToRead',
+    'ago',
     'slug',
   ]);
   return {

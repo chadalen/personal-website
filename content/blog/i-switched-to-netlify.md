@@ -1,6 +1,6 @@
 ---
 title: "I Switched To Netlify"
-date: "2019-06-27"
+date: "2019-06-27T05:45:33.567Z"
 excerpt: "Reasons why I left GitHub pages and moved to Netlify."
 tags: ['netlify']
 ---

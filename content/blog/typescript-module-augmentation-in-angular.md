@@ -1,6 +1,6 @@
 ---
 title: "TypeScript's Module Augmentation In Angular"
-date: "2019-11-24"
+date: "2019-11-24T05:45:33.567Z"
 excerpt: "A quick way to add additional functionality to 3rd party libraries without touching their code."
 tags: ['typescript', 'angular']
 ---

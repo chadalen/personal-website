@@ -1,6 +1,6 @@
 ---
 title: "My Beautiful Minimal Terminal Setup"
-date: "2019-12-22"
+date: "2019-12-22T05:45:33.567Z"
 excerpt: "Terminals don't have to feel old and outdated."
 tags: ['hyper', 'starship', 'fish shell']
 ---

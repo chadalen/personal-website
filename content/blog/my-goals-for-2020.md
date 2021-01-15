@@ -1,6 +1,6 @@
 ---
 title: "My Goals For 2020"
-date: "2019-12-27"
+date: "2019-12-27T05:45:33.567Z"
 excerpt: "Goals I'm looking to accomplish in 2020."
 tags: ['goals']
 ---
