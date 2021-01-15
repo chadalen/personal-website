@@ -7,7 +7,6 @@ import Breadcrumb from '../components/Breadcrumb';
 import { getAllBlogs } from '../../lib/api';
 
 export default function Page({ blogs }) {
-  console.log(blogs)
   return (
     <Layout>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
