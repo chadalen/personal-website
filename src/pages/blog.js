@@ -7,6 +7,7 @@ import Breadcrumb from '../components/Breadcrumb';
 import { getAllBlogs } from '../../lib/api';
 
 export default function Page({ blogs }) {
+  console.log(blogs)
   return (
     <Layout>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
@@ -35,7 +36,6 @@ export default function Page({ blogs }) {
                   </div>
                 </div>
 
-
                 <h1 className="text-2xl font-bold mb-2">{blog.title}</h1>
 
                 <div>
@@ -55,7 +55,7 @@ export default function Page({ blogs }) {
 
             {/* <p className="text-base mb-2">{node.excerpt}</p> */}
 
-            {/* <p className="inline-block text-base">{`${node.timeToRead} min read`}</p> */}
+            <p className="inline-block text-base">{blog.timeToRead}</p>
           </Card>
         </Link>
       ))}
@@ -68,7 +68,8 @@ export async function getStaticProps() {
     'title',
     'date',
     'tags',
-    'slug'
+    'timeToRead',
+    'slug',
   ]);
   return {
     props: { blogs }
