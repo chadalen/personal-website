@@ -1,6 +1,7 @@
 ---
 title: "Introduction"
 date: "2019-06-22"
+excerpt: "A brief introduction about myself."
 tags: []
 ---
 

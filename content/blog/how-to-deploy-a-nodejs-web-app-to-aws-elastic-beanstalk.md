@@ -1,7 +1,8 @@
 ---
 title: "How To Deploy A Node.js Web App To AWS Elastic Beanstalk"
 date: "2020-03-09"
-tags: ['aws', 'elastic beanstalk']
+excerpt: "A tutorial on how to deploy a node.js app to AWS Elastic Beanstalk."
+tags: ['tutorial', 'aws', 'elastic beanstalk']
 ---
 
 ### Intro

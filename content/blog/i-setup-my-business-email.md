@@ -1,6 +1,7 @@
 ---
 title: "I Setup My Business Email"
 date: "2019-07-21"
+excerpt: "How I setup my personal email me@chadalen.com"
 tags: ['business', 'zoho']
 ---
 

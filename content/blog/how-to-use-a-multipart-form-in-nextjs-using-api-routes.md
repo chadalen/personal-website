@@ -1,7 +1,8 @@
 ---
-title: How To Use A Multipart-Form In Next.js API Routes
+title: How To Use A Multipart-Form In Next.js Using API Routes
 date: "2020-03-15"
-tags: ['next.js', 'middleware', 'multipart-form']
+excerpt: "A tutorial on how to use a multipart-form in Next.js using API routes."
+tags: ['tutorial', 'next.js', 'multipart-form']
 ---
 # How To Use A Multipart-Form In Next.js API Routes
 

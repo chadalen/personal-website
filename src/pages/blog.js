@@ -50,11 +50,8 @@ export default function Page({ blogs }) {
                 </div>
               </div>
             </div>
-
             <hr className="mb-4 mt-2" />
-
-            {/* <p className="text-base mb-2">{node.excerpt}</p> */}
-
+            <p className="text-base mb-2">{blog.excerpt}</p>
             <p className="inline-block text-base">{blog.timeToRead}</p>
           </Card>
           </a>
@@ -69,6 +66,7 @@ export async function getStaticProps() {
     'title',
     'date',
     'tags',
+    'excerpt',
     'timeToRead',
     'slug',
   ]);

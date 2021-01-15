@@ -1,6 +1,7 @@
 ---
 title: "Why Git Fork Is My Favorite Git Client"
 date: "2019-11-27"
+excerpt: "10 reasons why Git Fork is my favorite git client."
 tags: ['git', 'git fork']
 ---
 
