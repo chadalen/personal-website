@@ -12,7 +12,7 @@ function ProjectCardList({ title, projects }) {
       <h1 className="mb-2 text-2xl">{title}</h1>
 
       {projects.map((project, index) => (
-        <Link key={index} href={`/project/${project.slug}`} passHref>
+        <Link key={index} href={`/projects/${project.slug}`} passHref>
           <a>
             <Card className="mb-4">
               <div className="flex flex-col-reverse md:flex-row">

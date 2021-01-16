@@ -1,5 +1,4 @@
 ---
-date: 2020-07-06T08:22:37.634Z
 title: Turmoil.io Website
 description: Website I made for Turmoil.io
 tags:
