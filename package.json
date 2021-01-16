@@ -27,6 +27,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "reading-time": "^1.2.1",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "s-ago": "^2.2.0",
     "tailwindcss": "^2.0.2"
   },
