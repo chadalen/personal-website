@@ -7,31 +7,7 @@ import DateFormatter from '../../components/DateFormatter';
 import Breadcrumb from '../../components/Breadcrumb';
 import { getAllBlogs, getBlogBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
-// import styled from 'styled-components';
-
-// const Content = styled.div`
-//   h1 {
-//     font-size: 2.25rem;
-//     line-height: 2.5rem;
-//     font-weight: bold;
-//   }
-
-//   h2 {
-//     font-size: 1.875rem;
-//     line-height: 2.25rem;
-//     font-weight: bold;
-//   }
-
-//   h3 {
-//     font-size: 1.5rem;
-//     line-height: 2rem;
-//     font-weight: bold;
-//   }
-
-//   li {
-//     list-style-type: disc;
-//   }
-// `;
+import Markdown from '../../components/Markdown';
 
 export default function Page({ blog }) {
   return (
@@ -83,11 +59,7 @@ export default function Page({ blog }) {
         </div>
 
         <hr className="mb-4 mt-2" />
-
-        <div
-          className="text-base px-4 pb-4"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
+        <Markdown htmlContent={blog.content} />
       </Card>
 
       {/* <ReactDisqusComments
