@@ -7,31 +7,6 @@ import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
 // import ReactDisqusComments from 'react-disqus-comments';
-// import styled from 'styled-components';
-
-// const Content = styled.div`
-//   h1 {
-//     font-size: 2.25rem;
-//     line-height: 2.5rem;
-//     font-weight: bold;
-//   }
-
-//   h2 {
-//     font-size: 1.875rem;
-//     line-height: 2.25rem;
-//     font-weight: bold;
-//   }
-
-//   h3 {
-//     font-size: 1.5rem;
-//     line-height: 2rem;
-//     font-weight: bold;
-//   }
-
-//   li {
-//     list-style-type: disc;
-//   }
-// `;
 
 export default function Page({ project }) {
   return (
@@ -47,14 +22,16 @@ export default function Page({ project }) {
           <div>
             <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
 
-            {project.tags &&
-              project.tags.map((tag, index) => {
-                return (
-                  <Tag key={index} className="mr-2 mb-2">
-                    {tag}
-                  </Tag>
-                );
-              })}
+            <div className="mb-2">
+              {project.tags &&
+                project.tags.map((tag, index) => {
+                  return (
+                    <Tag key={index} className="mr-2 mb-2">
+                      {tag}
+                    </Tag>
+                  );
+                })}
+            </div>
           </div>
         </div>
 

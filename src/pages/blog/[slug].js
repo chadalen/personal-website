@@ -21,9 +21,9 @@ export default function Page({ blog }) {
       <Card className="mb-4">
         <div className="flex">
           <div>
-            <h1 className="text-2xl font-bold">{blog.title}</h1>
+            <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
 
-            <div>
+            <div className="mb-2">
               {blog.tags &&
                 blog.tags.map((tag, index) => {
                   return (
