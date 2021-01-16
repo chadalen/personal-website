@@ -6,8 +6,6 @@ previewImage: "https://i.imgur.com/rFbeNMY.png"
 sort: 2
 ---
 
-# OSBot Npc Dumper Plugin (1.1)
-
 A simple plugin for [OSBot](https://osbot.org/) that dumps npc spawns into [JSON](https://www.json.org/JSON) format.
 
 ### Features

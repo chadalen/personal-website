@@ -44,7 +44,7 @@ export default function Page({ project }) {
       <Card className="mb-4">
         <div className="flex">
           <div>
-            <h1 className="text-2xl font-bold">{project.title}</h1>
+            <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
 
             {project.tags &&
               project.tags.map((tag, index) => {
@@ -60,7 +60,7 @@ export default function Page({ project }) {
         <hr className="mb-4 mt-2" />
 
         <div
-          className="text-base px-4 pb-4"
+          className="markdown text-base px-4 pb-4"
           dangerouslySetInnerHTML={{ __html: project.content }}
         />
       </Card>
@@ -70,9 +70,77 @@ export default function Page({ project }) {
         identifier={post.id}
         title={post.frontmatter.title}
       /> */}
+
+      <style global jsx>
+        {`
+          .markdown {
+            h2 {
+              margin-top: 2rem;
+              margin-bottom: 1rem;
+              font-weight: bold;
+              font-size: 2.25rem;
+              line-height: 2.5rem;
+            }
+
+            h3 {
+              margin-top: 2rem;
+              margin-bottom: 1rem;
+              font-weight: bold;
+              font-size: 1.875rem;
+              line-height: 2.25rem;
+            }
+
+            p {
+              margin-top: 1rem;
+              margin-bottom: 1rem;
+
+              font-size: 1.25rem;
+              line-height: 1.75rem;
+            }
+
+            ul {
+              padding-left: 1.5rem;
+              li {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                list-style-type: disc;
+              }
+            }
+
+            ol {
+              padding-left: 1.5rem;
+              li {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                list-style-type: decimal;
+                ::marker {
+                  font-weight: 600;
+                }
+              }
+            }
+
+            a {
+              color: rgb(51, 122, 183);
+              text-decoration-color: rgb(51, 122, 183);
+            }
+
+            a:hover {
+              color: #23527c;
+              text-decoration: underline;
+            }
+
+            img {
+              border-radius: 0.25rem;
+              margin-top: 1rem;
+              margin-bottom: 1rem;
+            }
+
+          }
+        `}
+      </style>
     </Layout>
   );
-};
+}
 
 export async function getStaticProps({ params }) {
   const project = getProjectBySlug(params.slug, [
@@ -112,4 +180,3 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-

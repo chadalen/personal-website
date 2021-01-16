@@ -6,9 +6,7 @@ previewImage: "https://i.imgur.com/dBZei2e.png"
 sort: 4
 ---
 
-**Better Sprite Packer 3**
-
-Is a tool designed to pack sprites in a way they can be random-accessed.
+A tool designed to pack video game sprites efficiently and randomly access them without increasing game client memory usage.
 
 **Features**
 * You can randomly access any sprite (extremely fast and less memory consumption especially for sprites that aren't used!)

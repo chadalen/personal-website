@@ -6,8 +6,7 @@ previewImage: "https://i.imgur.com/CZaWkZt.gif"
 sort: 3
 ---
 
-# Kotlin OSRS (aka BattleRune)
-BattleRune is a reverse engineering project I started that aims to create a usable osrs server.
+Kotlin OSRS (aka BattleRune) was a reverse engineering project I started to learn about the Old School RuneScape game protocols.
 
 ### Info
 * Written in Kotlin from scratch

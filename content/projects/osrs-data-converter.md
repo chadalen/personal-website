@@ -6,8 +6,8 @@ previewImage: "https://i.imgur.com/47gGDhf.png"
 sort: 1
 ---
 
-# OldSchool RuneScape Data Converter (OSDC)
-Is a tool for converting the OldSchool RuneScape file system into its legacy 317 format.
+## OldSchool RuneScape Data Converter (OSDC)
+A tool for converting OldSchool RuneScape's file system into its legacy format.
 
 ![config view](https://i.imgur.com/47gGDhf.png)
 

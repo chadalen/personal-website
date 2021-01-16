@@ -10,8 +10,7 @@ previewImage: https://i.imgur.com/MYSngLc.png
 freelance: true
 sort: 1
 ---
-**Turmoil Launcher**
-Is a tool designed to keep a players game client updated. This was made for [Turmoil.io](https://turmoil.io).
+A tool designed to keep a players game client updated. This was made for [Turmoil.io](https://turmoil.io).
 ![image1](https://i.imgur.com/MYSngLc.png)
 
 **Features**

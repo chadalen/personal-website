@@ -6,9 +6,7 @@ previewImage: "https://i.imgur.com/Z3Lmpq3.png"
 sort: 7
 ---
 
-# Linux App Store
-
-Is a universal app store for Linux. The focus of the Linux App Store is to make Linux easier to use by making applications easier to find and install. The Linux App Store does not favor one distrobution over another. The Linux App Store also does not favor one package format over another.. Our goal is simply to make the software you use more accessible to you. See [linuxappstore.io](https://linuxappstore.io/)
+A universal app store for Linux. The goal of this project was to make Linux easier to use by making applications easier to find and install. The Linux App Store does not favor one distrobution over another. The Linux App Store also does not favor one package format over another.. Our goal is simply to make the software you use more accessible to you. See [linuxappstore.io](https://linuxappstore.io/)
 
 [Omg! Ubuntu!](https://www.omgubuntu.co.uk/2019/05/the-linux-app-store-website-lets-you-find-apps-wherever)
 
