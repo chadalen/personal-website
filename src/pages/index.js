@@ -32,7 +32,7 @@ function AboutMe() {
       <h1 className="text-4xl text-center mb-4">About Me</h1>
 
       <Card className="mb-4">
-        <p>
+        <p className='my-4'>
           My name is Chad Adams. I'm a Full-Stack Developer from Mandan, North
           Dakota. I develop all types of software, but I primarily work with
           websites and mobile apps. Coding is my passion. I enjoy writing
@@ -40,22 +40,19 @@ function AboutMe() {
           around 12 years old when a friend of mine introduced me to RuneScape
           private servers.
         </p>
-        <br />
 
-        <p>
+        <p className='my-4'>
           I have an associates degree in Computer Programming from St Cloud
           Technical and Community College. I am currently pursuing a bachelors
           in Information Systems from Arizona State University.
         </p>
-        <br />
 
-        <p>
+        <p className='my-4'> 
           I’m a big advocate for open-source software. I love Linux, my favorite
           linux distrobution is Ubuntu. I love reading books, writing blogs,
           working on my startup business, spending time with family and learning
           new technologies.
         </p>
-        <br />
       </Card>
 
       <Certifications />
