@@ -30,7 +30,7 @@ A simple plugin for [OSBot](https://osbot.org/) that dumps npc spawns into [JSON
 * Rotation is not entirely accurate because players change the rotation of npcs by clicking on them.
 
 ### Format
-```json
+```js
 [
 	{
 		"id": 5810,

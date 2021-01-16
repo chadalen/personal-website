@@ -18,6 +18,7 @@
     "clsx": "^1.1.1",
     "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
+    "highlight.js": "^10.5.0",
     "netlify-cms-app": "^2.12.16",
     "next": "^10.0.5",
     "postcss": "^8.2.4",

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
 import Layout from '../../components/layout';
 import Card from '../../components/Card';
 import Tag from '../../components/Tag';
@@ -6,9 +8,15 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
+hljs.registerLanguage('javascript', javascript);
 // import ReactDisqusComments from 'react-disqus-comments';
 
 export default function Page({ project }) {
+  
+  useEffect(() => {
+    hljs.initHighlighting();
+  }, [])
+
   return (
     <Layout>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
