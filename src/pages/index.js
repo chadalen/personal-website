@@ -83,7 +83,7 @@ function Certifications() {
           }
         >
           <div className="flex items-center justify-center">
-            <img src='/images/mta-badge-1.png' alt="mta-badge-1" />
+            <img src='/images/mta-badge-1.png' alt="mta-badge-1" style={{ maxWidth: '192px' }} />
           </div>
         </Card>
 
@@ -96,7 +96,7 @@ function Certifications() {
           }
         >
           <div className="flex items-center justify-center">
-            <img src='/images/mta-badge-2.png' alt="mta-badge-2" />
+            <img src='/images/mta-badge-2.png' alt="mta-badge-2" style={{ maxWidth: '192px' }} />
           </div>
         </Card>
       </div>
