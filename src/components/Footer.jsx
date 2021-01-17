@@ -12,29 +12,51 @@ export default function Footer() {
     <>
       <div className="flex justify-center items-center bg-gray-800 py-4">
         <div className="flex">
-          <FontAwesomeIcon
+          <a
+            href="https://www.linkedin.com/in/chadalen/"
+            target="_blank"
+            rel="noreferrer"
             title="LinkedIn"
-            className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
-            icon={faLinkedinIn}
-          />
+          >
+            <FontAwesomeIcon
+              className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
+              icon={faLinkedinIn}
+            />
+          </a>
 
-          <FontAwesomeIcon
+          <a
+            href="https://dev.to/chadalen"
+            target="_blank"
+            rel="noreferrer"
             title="Dev"
-            className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
-            icon={faDev}
-          />
+          >
+            <FontAwesomeIcon
+              className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
+              icon={faDev}
+            />
+          </a>
 
-          <FontAwesomeIcon
+          <a
+            href="https://github.com/chadalen"
+            target="_blank"
+            rel="noreferrer"
             title="GitHub"
-            className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
-            icon={faGithub}
-          />
+          >
+            <FontAwesomeIcon
+              className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
+              icon={faGithub}
+            />
+          </a>
 
-          <FontAwesomeIcon
+          <a
+            href="mailto: me@chadalen.com"
             title="Contact me"
-            className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
-            icon={faEnvelope}
-          />
+          >
+            <FontAwesomeIcon
+              className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
+              icon={faEnvelope}
+            />
+          </a>
         </div>
       </div>
     </>
