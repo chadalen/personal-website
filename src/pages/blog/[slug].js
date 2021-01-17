@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 // import ReactDisqusComments from 'react-disqus-comments';
 import Card from '../../components/Card';
 import Tag from '../../components/Tag';

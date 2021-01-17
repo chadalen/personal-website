@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import Breadcrumb from '../components/Breadcrumb';
