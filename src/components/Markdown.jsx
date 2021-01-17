@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import 'highlight.js/styles/darcula.css';
 
 export default function Markdown({ htmlContent, className, ...props }) {
   return (
