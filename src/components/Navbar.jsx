@@ -60,7 +60,7 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link href="/#about">
+                <Link href="/about">
                   <a
                     className={clsx(
                       'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
