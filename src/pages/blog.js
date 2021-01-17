@@ -1,169 +1,85 @@
-import React from "react";
-import { Link as GatsbyLink, graphql } from "gatsby";
-import { makeStyles } from "@material-ui/core/styles";
-import { Divider, Typography, Breadcrumbs } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Layout from "../components/layout";
-import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
+import React from 'react';
+import Link from 'next/link';
+import Layout from '../components/layout';
+import Card from '../components/Card';
+import Tag from '../components/Tag';
+import Breadcrumb from '../components/Breadcrumb';
+import { getAllBlogs } from '../../lib/api';
+import DateFormatter from '../components/DateFormatter';
 
-const styles = makeStyles(theme => ({
-  date: {
-    fontSize: "16px"
-  },
-  summary: {
-    fontSize: "20px"
-  },
-  blogTitleLink: {
-    color: "#337ab7",
-    textDecoration: "none",
-    "&:hover": {
-      color: "#23527c",
-      textDecoration: "underline"
-    }
-  },
-  blogTitle: {
-    marginBottom: theme.spacing(0.5)
-  },
-  linkButton: {
-    textDecoration: "none"
-  },
-  breadCrumbLink: {
-    color: "rgba(0, 0, 0, 0.54)",
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline"
-    }
-  },
-  chip: {
-    margin: theme.spacing(0.5)
-  }
-}));
-
-export default ({ data }) => {
-  const classes = styles();
+export default function Page({ blogs }) {
   return (
     <Layout>
-      <div style={{ paddingTop: "50px" }}>
-        <Breadcrumbs aria-label="breadcrumb" style={{ marginTop: "20px" }}>
-          <GatsbyLink className={classes.breadCrumbLink} to={"/"}>
-            Home
-          </GatsbyLink>
-          <Typography color="textPrimary">Blog</Typography>
-        </Breadcrumbs>
+      <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
+        <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>Blog</Breadcrumb.Item>
+      </Breadcrumb>
 
-        <Typography
-          variant="h3"
-          style={{ marginTop: "20px", marginBottom: "20px" }}
-        >
-          Blog
-        </Typography>
-        <Divider />
-        {data.allMarkdownRemark.nodes.map((node, index) => (
-          <div key={index}>
-            <Card style={{ marginBottom: "20px" }}>
-              <CardContent>
-                <div style={{ display: "flex" }}>
-                  <div>
-                    <img
-                      src={data.file.childImageSharp.resize.src}
-                      alt="Avatar"
-                      style={{
-                        marginRight: "10px",
-                        borderRadius: "5%"
-                      }}
+      {blogs.map((blog, index) => (
+        <Link key={index} href={`/blog/${blog.slug}`} passHref>
+          <a>
+          <Card className="mb-4">
+            <div className="flex">
+              <div>
+              <div className="flex items-center mb-2">
+                  <img
+                    src='/images/avatar-circle.png'
+                    alt="Avatar"
+                    className="rounded inline-block mr-2"
+                    style={{ width: '48px' }}
+                  />
+
+                  <div className="inline-block text-base">
+                    <div className="font-bold">Chad Adams</div>
+
+                    <DateFormatter
+                      className="text-sm text-gray-500 mr-2"
+                      dateString={blog.date}
+                      formatString='MMM d, yyyy'
                     />
-                  </div>
-                  <div>
-                    <GatsbyLink
-                      to={node.fields.slug}
-                      className={classes.blogTitleLink}
-                    >
-                      <Typography
-                        variant="h4"
-                        component="h2"
-                        className={classes.blogTitle}
-                        gutterBottom
-                      >
-                        {node.frontmatter.title}
-                      </Typography>
-                    </GatsbyLink>
 
-                    <Typography
-                      className={classes.date}
-                      color="textSecondary"
-                      gutterBottom
-                    >
-                      Chad Adams &#8226; {node.frontmatter.date}
-                    </Typography>
-
-                    <div>
-                      {node.frontmatter.tags && node.frontmatter.tags.map((data, index) => {
-                        return (
-                          <Chip
-                            key={index}
-                            label={data}
-                            className={classes.chip}
-                          />
-                        );
-                      })}
+                    <div className='inline-block text-sm text-gray-500'>
+                      ({blog.ago})
                     </div>
                   </div>
                 </div>
-                <hr />
 
-                <Typography component="p">{node.excerpt}</Typography>
-              </CardContent>
-              <CardActions>
-                <GatsbyLink
-                  to={node.fields.slug}
-                  className={classes.linkButton}
-                >
-                  <Button size="small" aria-label="Read More">Read More</Button>
-                </GatsbyLink>
+                <h1 className="text-2xl font-bold mb-2">{blog.title}</h1>
 
-                <Typography className={classes.date} color="textSecondary">
-                  {`${node.timeToRead} min read`}
-                </Typography>
-              </CardActions>
-            </Card>
-          </div>
-        ))}
-      </div>
+                <div>
+                  {blog.tags &&
+                    blog.tags.map((tag, index) => {
+                      return (
+                        <Tag key={index} className="mr-2 mb-2">
+                          {tag}
+                        </Tag>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+            <hr className="mb-4 mt-2" />
+            <p className="text-base mb-2">{blog.excerpt}</p>
+            <p className="inline-block text-base">{blog.timeToRead}</p>
+          </Card>
+          </a>
+        </Link>
+      ))}
     </Layout>
   );
 };
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 25
-      filter: { fields: { slug: { regex: "^/blog/" } } }
-    ) {
-      nodes {
-        fields {
-          slug
-        }
-        timeToRead
-        frontmatter {
-          date(formatString: "MMM D, YYYY")
-          tags
-          title
-        }
-        excerpt
-        html
-      }
-    }
-
-    file(relativePath: { eq: "data/images/avatar-square.png" }) {
-      childImageSharp {
-        resize(width: 64, toFormat: WEBP, quality: 75) {
-          src
-        }
-      }
-    }
-  }
-`;
+export async function getStaticProps() {
+  const blogs = getAllBlogs([
+    'title',
+    'date',
+    'tags',
+    'excerpt',
+    'timeToRead',
+    'ago',
+    'slug',
+  ]);
+  return {
+    props: { blogs }
+  };
+}

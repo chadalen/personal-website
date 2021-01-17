@@ -1,7 +1,9 @@
 import React from "react";
 
-export default () => (
-  <React.Fragment>
-    <p>Oops something went wrong...</p>
-  </React.Fragment>
-);
+export default function Page() {
+  return (
+    <>
+      <p>Oops something went wrong...</p>
+    </>
+  )
+};

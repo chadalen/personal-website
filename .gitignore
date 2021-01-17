@@ -6,3 +6,5 @@ public/*
 public/icons/*
 !/public/icons/avatar-square.png
 !public/icons/avatar-circle.png
+.next/*
+out/*
