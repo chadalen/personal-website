@@ -5,15 +5,14 @@ export default function Markdown({ htmlContent, className, ...props }) {
   return (
     <>
       <div
-        className={clsx("markdown px-4 pb-4", className)}
+        className={clsx('markdown px-4 pb-4', className)}
         dangerouslySetInnerHTML={{ __html: htmlContent }}
         {...props}
       />
 
       <style global jsx>
-      {`
-        .markdown {
-          h2 {
+        {`
+          .markdown h2 {
             margin-top: 2rem;
             margin-bottom: 1rem;
             font-weight: bold;
@@ -21,7 +20,7 @@ export default function Markdown({ htmlContent, className, ...props }) {
             line-height: 2.5rem;
           }
 
-          h3 {
+          .markdown h3 {
             margin-top: 2rem;
             margin-bottom: 1rem;
             font-weight: bold;
@@ -29,58 +28,58 @@ export default function Markdown({ htmlContent, className, ...props }) {
             line-height: 2.25rem;
           }
 
-          p {
+          .markdown p {
             margin-top: 1rem;
             margin-bottom: 1rem;
-
             font-size: 1.25rem;
             line-height: 1.75rem;
           }
 
-          ul {
+          .markdown ul {
             padding-left: 1.5rem;
-            li {
-              margin-top: 0.5rem;
-              margin-bottom: 0.5rem;
-              list-style-type: disc;
-            }
           }
 
-          ol {
-            padding-left: 1.5rem;
-            li {
-              margin-top: 0.5rem;
-              margin-bottom: 0.5rem;
-              list-style-type: decimal;
-              ::marker {
-                font-weight: 600;
-              }
-            }
+          .markdown li {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            list-style-type: disc;
           }
 
-          a {
+          .markdown ol {
+            padding-left: 1.5rem;
+          }
+
+          .markdown li {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            list-style-type: decimal;
+          }
+
+          .markdown li::marker {
+            font-weight: 600;
+          }
+
+          .markdown a {
             color: rgb(51, 122, 183);
             text-decoration-color: rgb(51, 122, 183);
           }
 
-          a:hover {
+          .markdown a:hover {
             color: #23527c;
             text-decoration: underline;
           }
 
-          img {
+          .markdown img {
             border-radius: 0.25rem;
             margin-top: 1rem;
             margin-bottom: 1rem;
           }
 
-          code {
+          .markdown code {
             border-radius: 0.25rem;
           }
-
-        }
-      `}
-        </style>
+        `}
+      </style>
     </>
-  )
+  );
 }
