@@ -40,9 +40,7 @@ const BlogCard = ({ blog }) => (
         <div>
           {blog.tags
             && blog.tags.map((tag) => (
-              <Tag key={tag} className="mr-2 mb-2">
-                {tag}
-              </Tag>
+              <Tag key={tag} className="mr-2 mb-2" value={tag} />
             ))}
         </div>
       </div>

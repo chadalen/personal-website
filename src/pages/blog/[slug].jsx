@@ -35,9 +35,7 @@ export default function Page({ blog }) {
             <div className="mb-2">
               {blog.tags
               && blog.tags.map((tag) => (
-                <Tag key={tag} className="mr-2 mb-2">
-                  {tag}
-                </Tag>
+                <Tag key={tag} className="mr-2 mb-2" value={tag} />
               ))}
             </div>
 

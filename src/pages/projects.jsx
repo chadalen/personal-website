@@ -22,9 +22,7 @@ const ProjectCard = ({ project }) => (
             <p className="mb-2 text-base">{project.description}</p>
 
             {project.tags.map((tag) => (
-              <Tag key={tag} className="mr-2 mb-2">
-                {tag}
-              </Tag>
+              <Tag key={tag} className="mr-2 mb-2" value={tag} />
             ))}
           </div>
         </div>

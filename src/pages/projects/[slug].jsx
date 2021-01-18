@@ -34,9 +34,7 @@ export default function Page({ project }) {
             <div className="mb-2">
               {project.tags
                 && project.tags.map((tag) => (
-                  <Tag key={tag} className="mr-2 mb-2">
-                    {tag}
-                  </Tag>
+                  <Tag key={tag} className="mr-2 mb-2" value={tag} />
                 ))}
             </div>
           </div>
