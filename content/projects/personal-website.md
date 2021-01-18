@@ -1,7 +1,7 @@
 ---
 title: "chadalen.com"
 description: "My personal website"
-tags: ['open-source', 'reactjs', 'gatsbyjs', 'graphql', 'netlify']
+tags: ['open-source', 'reactjs', 'nextjs', 'netlify']
 previewImage: "/images/uploads/personal-website.png"
 sort: 6
 ---
