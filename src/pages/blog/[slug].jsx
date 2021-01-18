@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import Layout from '../../components/Layout';
@@ -10,19 +11,19 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { getAllBlogs, getBlogBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
+
 hljs.registerLanguage('javascript', javascript);
 
 export default function Page({ blog }) {
-
   useEffect(() => {
     hljs.initHighlighting();
-  }, [])
+  }, []);
 
   return (
     <Layout>
       <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
-        <Breadcrumb.Item to={'/'}>Home</Breadcrumb.Item>
-        <Breadcrumb.Item to={'/blog'}>Blog</Breadcrumb.Item>
+        <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
+        <Breadcrumb.Item to="/blog">Blog</Breadcrumb.Item>
         <Breadcrumb.Item>{blog.title}</Breadcrumb.Item>
       </Breadcrumb>
 
@@ -32,14 +33,12 @@ export default function Page({ blog }) {
             <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
 
             <div className="mb-2">
-              {blog.tags &&
-                blog.tags.map((tag, index) => {
-                  return (
-                    <Tag key={index} className="mr-2 mb-2">
-                      {tag}
-                    </Tag>
-                  );
-                })}
+              {blog.tags
+              && blog.tags.map((tag) => (
+                <Tag key={tag} className="mr-2 mb-2">
+                  {tag}
+                </Tag>
+              ))}
             </div>
 
             <div className="flex items-center mb-2">
@@ -59,7 +58,9 @@ export default function Page({ blog }) {
                     dateString={blog.date}
                     formatString="MMM d, yyyy"
                   />
-                  &#8226; {blog.timeToRead}
+                  &#8226;
+                  {' '}
+                  {blog.timeToRead}
                 </div>
               </div>
             </div>
@@ -78,6 +79,16 @@ export default function Page({ blog }) {
     </Layout>
   );
 }
+
+Page.propTypes = {
+  blog: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    content: PropTypes.string.isRequired,
+    timeToRead: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export async function getStaticProps({ params }) {
   const blog = getBlogBySlug(params.slug, [
@@ -107,13 +118,11 @@ export async function getStaticPaths() {
   const blogs = getAllBlogs(['slug']);
 
   return {
-    paths: blogs.map((blog) => {
-      return {
-        params: {
-          slug: blog.slug,
-        },
-      };
-    }),
+    paths: blogs.map((blog) => ({
+      params: {
+        slug: blog.slug,
+      },
+    })),
     fallback: false,
   };
 }
