@@ -5,7 +5,7 @@ import Footer from './Footer';
 export default function Layout({ children }) {
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
 
         <div className="flex-grow" style={{ paddingTop: '64px' }}>

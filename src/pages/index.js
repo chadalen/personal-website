@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 export default function Page() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
       <div
         id="intro"
