@@ -1,5 +1,6 @@
 import React from 'react';
-import { getAbout } from '../../lib/api'
+import PropTypes from 'prop-types';
+import { getAbout } from '../../lib/api';
 import Markdown from '../components/Markdown';
 import Layout from '../components/Layout';
 import Breadcrumb from '../components/Breadcrumb';
@@ -14,8 +15,12 @@ export default function Page({ htmlContent }) {
       </Breadcrumb>
       <Markdown htmlContent={htmlContent} />
     </Layout>
-  )
+  );
 }
+
+Page.propTypes = {
+  htmlContent: PropTypes.string.isRequired,
+};
 
 export async function getStaticProps() {
   const content = getAbout();
