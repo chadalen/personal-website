@@ -89,7 +89,7 @@ BlogLink.defaultProps = {
 export default function Page({ blogs }) {
   return (
     <Layout>
-      <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
+      <Breadcrumb className="mb-4 mt-2">
         <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
         <Breadcrumb.Item>Blog</Breadcrumb.Item>
       </Breadcrumb>

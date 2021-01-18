@@ -21,7 +21,7 @@ export default function Page({ blog }) {
 
   return (
     <Layout>
-      <Breadcrumb aria-label="breadcrumb" className="mb-4 mt-2">
+      <Breadcrumb className="mb-4 mt-2">
         <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
         <Breadcrumb.Item to="/blog">Blog</Breadcrumb.Item>
         <Breadcrumb.Item>{blog.title}</Breadcrumb.Item>
