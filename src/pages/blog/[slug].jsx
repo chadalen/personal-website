@@ -43,10 +43,10 @@ export default function Page({ blog }) {
 
             <div className="flex items-center mb-2">
               <img
-                src="/images/avatar-circle.png"
+                src="/images/avatar-circle-90x90.png"
                 alt="Avatar"
-                className="rounded inline-block mr-2"
-                style={{ width: '48px' }}
+                className="inline-block mr-2"
+                style={{ width: '48px', height: '48px' }}
               />
 
               <div className="inline-block text-base">
