@@ -123,7 +123,7 @@ export default function Navbar() {
                 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
                 {
                   'text-white bg-gray-900 hover:bg-gray-900':
-                    router.pathname === '#about',
+                    router.pathname === '/about',
                 }
               )}
             >
