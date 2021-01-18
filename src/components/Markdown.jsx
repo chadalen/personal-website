@@ -1,14 +1,15 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import 'highlight.js/styles/darcula.css';
 
-export default function Markdown({ htmlContent, className, ...props }) {
+export default function Markdown({ htmlContent, className }) {
   return (
     <>
       <div
         className={clsx('markdown px-4 pb-4', className)}
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: htmlContent }}
-        {...props}
       />
 
       <style global jsx>
@@ -84,3 +85,12 @@ export default function Markdown({ htmlContent, className, ...props }) {
     </>
   );
 }
+
+Markdown.propTypes = {
+  htmlContent: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+Markdown.defaultProps = {
+  className: '',
+};
