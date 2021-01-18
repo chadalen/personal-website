@@ -2,7 +2,7 @@
 title: "chadalen.com"
 description: "My personal website"
 tags: ['open-source', 'reactjs', 'gatsbyjs', 'graphql', 'netlify']
-previewImage: "https://i.imgur.com/O9hxTcq.png"
+previewImage: "/images/uploads/personal-website.png"
 sort: 6
 ---
 
