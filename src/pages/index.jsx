@@ -20,10 +20,9 @@ export default function Page() {
         >
           <div className="flex justify-center items-center flex-col">
             <img
-              src="/images/avatar-circle.png"
+              src="/images/avatar-circle-384x384.png"
               alt="Avatar"
               className="mb-4"
-              style={{ maxWidth: '384px' }}
             />
             <div className="whitespace-pre text-3xl">
               {'Hello I\'m'}
