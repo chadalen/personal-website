@@ -117,7 +117,7 @@ export default function Navbar() {
 
       <div className={clsx({ hidden: !open, block: open }, 'sm:hidden')}>
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link href="/#about">
+          <Link href="/about">
             <a
               className={clsx(
                 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
