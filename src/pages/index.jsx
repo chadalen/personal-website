@@ -19,10 +19,12 @@ export default function Page() {
             style={{ maxWidth: '384px' }}
           />
           <div className="whitespace-pre text-3xl">
-            Hello, I'm <span className="text-pink-600">Chad Adams</span>.
+            {'Hello I\'m'}
+            <span className="text-pink-600">{' Chad Adams'}</span>
+            .
           </div>
           <div className="whitespace-pre text-3xl">
-            I'm a Software Developer.
+            {'I\'m a Software Developer.'}
           </div>
         </div>
       </div>
