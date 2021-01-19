@@ -1,7 +1,32 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import clsx from 'clsx';
+
+const NavbarLink = React.forwardRef(({
+  href,
+  onClick,
+  className,
+  value,
+}, ref) => (
+  <a href={href} onClick={onClick} className={className} ref={ref}>
+    {value}
+  </a>
+));
+
+NavbarLink.propTypes = {
+  value: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+NavbarLink.defaultProps = {
+  href: '',
+  className: '',
+  onClick: () => { },
+};
 
 export default function Navbar() {
   const router = useRouter();
@@ -12,6 +37,7 @@ export default function Navbar() {
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
+              type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-600"
               aria-expanded="false"
               onClick={() => setOpen(!open)}
@@ -52,16 +78,17 @@ export default function Navbar() {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/">
-                <a className="text-xl font-bold text-gray-300 hover:text-white">
-                  Chad Adams
-                </a>
+              <Link href="/" passHref>
+                <NavbarLink
+                  className="text-xl font-bold text-gray-300 hover:text-white"
+                  value="Chad Adams"
+                />
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link href="/about">
-                  <a
+                <Link href="/about" passHref>
+                  <NavbarLink
                     className={clsx(
                       'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                       {
@@ -70,15 +97,14 @@ export default function Navbar() {
                       },
                       {
                         'text-gray-300': !(router.asPath === '/#about'),
-                      }
+                      },
                     )}
-                  >
-                    About
-                  </a>
+                    value="About"
+                  />
                 </Link>
 
-                <Link href="/blog">
-                  <a
+                <Link href="/blog" passHref>
+                  <NavbarLink
                     className={clsx(
                       'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                       {
@@ -87,14 +113,13 @@ export default function Navbar() {
                       },
                       {
                         'text-gray-300': !(router.pathname === '/blog'),
-                      }
+                      },
                     )}
-                  >
-                    Blogs
-                  </a>
+                    value="Blogs"
+                  />
                 </Link>
-                <Link href="/projects">
-                  <a
+                <Link href="/projects" passHref>
+                  <NavbarLink
                     className={clsx(
                       'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
                       {
@@ -103,11 +128,10 @@ export default function Navbar() {
                       },
                       {
                         'text-gray-300': !(router.pathname === '/projects'),
-                      }
+                      },
                     )}
-                  >
-                    Projects
-                  </a>
+                    value="Projects"
+                  />
                 </Link>
               </div>
             </div>
@@ -117,45 +141,42 @@ export default function Navbar() {
 
       <div className={clsx({ hidden: !open, block: open }, 'sm:hidden')}>
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link href="/about">
-            <a
+          <Link href="/about" passHref>
+            <NavbarLink
               className={clsx(
                 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
                 {
                   'text-white bg-gray-900 hover:bg-gray-900':
                     router.pathname === '/about',
-                }
+                },
               )}
-            >
-              About
-            </a>
+              value="About"
+            />
           </Link>
 
-          <Link href="/blog">
-            <a
+          <Link href="/blog" passHref>
+            <NavbarLink
               className={clsx(
                 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
                 {
                   'text-white bg-gray-900 hover:bg-gray-900':
                     router.pathname === '/blog',
-                }
+                },
               )}
-            >
-              Blogs
-            </a>
+              value="Blogs"
+            />
           </Link>
-          <Link href="/projects">
-            <a
+          <Link href="/projects" passHref>
+            <NavbarLink
               className={clsx(
                 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium',
                 {
                   'text-white bg-gray-900 hover:bg-gray-900':
                     router.pathname === '/projects',
-                }
+                },
               )}
-            >
-              Projects
-            </a>
+              value="Projects"
+            />
           </Link>
         </div>
       </div>
