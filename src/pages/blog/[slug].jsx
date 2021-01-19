@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -20,61 +21,67 @@ export default function Page({ blog }) {
   }, []);
 
   return (
-    <Layout>
-      <Breadcrumb className="mb-4 mt-2">
-        <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item to="/blog">Blog</Breadcrumb.Item>
-        <Breadcrumb.Item>{blog.title}</Breadcrumb.Item>
-      </Breadcrumb>
+    <>
+      <Head>
+        <title>{`Chad Alen - ${blog.title}`}</title>
+        <meta name="Description" content="A blog written by Chad Alen." />
+      </Head>
 
-      <Card className="mb-4">
-        <div className="flex">
-          <div>
-            <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
+      <Layout>
+        <Breadcrumb className="mb-4 mt-2">
+          <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item to="/blog">Blog</Breadcrumb.Item>
+          <Breadcrumb.Item>{blog.title}</Breadcrumb.Item>
+        </Breadcrumb>
 
-            <div className="mb-2">
-              {blog.tags
-              && blog.tags.map((tag) => (
-                <Tag key={tag} className="mr-2 mb-2" value={tag} />
-              ))}
-            </div>
+        <Card className="mb-4">
+          <div className="flex">
+            <div>
+              <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
 
-            <div className="flex items-center mb-2">
-              <img
-                src="/images/avatar-circle-90x90.png"
-                alt="Avatar"
-                className="inline-block mr-2"
-                style={{ width: '48px', height: '48px' }}
-              />
+              <div className="mb-2">
+                {blog.tags
+                  && blog.tags.map((tag) => (
+                    <Tag key={tag} className="mr-2 mb-2" value={tag} />
+                  ))}
+              </div>
 
-              <div className="inline-block text-base">
-                <div className="font-bold">Chad Adams</div>
+              <div className="flex items-center mb-2">
+                <img
+                  src="/images/avatar-circle-90x90.png"
+                  alt="Avatar"
+                  className="inline-block mr-2"
+                  style={{ width: '48px', height: '48px' }}
+                />
 
-                <div className="text-sm text-gray-500">
-                  <DateFormatter
-                    className="mr-2"
-                    dateString={blog.date}
-                    formatString="MMM d, yyyy"
-                  />
-                  &#8226;
-                  {' '}
-                  {blog.timeToRead}
+                <div className="inline-block text-base">
+                  <div className="font-bold">Chad Adams</div>
+
+                  <div className="text-sm text-gray-500">
+                    <DateFormatter
+                      className="mr-2"
+                      dateString={blog.date}
+                      formatString="MMM d, yyyy"
+                    />
+                    &#8226;
+                    {blog.timeToRead}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <hr className="mb-4 mt-2" />
-        <Markdown htmlContent={blog.content} />
-      </Card>
+          <hr className="mb-4 mt-2" />
+          <Markdown htmlContent={blog.content} />
+        </Card>
 
-      {/* <ReactDisqusComments
+        {/* <ReactDisqusComments
         shortname={data.site.siteMetadata.disqusShortname}
         identifier={post.id}
         title={post.frontmatter.title}
       /> */}
-    </Layout>
+      </Layout>
+    </>
   );
 }
 

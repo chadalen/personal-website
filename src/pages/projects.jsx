@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
@@ -62,7 +63,7 @@ ProjectLink.propTypes = {
 
 ProjectLink.defaultProps = {
   href: '',
-  onClick: () => { },
+  onClick: () => {},
 };
 
 ProjectCard.propTypes = {
@@ -76,18 +77,25 @@ ProjectCard.propTypes = {
 
 export default function Page({ projects }) {
   return (
-    <Layout>
-      <Breadcrumb className="mb-4 mt-2">
-        <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item>Projects</Breadcrumb.Item>
-      </Breadcrumb>
+    <>
+      <Head>
+        <title>Chad Alen - Projects</title>
+        <meta name="Description" content="Projects created by Chad Alen." />
+      </Head>
 
-      {projects.map((project) => (
-        <Link key={project.title} href={`/projects/${project.slug}`} passHref>
-          <ProjectLink project={project} />
-        </Link>
-      ))}
-    </Layout>
+      <Layout>
+        <Breadcrumb className="mb-4 mt-2">
+          <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Projects</Breadcrumb.Item>
+        </Breadcrumb>
+
+        {projects.map((project) => (
+          <Link key={project.title} href={`/projects/${project.slug}`} passHref>
+            <ProjectLink project={project} />
+          </Link>
+        ))}
+      </Layout>
+    </>
   );
 }
 

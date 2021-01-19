@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
@@ -39,9 +40,9 @@ const BlogCard = ({ blog }) => (
 
         <div>
           {blog.tags
-            && blog.tags.map((tag) => (
-              <Tag key={tag} className="mr-2 mb-2" value={tag} />
-            ))}
+          && blog.tags.map((tag) => (
+            <Tag key={tag} className="mr-2 mb-2" value={tag} />
+          ))}
         </div>
       </div>
     </div>
@@ -83,35 +84,47 @@ BlogLink.propTypes = {
 
 BlogLink.defaultProps = {
   href: '',
-  onClick: () => { },
+  onClick: () => {},
 };
 
 export default function Page({ blogs }) {
   return (
-    <Layout>
-      <Breadcrumb className="mb-4 mt-2">
-        <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item>Blog</Breadcrumb.Item>
-      </Breadcrumb>
+    <>
+      <Head>
+        <title>Chad Alen - Blogs</title>
+        <meta
+          name="Description"
+          content="Blogs written by Chad Alen."
+        />
+      </Head>
 
-      {blogs.map((blog) => (
-        <Link key={blog.title} href={`/blog/${blog.slug}`} passHref>
-          <BlogLink blog={blog} />
-        </Link>
-      ))}
-    </Layout>
+      <Layout>
+        <Breadcrumb className="mb-4 mt-2">
+          <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Blog</Breadcrumb.Item>
+        </Breadcrumb>
+
+        {blogs.map((blog) => (
+          <Link key={blog.title} href={`/blog/${blog.slug}`} passHref>
+            <BlogLink blog={blog} />
+          </Link>
+        ))}
+      </Layout>
+    </>
   );
 }
 
 Page.propTypes = {
-  blogs: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    excerpt: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    timeToRead: PropTypes.string.isRequired,
-    ago: PropTypes.string.isRequired,
-  })).isRequired,
+  blogs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      excerpt: PropTypes.string.isRequired,
+      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+      timeToRead: PropTypes.string.isRequired,
+      ago: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export async function getStaticProps() {
