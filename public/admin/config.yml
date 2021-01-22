@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: chadalen/personal-website
+  branch: master
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+publish_mode: editorial_workflow
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: date, label: Date, widget: datetime }
+      - { name: excerpt, label: Excerpt }
+      - { name: tags, label: Tags, widget: list }
+      - { name: body, label: Body, widget: markdown }
+  - name: projects
+    label: Projects
+    folder: content/projects
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: description, label: Description, widget: text }
+      - { name: tags, label: Tags, widget: list }
+      - { name: previewImage, label: Preview Image, widget: image }
+      - { name: sort, label: Sort, widget: number }
+      - { name: body, label: Body, widget: markdown }

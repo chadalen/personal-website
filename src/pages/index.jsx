@@ -9,6 +9,7 @@ export default function Page() {
       <Head>
         <title>Chad Alen - Home</title>
         <meta name="Description" content="Chad Alen's personal website." />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       </Head>
 
       <div className="flex flex-col min-h-screen bg-white">
