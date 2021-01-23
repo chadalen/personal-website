@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function DateFormatter({ dateString, formatString, className }) {
   const date = parseISO(dateString);
   const formattedDateString = format(date, formatString);
-  return <time className={className}>{formattedDateString}</time>;
+  return <div className={className}>{formattedDateString}</div>;
 }
 
 DateFormatter.propTypes = {

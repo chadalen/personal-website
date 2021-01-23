@@ -25,7 +25,7 @@ const BlogCard = ({ blog }) => (
             <div className="font-bold">Chad Adams</div>
 
             <DateFormatter
-              className="text-sm text-gray-500 mr-2"
+              className="inline-block text-sm text-gray-500 mr-2"
               dateString={blog.date}
               formatString="MMM d, yyyy"
             />

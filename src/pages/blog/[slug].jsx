@@ -59,19 +59,19 @@ export default function Page({ blog }) {
 
                   <div className="text-sm text-gray-500">
                     <DateFormatter
-                      className="mr-2"
+                      className="inline-block mr-2"
                       dateString={blog.date}
                       formatString="MMM d, yyyy"
                     />
                     &#8226;
-                    {blog.timeToRead}
+                    {` ${blog.timeToRead}`}
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <hr className="mb-4 mt-2" />
+          <hr className="mb-4 mt-1" />
           <Markdown htmlContent={blog.content} />
         </Card>
 
