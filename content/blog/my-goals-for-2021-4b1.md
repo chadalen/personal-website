@@ -1,10 +1,10 @@
 ---
-title: "My Goals for 2021"
-date: "2021-01-26T02:56:10.153Z"
-excerpt: "What I plan on accomplishing in 2021"
+title: My Goals For 2021
+date: 2021-01-26T02:56:10.153Z
+excerpt: What I plan on accomplishing in 2021
 tags:
-  - 'goals'
-  - '2021'
+  - goals
+  - "2021"
 id: 4b1
 ---
 (Not in any particular order)
@@ -17,5 +17,6 @@ id: 4b1
 * Start a YouTube channel about programming
 * Rework chadalen.com
 * Learn Kubernetes
+* Learn Vue.js 3
 
 What are your goals for 2021?
