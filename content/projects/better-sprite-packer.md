@@ -3,7 +3,7 @@ title: "Better Sprite Packer"
 description: "A random-access sprite packer for games"
 tags: ['open-source', 'kotlin', 'desktop-app']
 previewImage: "https://i.imgur.com/dBZei2e.png"
-sort: 4
+sort: 6
 ---
 
 A tool designed to pack video game sprites efficiently and randomly access them without increasing game client memory usage.

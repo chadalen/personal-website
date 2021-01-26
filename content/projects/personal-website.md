@@ -3,7 +3,7 @@ title: "chadalen.com"
 description: "My personal website"
 tags: ['open-source', 'react', 'next.js', 'netlify']
 previewImage: "/images/uploads/personal-website.png"
-sort: 6
+sort: 8
 ---
 
 ### Technologies used:

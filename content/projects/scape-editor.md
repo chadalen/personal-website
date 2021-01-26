@@ -3,7 +3,7 @@ title: "Scape Editor"
 description: "A highly extensible legacy RuneScape file system editor"
 tags: ['open-source', 'kotlin', 'desktop-app']
 previewImage: "https://i.imgur.com/poAcSnf.png"
-sort: 5
+sort: 7
 ---
 
 A RuneScape 2 file system editor

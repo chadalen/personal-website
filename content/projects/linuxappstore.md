@@ -3,7 +3,7 @@ title: "Linux App Store"
 description: "A universal app store for Linux"
 tags: ['open-source', 'react', 'golang', 'postgres', 'python']
 previewImage: "https://i.imgur.com/Z3Lmpq3.png"
-sort: 7
+sort: 9
 ---
 
 A universal app store for Linux. The goal of this project was to make Linux easier to use by making applications easier to find and install. The Linux App Store does not favor one distrobution over another. The Linux App Store also does not favor one package format over another.. Our goal is simply to make the software you use more accessible to you. See [linuxappstore.io](https://linuxappstore.io/)
