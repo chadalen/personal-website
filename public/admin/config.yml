@@ -14,7 +14,7 @@ collections:
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: date, label: Date, widget: datetime }
+      - { name: date, label: Date, widget: datetime, valueType: string }
       - { name: excerpt, label: Excerpt }
       - { name: tags, label: Tags, widget: list }
       - { name: id, label: ID }
