@@ -1,7 +1,7 @@
 ---
 title: My Goals For 2021
 date: 2021-01-26T02:23:41.783Z
-excerpt: What I plan to accomplish in 2021
+excerpt: What I plan on accomplishing in 2021
 tags:
   - goals
   - "2021"
