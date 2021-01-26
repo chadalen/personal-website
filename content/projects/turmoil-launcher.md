@@ -7,7 +7,6 @@ tags:
   - electron.js
   - desktop-app
 previewImage: https://i.imgur.com/MYSngLc.png
-freelance: true
 sort: 1
 ---
 A tool designed to keep a players game client updated. This was made for [Turmoil.io](https://turmoil.io).

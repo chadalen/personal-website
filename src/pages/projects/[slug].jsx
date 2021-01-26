@@ -73,11 +73,7 @@ Page.propTypes = {
 export async function getStaticProps({ params }) {
   const project = getProjectBySlug(params.slug, [
     'title',
-    'date',
     'tags',
-    'excerpt',
-    'timeToRead',
-    'ago',
     'slug',
     'content',
   ]);

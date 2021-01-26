@@ -7,7 +7,6 @@ tags:
   - next.js
   - website
 previewImage: /images/uploads/screen-shot-2020-07-06-at-3.12.44-am.png
-freelance: true
 sort: 2
 ---
 This was a website I made for [Turmoil.io](https://turmoil.io).
