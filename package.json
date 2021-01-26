@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' next",
     "build": "next build && next export",
     "start": "next start",
     "format": "prettier --write src/**/*.{js,jsx}"
