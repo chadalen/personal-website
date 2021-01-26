@@ -1,0 +1,20 @@
+---
+title: My Goals For 2021
+date: 2021-01-26T02:23:41.783Z
+excerpt: What I plan to accomplish in 2021
+tags:
+  - goals
+  - "2021"
+---
+(Not in any particular order)
+
+* Learn Terraform
+* Learn Jenkins
+* Release PaylessBudget
+* Learn React Query
+* Blog more often
+* Start a YouTube channel about programming
+* Rework chadalen.com
+* Learn Kubernetes
+
+What are your goals for 2021?
