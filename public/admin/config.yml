@@ -20,7 +20,7 @@ collections:
       - { name: id, label: ID }
       - { name: body, label: Body, widget: markdown }
     slug: "{{slug}}-{{id}}"
-    sortable_fields: ['date', 'title', 'Update On']
+    sortable_fields: ['date', 'title', 'commit_date']
 
   - name: projects
     label: Projects
@@ -33,4 +33,4 @@ collections:
       - { name: previewImage, label: Preview Image, widget: image }
       - { name: sort, label: Sort, widget: number }
       - { name: body, label: Body, widget: markdown }
-    sortable_fields: ['title', 'sort', 'Update On']
+    sortable_fields: ['title', 'sort', 'commit_date']
