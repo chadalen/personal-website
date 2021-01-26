@@ -1,6 +1,6 @@
 ---
 title: My Goals For 2021
-date: 2021-01-26T02:56:10.153Z
+date: 2021-01-26T03:49:00.249Z
 excerpt: What I plan on accomplishing in 2021
 tags:
   - goals
