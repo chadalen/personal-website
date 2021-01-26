@@ -116,6 +116,7 @@ export async function getStaticProps() {
     'description',
     'tags',
     'previewImage',
+    'sort',
     'slug',
   ]);
   return {
