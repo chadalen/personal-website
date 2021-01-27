@@ -77,8 +77,8 @@ export default function Markdown({ htmlContent, className }) {
             margin-bottom: 1rem;
           }
 
-          .markdown code {
-            border-radius: 0.25rem;
+          .markdown pre {
+            border-radius: 0.50rem;
           }
         `}
       </style>
