@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import ReactDisqusComments from 'react-disqus-comments';
 import hljs from 'highlight.js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import Layout from '../../components/Layout';
@@ -10,9 +11,9 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
+import settings from '../../settings';
 
 hljs.registerLanguage('javascript', javascript);
-// import ReactDisqusComments from 'react-disqus-comments';
 
 export default function Page({ project }) {
   useEffect(() => {
@@ -52,11 +53,11 @@ export default function Page({ project }) {
           <Markdown htmlContent={project.content} />
         </Card>
 
-        {/* <ReactDisqusComments
-        shortname={data.site.siteMetadata.disqusShortname}
-        identifier={post.id}
-        title={post.frontmatter.title}
-      /> */}
+        <ReactDisqusComments
+          shortname={settings.disqusShortname}
+          identifier={project.slug}
+          title={project.title}
+        />
       </Layout>
     </>
   );
@@ -67,6 +68,7 @@ Page.propTypes = {
     title: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string),
     content: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
   }).isRequired,
 };
 
