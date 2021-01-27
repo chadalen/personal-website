@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import 'highlight.js/styles/darcula.css';
+import 'prism-themes/themes/prism-darcula.css';
 
 export default function Markdown({ htmlContent, className }) {
   return (

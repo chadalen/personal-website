@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import ReactDisqusComments from 'react-disqus-comments';
-import hljs from 'highlight.js';
-import javascript from 'highlight.js/lib/languages/javascript';
+import prismjs from 'prismjs';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import Tag from '../../components/Tag';
@@ -13,11 +12,10 @@ import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
 import settings from '../../settings';
 
-hljs.registerLanguage('javascript', javascript);
 
 export default function Page({ project }) {
   useEffect(() => {
-    hljs.initHighlighting();
+    prismjs.highlightAll();
   }, []);
 
   return (
