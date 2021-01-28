@@ -30,8 +30,8 @@ export default function Markdown({ htmlContent, className }) {
           }
 
           .markdown p {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
             font-size: 1.25rem;
             line-height: 1.75rem;
           }
@@ -63,11 +63,11 @@ export default function Markdown({ htmlContent, className }) {
           .markdown a {
             color: rgb(51, 122, 183);
             text-decoration-color: rgb(51, 122, 183);
+            text-decoration: underline;
           }
 
           .markdown a:hover {
             color: #23527c;
-            text-decoration: underline;
           }
 
           .markdown img {
@@ -76,7 +76,9 @@ export default function Markdown({ htmlContent, className }) {
             margin-bottom: 1rem;
           }
 
-          .markdown pre {
+          .markdown .remark-highlight pre {
+            margin-top: 2.25rem;
+            margin-bottom: 2.25rem;
             border-radius: 0.50rem;
           }
         `}
