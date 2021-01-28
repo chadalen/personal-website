@@ -43,10 +43,10 @@ export default function Page({ blog }) {
               <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
 
               <div className="mb-2">
-                {blog.tags &&
-                  blog.tags.map((tag) => (
-                    <Tag key={tag} className="mr-2 mb-2" value={tag} />
-                  ))}
+                {blog.tags
+                && blog.tags.map((tag) => (
+                  <Tag key={tag} className="mr-2 mb-2" value={tag} />
+                ))}
               </div>
 
               <div className="flex items-center mb-2">
