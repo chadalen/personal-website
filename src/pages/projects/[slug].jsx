@@ -17,6 +17,16 @@ export default function Page({ project }) {
       <Head>
         <title>{`Chad Alen - ${project.title}`}</title>
         <meta name="Description" content="A project created by Chad Alen." />
+        <link
+          rel="preload"
+          href="https://unpkg.com/prism-themes@1.5.0/themes/prism-darcula.css"
+          as="script"
+        />
+
+        <link
+          href="https://unpkg.com/prism-themes@1.5.0/themes/prism-darcula.css"
+          rel="stylesheet"
+        />
       </Head>
 
       <Layout>

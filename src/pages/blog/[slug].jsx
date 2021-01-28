@@ -18,6 +18,16 @@ export default function Page({ blog }) {
       <Head>
         <title>{`Chad Alen - ${blog.title}`}</title>
         <meta name="Description" content="A blog written by Chad Alen." />
+        <link
+          rel="preload"
+          href="https://unpkg.com/prism-themes@1.5.0/themes/prism-darcula.css"
+          as="script"
+        />
+
+        <link
+          href="https://unpkg.com/prism-themes@1.5.0/themes/prism-darcula.css"
+          rel="stylesheet"
+        />
       </Head>
 
       <Layout>
@@ -33,8 +43,8 @@ export default function Page({ blog }) {
               <h1 className="text-5xl font-bold mb-4">{blog.title}</h1>
 
               <div className="mb-2">
-                {blog.tags
-                  && blog.tags.map((tag) => (
+                {blog.tags &&
+                  blog.tags.map((tag) => (
                     <Tag key={tag} className="mr-2 mb-2" value={tag} />
                   ))}
               </div>
