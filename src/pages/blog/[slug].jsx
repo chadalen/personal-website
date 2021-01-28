@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import ReactDisqusComments from 'react-disqus-comments';
-import prismjs from 'prismjs';
+// import ReactDisqusComments from 'react-disqus-comments';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import Tag from '../../components/Tag';
@@ -11,13 +10,9 @@ import Breadcrumb from '../../components/Breadcrumb';
 import { getAllBlogs, getBlogBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
-import settings from '../../settings';
+// import settings from '../../settings';
 
 export default function Page({ blog }) {
-  useEffect(() => {
-    prismjs.highlightAll();
-  }, []);
-
   return (
     <>
       <Head>
@@ -73,11 +68,11 @@ export default function Page({ blog }) {
           <Markdown htmlContent={blog.content} />
         </Card>
 
-        <ReactDisqusComments
+        {/* <ReactDisqusComments
           shortname={settings.disqusShortname}
           identifier={blog.slug}
           title={blog.title}
-        />
+        /> */}
       </Layout>
     </>
   );

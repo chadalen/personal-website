@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import 'prism-themes/themes/prism-darcula.css';
 
 export default function Markdown({ htmlContent, className }) {
   return (

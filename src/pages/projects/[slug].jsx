@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import ReactDisqusComments from 'react-disqus-comments';
-import prismjs from 'prismjs';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import Tag from '../../components/Tag';
@@ -12,12 +11,7 @@ import { markdownToHtml } from '../../util';
 import Markdown from '../../components/Markdown';
 import settings from '../../settings';
 
-
 export default function Page({ project }) {
-  useEffect(() => {
-    prismjs.highlightAll();
-  }, []);
-
   return (
     <>
       <Head>
