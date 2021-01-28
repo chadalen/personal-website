@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function Markdown({ htmlContent, className }) {
   return (
     <>
-      <div
+      <article
         className={clsx('markdown px-4 pb-4', className)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: htmlContent }}
