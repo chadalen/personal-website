@@ -5,7 +5,6 @@ excerpt: "10 reasons why Git Fork is my favorite git client."
 tags: ['git', 'git fork']
 ---
 
-# Git Fork
 [Git Fork](https://git-fork.com/) is *"a fast and friendly git client for Mac and Windows"*.
 
 Before I start I just wanted to say. I'm not affiliated with Git Fork by any means. I just had good experience with it over the past year so I wanted to share why I like it.

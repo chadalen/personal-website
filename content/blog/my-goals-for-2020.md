@@ -5,7 +5,6 @@ excerpt: "Goals I'm looking to accomplish in 2020."
 tags: ['goals']
 ---
 
-# Goals
 (Not in any particular order)
 * Learn [Ember.js](https://emberjs.com/) (Will be using it at my new job [CoSchedule](https://coschedule.com/))
 * Learn [Flutter](https://flutter.dev/)
