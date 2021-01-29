@@ -4,86 +4,11 @@ import PropTypes from 'prop-types';
 
 export default function Markdown({ htmlContent, className }) {
   return (
-    <>
-      <article
-        className={clsx('markdown px-4 pb-4', className)}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-
-      <style global jsx>
-        {`
-          .markdown h2 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            font-size: 2.25rem;
-            line-height: 2.5rem;
-          }
-
-          .markdown h3 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            font-size: 1.875rem;
-            line-height: 2.25rem;
-          }
-
-          .markdown p {
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-            line-height: 1.75rem;
-          }
-
-          .markdown ul {
-            padding-left: 1.5rem;
-          }
-
-          .markdown li {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            list-style-type: disc;
-          }
-
-          .markdown ol {
-            padding-left: 1.5rem;
-          }
-
-          .markdown li {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            list-style-type: decimal;
-          }
-
-          .markdown li::marker {
-            font-weight: 600;
-          }
-
-          .markdown a {
-            color: rgb(51, 122, 183);
-            text-decoration-color: rgb(51, 122, 183);
-            text-decoration: underline;
-          }
-
-          .markdown a:hover {
-            color: #23527c;
-          }
-
-          .markdown img {
-            border-radius: 0.25rem;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-          }
-
-          .markdown .remark-highlight pre {
-            margin-top: 2.25rem;
-            margin-bottom: 2.25rem;
-            border-radius: 0.50rem;
-          }
-        `}
-      </style>
-    </>
+    <article
+      className={clsx('prose lg:prose-xl px-8 m-auto my-16', className)}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: htmlContent }}
+    />
   );
 }
 

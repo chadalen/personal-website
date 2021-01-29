@@ -6,11 +6,11 @@ export default function Tag({ className, value }) {
   return (
     <div
       className={clsx(
-        'inline-block px-2 py-1 border rounded bg-gray-200',
+        'inline-block p-1 border rounded bg-gray-200 text-sm',
         className,
       )}
     >
-      {value}
+      {`#${value}`}
     </div>
   );
 }

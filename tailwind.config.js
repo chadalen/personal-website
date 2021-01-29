@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   purge: [
     './src/**/*.jsx',
@@ -10,5 +11,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
