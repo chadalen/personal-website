@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
-import Breadcrumb from '../components/Breadcrumb';
 import { getAllProjects } from '../../lib/api';
 
 const ProjectCard = ({ project }) => (
@@ -84,16 +83,17 @@ export default function Page({ projects }) {
       </Head>
 
       <Layout>
-        <Breadcrumb className="mb-4 mt-2">
-          <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Projects</Breadcrumb.Item>
-        </Breadcrumb>
-
-        {projects.map((project) => (
-          <Link key={project.title} href={`/projects/${project.slug}`} passHref>
-            <ProjectLink project={project} />
-          </Link>
-        ))}
+        <div className="mt-2">
+          {projects.map((project) => (
+            <Link
+              key={project.title}
+              href={`/projects/${project.slug}`}
+              passHref
+            >
+              <ProjectLink project={project} />
+            </Link>
+          ))}
+        </div>
       </Layout>
     </>
   );

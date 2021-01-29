@@ -1,12 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import ReactDisqusComments from 'react-disqus-comments';
+// import ReactDisqusComments from 'react-disqus-comments';
 import Layout from '../../components/ContentLayout';
 import Tag from '../../components/Tag';
 import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
-import settings from '../../settings';
+// import settings from '../../settings';
 
 export default function Page({ project }) {
   return (
@@ -47,11 +47,11 @@ export default function Page({ project }) {
           />
         </article>
 
-        <ReactDisqusComments
+        {/* <ReactDisqusComments
           shortname={settings.disqusShortname}
           identifier={project.slug}
           title={project.title}
-        />
+        /> */}
       </Layout>
     </>
   );
