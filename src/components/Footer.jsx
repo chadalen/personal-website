@@ -5,12 +5,12 @@ import {
   faDev,
   faGithub,
 } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export default function Footer() {
   return (
     <>
-      <div className="flex justify-center items-center bg-gray-800 py-4">
+      <div className="flex flex-col justify-center items-center bg-gray-800 py-8">
         <div className="flex">
           <a
             href="https://www.linkedin.com/in/chadalen/"
@@ -21,6 +21,7 @@ export default function Footer() {
             <FontAwesomeIcon
               className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
               icon={faLinkedinIn}
+              style={{ width: '16px', height: '16px' }}
             />
           </a>
 
@@ -48,16 +49,24 @@ export default function Footer() {
             />
           </a>
 
-          <a
-            href="mailto: me@chadalen.com"
-            title="Contact me"
-          >
+          <a href="mailto: me@chadalen.com" title="Contact me">
             <FontAwesomeIcon
               className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
               icon={faEnvelope}
             />
           </a>
         </div>
+
+        <span className="mt-2 text-white">
+          Made with
+          {' '}
+          <FontAwesomeIcon
+            className="text-red-600"
+            icon={faHeart}
+          />
+          {' '}
+          by Chad Adams
+        </span>
       </div>
     </>
   );
