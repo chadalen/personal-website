@@ -2,13 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import ReactDisqusComments from 'react-disqus-comments';
-import Layout from '../../components/Layout';
-import Card from '../../components/Card';
+import Layout from '../../components/ContentLayout';
 import Tag from '../../components/Tag';
-import Breadcrumb from '../../components/Breadcrumb';
 import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
-import Markdown from '../../components/Markdown';
 import settings from '../../settings';
 
 export default function Page({ project }) {
@@ -30,30 +27,25 @@ export default function Page({ project }) {
       </Head>
 
       <Layout>
-        <Breadcrumb className="mb-4 mt-2">
-          <Breadcrumb.Item to="/">Home</Breadcrumb.Item>
-          <Breadcrumb.Item to="/projects">Projects</Breadcrumb.Item>
-          <Breadcrumb.Item>{project.title}</Breadcrumb.Item>
-        </Breadcrumb>
-
-        <Card className="mb-4">
+        <article className="prose lg:prose-xl px-8 m-auto my-16">
           <div className="flex">
             <div>
-              <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
+              <h1 className="text-5xl font-bold mb-4" style={{ marginBottom: '1rem' }}>{project.title}</h1>
 
               <div className="mb-2">
                 {project.tags
-                  && project.tags.map((tag) => (
-                    <Tag key={tag} className="mr-2 mb-2" value={tag} />
-                  ))}
+                && project.tags.map((tag) => (
+                  <Tag key={tag} className="mr-2 mb-2 p-1" value={tag} />
+                ))}
               </div>
             </div>
           </div>
 
-          <hr className="mb-4 mt-2" />
-
-          <Markdown htmlContent={project.content} />
-        </Card>
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: project.content }}
+          />
+        </article>
 
         <ReactDisqusComments
           shortname={settings.disqusShortname}
