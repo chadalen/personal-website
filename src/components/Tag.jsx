@@ -6,7 +6,7 @@ export default function Tag({ className, value }) {
   return (
     <div
       className={clsx(
-        'inline-block p-1 border rounded bg-gray-200 text-sm',
+        'inline-block p-1 border rounded bg-gray-200 text-xs sm:text-sm',
         className,
       )}
     >
