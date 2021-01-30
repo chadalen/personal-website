@@ -9,14 +9,15 @@ id: 4b1
 ---
 (Not in any particular order)
 
-* Learn Terraform
-* Learn Jenkins
+* Learn [Terraform](https://www.terraform.io/)
+* Learn [Jenkins](https://www.jenkins.io/)
 * Release PaylessBudget
-* Learn React Query
+* Learn [React Query](https://react-query.tanstack.com/)
 * Blog more often
 * Start a YouTube channel about programming
 * Rework chadalen.com
-* Learn Kubernetes
-* Learn Vue.js 3
+* Learn [Vue.js 3](https://v3.vuejs.org/)
+* Learn [New Relic](https://newrelic.com/)
+* Learn [Kubernetes](https://kubernetes.io/)
 
 What are your goals for 2021?
