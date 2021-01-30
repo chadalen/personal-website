@@ -28,7 +28,7 @@ export default function Page({ blog }) {
       </Head>
 
       <Layout>
-        <article className="prose lg:prose-xl px-8 m-auto my-16">
+        <article className="prose lg:prose-xl px-3 sm:px-8 m-auto my-16">
 
           <h1
             className="text-5xl font-bold mb-4"
@@ -38,8 +38,8 @@ export default function Page({ blog }) {
           </h1>
 
           <div className="mb-2">
-            {blog.tags &&
-              blog.tags.map((tag) => (
+            {blog.tags
+              && blog.tags.map((tag) => (
                 <Tag key={tag} className="mr-2 mb-2 p-1" value={tag} />
               ))}
           </div>

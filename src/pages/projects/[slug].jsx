@@ -27,7 +27,7 @@ export default function Page({ project }) {
       </Head>
 
       <Layout>
-        <article className="prose lg:prose-xl px-8 m-auto my-16">
+        <article className="prose lg:prose-xl px-3 sm:px-8 m-auto my-16">
           <div className="flex">
             <div>
               <h1 className="text-5xl font-bold mb-4" style={{ marginBottom: '1rem' }}>{project.title}</h1>
