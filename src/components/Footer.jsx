@@ -10,7 +10,7 @@ import { faEnvelope, faHeart } from '@fortawesome/free-solid-svg-icons';
 export default function Footer() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center bg-gray-800 py-8">
+      <div className="flex flex-col justify-center items-center bg-gray-800 py-10">
         <div className="flex">
           <a
             href="https://www.linkedin.com/in/chadalen/"
@@ -63,6 +63,7 @@ export default function Footer() {
           <FontAwesomeIcon
             className="text-red-600"
             icon={faHeart}
+            style={{ width: '16px', height: '16px' }}
           />
           {' '}
           by Chad Adams
