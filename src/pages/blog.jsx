@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import { getAllBlogs } from '../../lib/api';
 import DateFormatter from '../components/DateFormatter';
+import Pagination from '../components/Pagination';
 
 const BlogCard = ({ blog }) => (
   <Card className="mb-4">
@@ -87,6 +89,23 @@ BlogLink.defaultProps = {
 };
 
 export default function Page({ blogs }) {
+  const itemCountPerPage = 10;
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const router = useRouter();
+  const { page } = router.query;
+
+  function onChangePage(newPage) {
+    router.push(`/blog?page=${newPage}`);
+  }
+
+  useEffect(() => {
+    let pageIndex = 0;
+    if (Number.isInteger(+page)) {
+      pageIndex = (+page - 1) * itemCountPerPage;
+    }
+    setFilteredBlogs(blogs.slice(pageIndex, pageIndex + itemCountPerPage));
+  }, [page]);
+
   return (
     <>
       <Head>
@@ -96,11 +115,21 @@ export default function Page({ blogs }) {
 
       <Layout>
         <div className="mt-2">
-          {blogs.map((blog) => (
+          {filteredBlogs.map((blog) => (
             <Link key={blog.title} href={`/blog/${blog.slug}`} passHref>
               <BlogLink blog={blog} />
             </Link>
           ))}
+        </div>
+
+        <div className="mb-8 mt-8">
+          <Pagination
+            itemCountPerPage={itemCountPerPage}
+            pageRangeCount={5}
+            totalItemCount={blogs.length}
+            activePage={+page}
+            onChange={onChangePage}
+          />
         </div>
       </Layout>
     </>
