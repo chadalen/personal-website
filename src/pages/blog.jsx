@@ -92,17 +92,14 @@ export default function Page({ blogs }) {
   const itemCountPerPage = 10;
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const router = useRouter();
-  const { page } = router.query;
+  const page = Number(router.query.page || 1);
 
   function onChangePage(newPage) {
     router.push(`/blog?page=${newPage}`);
   }
 
   useEffect(() => {
-    let pageIndex = 0;
-    if (Number.isInteger(+page)) {
-      pageIndex = (+page - 1) * itemCountPerPage;
-    }
+    const pageIndex = (page - 1) * itemCountPerPage;
     setFilteredBlogs(blogs.slice(pageIndex, pageIndex + itemCountPerPage));
   }, [page]);
 
@@ -127,7 +124,7 @@ export default function Page({ blogs }) {
             itemCountPerPage={itemCountPerPage}
             pageRangeCount={5}
             totalItemCount={blogs.length}
-            activePage={+page}
+            activePage={page}
             onChange={onChangePage}
           />
         </div>
