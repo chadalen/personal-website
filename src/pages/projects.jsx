@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import { getAllProjects } from '../../lib/api';
+import Pagination from '../components/Pagination';
 
 const ProjectCard = ({ project }) => (
   <Card className="mb-4">
@@ -75,6 +77,20 @@ ProjectCard.propTypes = {
 };
 
 export default function Page({ projects }) {
+  const itemCountPerPage = 5;
+  const router = useRouter();
+  const page = Number(router.query.page || 1);
+
+  const [filteredProjects, setFilteredProjects] = useState([]);
+
+  function onChangePage(newPage) {
+    router.push(`/projects?page=${newPage}`);
+  }
+
+  useEffect(() => {
+    const pageIndex = (page - 1) * itemCountPerPage;
+    setFilteredProjects(projects.slice(pageIndex, pageIndex + itemCountPerPage));
+  }, [page]);
   return (
     <>
       <Head>
@@ -84,7 +100,7 @@ export default function Page({ projects }) {
 
       <Layout>
         <div className="mt-2">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <Link
               key={project.title}
               href={`/projects/${project.slug}`}
@@ -93,6 +109,16 @@ export default function Page({ projects }) {
               <ProjectLink project={project} />
             </Link>
           ))}
+        </div>
+
+        <div className="mb-8 mt-8">
+          <Pagination
+            itemCountPerPage={itemCountPerPage}
+            pageRangeCount={5}
+            totalItemCount={projects.length}
+            activePage={page}
+            onChange={onChangePage}
+          />
         </div>
       </Layout>
     </>
