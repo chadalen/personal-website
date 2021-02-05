@@ -8,6 +8,7 @@ import Card from '../components/Card';
 import Tag from '../components/Tag';
 import { getAllProjects } from '../../lib/api';
 import Pagination from '../components/Pagination';
+import { useIsMounted } from '../hooks';
 
 const ProjectCard = ({ project }) => (
   <Card className="mb-4">
@@ -76,21 +77,32 @@ ProjectCard.propTypes = {
   }).isRequired,
 };
 
+const itemCountPerPage = 5;
+
+function getFilteredProjects(projects, page) {
+  const pageIndex = (page - 1) * itemCountPerPage;
+  return projects.slice(pageIndex, pageIndex + itemCountPerPage);
+}
+
 export default function Page({ projects }) {
-  const itemCountPerPage = 5;
   const router = useRouter();
   const page = Number(router.query.page || 1);
+  const isMounted = useIsMounted();
 
-  const [filteredProjects, setFilteredProjects] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState(
+    () => getFilteredProjects(projects, page),
+  );
 
   function onChangePage(newPage) {
     router.push(`/projects?page=${newPage}`);
   }
 
   useEffect(() => {
-    const pageIndex = (page - 1) * itemCountPerPage;
-    setFilteredProjects(projects.slice(pageIndex, pageIndex + itemCountPerPage));
-  }, [page]);
+    if (!isMounted) {
+      setFilteredProjects(getFilteredProjects(projects, page));
+    }
+  }, [isMounted, page]);
+
   return (
     <>
       <Head>
