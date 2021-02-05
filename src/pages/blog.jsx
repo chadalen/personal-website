@@ -9,6 +9,7 @@ import Tag from '../components/Tag';
 import { getAllBlogs } from '../../lib/api';
 import DateFormatter from '../components/DateFormatter';
 import Pagination from '../components/Pagination';
+import { useIsMounted } from '../hooks';
 
 const BlogCard = ({ blog }) => (
   <Card className="mb-4">
@@ -88,20 +89,29 @@ BlogLink.defaultProps = {
   onClick: () => {},
 };
 
+const itemCountPerPage = 10;
+
+function getFilteredBlogs(blogs, page) {
+  const pageIndex = (page - 1) * itemCountPerPage;
+  return blogs.slice(pageIndex, pageIndex + itemCountPerPage);
+}
+
 export default function Page({ blogs }) {
-  const itemCountPerPage = 10;
-  const [filteredBlogs, setFilteredBlogs] = useState([]);
   const router = useRouter();
   const page = Number(router.query.page || 1);
+  const isMounted = useIsMounted();
+
+  const [filteredBlogs, setFilteredBlogs] = useState(() => getFilteredBlogs(blogs, page));
 
   function onChangePage(newPage) {
     router.push(`/blog?page=${newPage}`);
   }
 
   useEffect(() => {
-    const pageIndex = (page - 1) * itemCountPerPage;
-    setFilteredBlogs(blogs.slice(pageIndex, pageIndex + itemCountPerPage));
-  }, [page]);
+    if (!isMounted) {
+      setFilteredBlogs(getFilteredBlogs(blogs, page));
+    }
+  }, [isMounted, page]);
 
   return (
     <>
