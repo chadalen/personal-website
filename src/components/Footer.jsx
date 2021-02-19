@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <>
       <div className="flex flex-col justify-center items-center bg-gray-800 py-10">
-        <div className="flex">
+        <div className="flex justify-center items-center">
           <a
             href="https://www.linkedin.com/in/chadalen/"
             target="_blank"
@@ -34,6 +34,7 @@ export default function Footer() {
             <FontAwesomeIcon
               className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
               icon={faDev}
+              style={{ width: '17.5px', height: '20px' }}
             />
           </a>
 
@@ -46,6 +47,7 @@ export default function Footer() {
             <FontAwesomeIcon
               className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
               icon={faGithub}
+              style={{ width: '20px', height: '20px' }}
             />
           </a>
 
@@ -53,21 +55,26 @@ export default function Footer() {
             <FontAwesomeIcon
               className="text-gray-400 hover:text-gray-300 cursor-pointer text-xl mr-5"
               icon={faEnvelope}
+              style={{ width: '20px', height: '20px' }}
             />
           </a>
         </div>
 
-        <span className="mt-2 text-white">
-          Made with
-          {' '}
+        <div className="flex justify-center items-center whitespace-pre mt-2 text-white">
+          <span>
+            Made with
+            {' '}
+          </span>
           <FontAwesomeIcon
             className="text-red-600"
             icon={faHeart}
             style={{ width: '16px', height: '16px' }}
           />
-          {' '}
-          by Chad Adams
-        </span>
+          <span>
+            {' '}
+            by Chad Adams
+          </span>
+        </div>
       </div>
     </>
   );
