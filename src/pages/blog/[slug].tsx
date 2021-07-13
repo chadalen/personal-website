@@ -1,15 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 // import ReactDisqusComments from 'react-disqus-comments';
 import Layout from '../../components/ContentLayout';
 import Tag from '../../components/Tag';
 import DateFormatter from '../../components/DateFormatter';
 import { getAllBlogs, getBlogBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
+import { Blog } from '../../interfaces/blog';
 // import settings from '../../settings';
 
-export default function Page({ blog }) {
+interface PageProps {
+  blog: Blog;
+}
+
+export default function Page({ blog }: PageProps): React.ReactElement {
   return (
     <>
       <Head>
@@ -88,18 +92,13 @@ export default function Page({ blog }) {
   );
 }
 
-Page.propTypes = {
-  blog: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    content: PropTypes.string.isRequired,
-    timeToRead: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }).isRequired,
-};
+interface StaticProps {
+  props: {
+    blog: Partial<Blog>;
+  }
+}
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: PathParam): Promise<StaticProps> {
   const blog = getBlogBySlug(params.slug, [
     'title',
     'date',
@@ -123,7 +122,18 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
+interface PathParam {
+  params: {
+    slug: string;
+  }
+}
+
+interface StaticPaths {
+  paths: PathParam[];
+  fallback: boolean;
+}
+
+export async function getStaticPaths(): Promise<StaticPaths> {
   const blogs = getAllBlogs(['slug']);
 
   return {

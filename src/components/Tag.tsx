@@ -1,8 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 
-export default function Tag({ className, value }) {
+interface TagProp {
+  className: string;
+  value: string;
+}
+
+function Tag({ className, value }: TagProp) {
   return (
     <div
       className={clsx(
@@ -15,11 +19,4 @@ export default function Tag({ className, value }) {
   );
 }
 
-Tag.propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.string.isRequired,
-};
-
-Tag.defaultProps = {
-  className: '',
-};
+export default Tag;

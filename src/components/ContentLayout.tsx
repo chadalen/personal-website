@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-export default function ContentLayout({ children }) {
+interface ContentLayoutProp {
+  children: React.ReactChildren;
+}
+
+function ContentLayout({ children }: ContentLayoutProp) {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
@@ -17,9 +20,4 @@ export default function ContentLayout({ children }) {
   );
 }
 
-ContentLayout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-};
+export default ContentLayout;

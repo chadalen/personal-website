@@ -1,12 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 import { getAbout } from '../../lib/api';
 import Markdown from '../components/Markdown';
 import Layout from '../components/ContentLayout';
 import { markdownToHtml } from '../util';
 
-export default function Page({ htmlContent }) {
+interface Props {
+  htmlContent: string;
+}
+
+function Page({ htmlContent }: Props): React.ReactElement {
   return (
     <>
       <Head>
@@ -21,11 +24,11 @@ export default function Page({ htmlContent }) {
   );
 }
 
-Page.propTypes = {
-  htmlContent: PropTypes.string.isRequired,
-};
+interface StaticProps {
+  props: Props;
+}
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<StaticProps> {
   const content = getAbout();
 
   const htmlContent = await markdownToHtml(content);
@@ -34,3 +37,5 @@ export async function getStaticProps() {
     props: { htmlContent },
   };
 }
+
+export default Page;

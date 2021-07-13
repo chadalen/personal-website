@@ -1,14 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 // import ReactDisqusComments from 'react-disqus-comments';
 import Layout from '../../components/ContentLayout';
 import Tag from '../../components/Tag';
 import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';
+import { Project } from '../../interfaces/project';
 // import settings from '../../settings';
 
-export default function Page({ project }) {
+interface PageProps {
+  project: Project;
+}
+
+export default function Page({ project }: PageProps): React.ReactElement {
   return (
     <>
       <Head>
@@ -57,16 +61,13 @@ export default function Page({ project }) {
   );
 }
 
-Page.propTypes = {
-  project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string),
-    content: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }).isRequired,
-};
+interface StaticProps {
+  props: {
+    project: Partial<Project>;
+  }
+}
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: PathParam): Promise<StaticProps> {
   const project = getProjectBySlug(params.slug, [
     'title',
     'tags',
@@ -86,7 +87,18 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
+interface PathParam {
+  params: {
+    slug: string;
+  }
+}
+
+interface StaticPaths {
+  paths: PathParam[];
+  fallback: boolean;
+}
+
+export async function getStaticPaths(): Promise<StaticPaths> {
   const projects = getAllProjects(['slug']);
 
   return {

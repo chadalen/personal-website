@@ -37,6 +37,8 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "@types/node": "^16.3.1",
+    "@types/react": "^17.0.14",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -44,7 +46,8 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "frontmatter-markdown-loader": "^3.6.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "typescript": "^4.3.5"
   },
   "repository": {
     "type": "git",

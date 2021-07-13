@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-export default function Layout({ children }) {
+interface LayoutProp {
+  children: React.ReactChildren;
+}
+
+function Layout({ children }: LayoutProp) {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
@@ -21,9 +24,4 @@ export default function Layout({ children }) {
   );
 }
 
-Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-};
+export default Layout;

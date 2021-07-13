@@ -1,14 +1,18 @@
 import React from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Tag from '../components/Tag';
 import { getAllBlogs, getProjectBySlug } from '../../lib/api';
+import { Project } from '../interfaces/project';
 
-function FeaturedProject({ project }) {
+interface FeaturedProjectProps {
+  project: Project;
+}
+
+function FeaturedProject({ project }: FeaturedProjectProps) {
   return (
     <>
       <h1 className="text-3xl sm:text-4xl font-bold mb-2 underline text-center">Featured Project</h1>
@@ -34,38 +38,26 @@ function FeaturedProject({ project }) {
   );
 }
 
-FeaturedProject.propTypes = {
-  project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    previewImage: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }).isRequired,
-};
+interface DecoratedLinkProps {
+  href?: string;
+  onClick?: () => void;
+  className?: string;
+  text: string;
+}
 
 const DecoratedLink = React.forwardRef(({
   href, onClick, className, text,
-}, ref) => (
+}: DecoratedLinkProps, ref: React.ForwardedRef<any>) => (
   <a href={href} onClick={onClick} ref={ref} className={clsx('block text-xl sm:text-2xl font-bold mb-2 hover:text-blue-700 cursor-pointer', className)}>
     {text}
   </a>
 ));
 
-DecoratedLink.propTypes = {
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  text: PropTypes.string.isRequired,
-  className: PropTypes.string,
-};
+interface RecentBlogProp {
+  blogs: RecentBlog[];
+}
 
-DecoratedLink.defaultProps = {
-  className: '',
-  href: '',
-  onClick: () => {},
-};
-
-function RecentBlog({ blogs }) {
+function RecentBlog({ blogs }: RecentBlogProp) {
   return (
     <>
       <h1 className="text-3xl sm:text-4xl font-bold mb-2 underline text-center lg:text-left">Recent Blogs</h1>
@@ -81,21 +73,12 @@ function RecentBlog({ blogs }) {
   );
 }
 
-RecentBlog.propTypes = {
-  blogs: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      excerpt: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-      timeToRead: PropTypes.string.isRequired,
-      ago: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
+interface PageProps {
+  featuredProject: FeaturedProject;
+  recentBlogs: RecentBlog[];
+}
 
-export default function Page({ featuredProject, recentBlogs }) {
+export default function Page({ featuredProject, recentBlogs }: PageProps) {
   return (
     <>
       <Head>
@@ -170,28 +153,32 @@ export default function Page({ featuredProject, recentBlogs }) {
   );
 }
 
-Page.propTypes = {
-  featuredProject: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    previewImage: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }).isRequired,
-  recentBlogs: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      excerpt: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-      timeToRead: PropTypes.string.isRequired,
-      ago: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
+interface FeaturedProject {
+  title: string;
+  description: string;
+  tags: string[];
+  sort: number;
+  slug: string;
+}
 
-export async function getStaticProps() {
+interface RecentBlog {
+  title: string;
+  date: string;
+  tags: string[];
+  excerpt: string;
+  timeToRead: string;
+  ago: string;
+  slug: string;
+}
+
+interface StaticProps {
+  props: {
+    featuredProject: Partial<FeaturedProject>,
+    recentBlogs: Partial<RecentBlog>[];
+  }
+}
+
+export async function getStaticProps(): Promise<StaticProps> {
   const featuredProject = getProjectBySlug('linuxappstore.md', [
     'title',
     'description',

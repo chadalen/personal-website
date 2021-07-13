@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
@@ -10,8 +9,13 @@ import { getAllBlogs } from '../../lib/api';
 import DateFormatter from '../components/DateFormatter';
 import Pagination from '../components/Pagination';
 import { useIsMounted } from '../hooks';
+import { Blog } from '../interfaces/blog';
 
-const BlogCard = ({ blog }) => (
+interface BlogCardProps {
+  blog: Blog;
+}
+
+const BlogCard = ({ blog }: BlogCardProps) => (
   <Card className="mb-4">
     <div className="flex">
       <div>
@@ -54,40 +58,17 @@ const BlogCard = ({ blog }) => (
   </Card>
 );
 
-BlogCard.propTypes = {
-  blog: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    excerpt: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    timeToRead: PropTypes.string.isRequired,
-    ago: PropTypes.string.isRequired,
-  }).isRequired,
-};
+interface BlogLinkProps {
+  href?: string;
+  onClick?: () => void;
+  blog: Blog;
+}
 
-const BlogLink = React.forwardRef(({ href, onClick, blog }, ref) => (
+const BlogLink = React.forwardRef(({ href, onClick, blog }: BlogLinkProps, ref: React.ForwardedRef<any>) => (
   <a href={href} onClick={onClick} ref={ref}>
     <BlogCard blog={blog} />
   </a>
 ));
-
-BlogLink.propTypes = {
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  blog: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    excerpt: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    timeToRead: PropTypes.string.isRequired,
-    ago: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-BlogLink.defaultProps = {
-  href: '',
-  onClick: () => {},
-};
 
 const itemCountPerPage = 10;
 
@@ -96,7 +77,11 @@ function getFilteredBlogs(blogs, page) {
   return blogs.slice(pageIndex, pageIndex + itemCountPerPage);
 }
 
-export default function Page({ blogs }) {
+interface PageProps {
+  blogs: Blog[];
+}
+
+export default function Page({ blogs }: PageProps) {
   const router = useRouter();
   const page = Number(router.query.page || 1);
   const isMounted = useIsMounted();
@@ -142,19 +127,6 @@ export default function Page({ blogs }) {
     </>
   );
 }
-
-Page.propTypes = {
-  blogs: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      excerpt: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-      timeToRead: PropTypes.string.isRequired,
-      ago: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
 
 export async function getStaticProps() {
   const blogs = getAllBlogs([

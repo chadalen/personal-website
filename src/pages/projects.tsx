@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import { getAllProjects } from '../../lib/api';
 import Pagination from '../components/Pagination';
 import { useIsMounted } from '../hooks';
+import { Project } from '../interfaces/project';
 
-const ProjectCard = ({ project }) => (
+interface ProjectCardProps {
+  project: Project;
+}
+
+const ProjectCard = ({ project }: ProjectCardProps) => (
   <Card className="mb-4">
     <div className="flex flex-col-reverse md:flex-row">
       <div className="flex-1">
@@ -19,11 +23,8 @@ const ProjectCard = ({ project }) => (
             <div>
               <h1 className="text-2xl font-bold">{project.title}</h1>
             </div>
-
             <hr className="my-4" />
-
             <p className="mb-2 text-base">{project.description}</p>
-
             {project.tags.map((tag) => (
               <Tag key={tag} className="mr-2 mb-2" value={tag} />
             ))}
@@ -46,45 +47,30 @@ const ProjectCard = ({ project }) => (
   </Card>
 );
 
-const ProjectLink = React.forwardRef(({ href, onClick, project }, ref) => (
+interface ProjectLinkProps {
+  href?: string;
+  onClick?: () => void;
+  project: Project;
+}
+
+const ProjectLink = React.forwardRef(({ href, onClick, project }: ProjectLinkProps, ref: React.ForwardedRef<any>) => (
   <a href={href} onClick={onClick} ref={ref}>
     <ProjectCard project={project} />
   </a>
 ));
 
-ProjectLink.propTypes = {
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    previewImage: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-ProjectLink.defaultProps = {
-  href: '',
-  onClick: () => {},
-};
-
-ProjectCard.propTypes = {
-  project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    previewImage: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
 const itemCountPerPage = 5;
 
-function getFilteredProjects(projects, page) {
+function getFilteredProjects(projects: Project[], page: number): Project[] {
   const pageIndex = (page - 1) * itemCountPerPage;
   return projects.slice(pageIndex, pageIndex + itemCountPerPage);
 }
 
-export default function Page({ projects }) {
+interface PageProps {
+  projects: Project[];
+}
+
+export default function Page({ projects }: PageProps) {
   const router = useRouter();
   const page = Number(router.query.page || 1);
   const isMounted = useIsMounted();
@@ -137,18 +123,13 @@ export default function Page({ projects }) {
   );
 }
 
-Page.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-      previewImage: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
+interface StaticProps {
+  props: {
+    projects: Partial<Project>[];
+  }
+}
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<StaticProps> {
   const projects = getAllProjects([
     'title',
     'description',

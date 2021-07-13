@@ -1,9 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import clsx from 'clsx';
 
-function BreadcrumbItem({ children, className, to }) {
+interface BreadcrumbItemProp {
+  children: React.ReactChildren;
+  className: string;
+  to: string;
+}
+
+function BreadcrumbItem({ children, className, to }: BreadcrumbItemProp): React.ReactElement {
   if (to) {
     return (
       <>
@@ -27,36 +32,18 @@ function BreadcrumbItem({ children, className, to }) {
   );
 }
 
-BreadcrumbItem.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  className: PropTypes.string,
-  to: PropTypes.string,
-};
+interface BreadcrumbProp {
+  children: React.ReactChildren;
+  className: string;
+}
 
-BreadcrumbItem.defaultProps = {
-  className: '',
-  to: '',
-};
-
-function Breadcrumb({ children, className }) {
+function Breadcrumb({ children, className }: BreadcrumbProp): React.ReactElement {
   return (
     <ul aria-label="breadcrumb" className={clsx('breadcrumb', className)}>
       {children}
     </ul>
   );
 }
-
-Breadcrumb.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
-  className: PropTypes.string,
-};
-
-Breadcrumb.defaultProps = {
-  className: '',
-};
 
 Breadcrumb.Item = BreadcrumbItem;
 export default Breadcrumb;

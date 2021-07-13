@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Paginator from 'paginator';
 
-const PageButton = ({ currentPage, page, onClick }) => (
+interface PageButtonProp {
+  currentPage: number;
+  page: number;
+  onClick: () => void;
+}
+
+const PageButton = ({ currentPage, page, onClick }: PageButtonProp): React.ReactElement => (
   <button
     key={page}
     type="button"
@@ -22,19 +27,21 @@ const PageButton = ({ currentPage, page, onClick }) => (
   </button>
 );
 
-PageButton.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  page: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
+interface PaginationProp {
+  onChange: (newPage: number) => void;
+  itemCountPerPage: number;
+  pageRangeCount: number;
+  totalItemCount: number;
+  activePage: number;
+}
 
-export default function Pagination({
+function Pagination({
   onChange,
   itemCountPerPage,
   pageRangeCount,
   totalItemCount,
   activePage,
-}) {
+}: PaginationProp): React.ReactElement {
   const [pages, setPages] = useState([]);
   const {
     current_page: currentPage,
@@ -44,7 +51,7 @@ export default function Pagination({
   } = new Paginator(itemCountPerPage, pageRangeCount)
     .build(totalItemCount, activePage);
 
-  function onClickPage(newPage) {
+  function onClickPage(newPage: number) {
     if (onChange) {
       onChange(newPage);
     }
@@ -94,10 +101,4 @@ export default function Pagination({
   );
 }
 
-Pagination.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  itemCountPerPage: PropTypes.number.isRequired,
-  pageRangeCount: PropTypes.number.isRequired,
-  totalItemCount: PropTypes.number.isRequired,
-  activePage: PropTypes.number.isRequired,
-};
+export default Pagination;

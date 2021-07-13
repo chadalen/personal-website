@@ -1,34 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import clsx from 'clsx';
+
+interface NavbarLinkProp {
+  href?: string;
+  onClick?: () => void;
+  className: string;
+  value: string;
+}
 
 const NavbarLink = React.forwardRef(({
   href,
   onClick,
   className,
   value,
-}, ref) => (
+}: NavbarLinkProp, ref: React.ForwardedRef<any>) => (
   <a href={href} onClick={onClick} className={className} ref={ref}>
     {value}
   </a>
 ));
 
-NavbarLink.propTypes = {
-  value: PropTypes.string.isRequired,
-  href: PropTypes.string,
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-};
-
-NavbarLink.defaultProps = {
-  href: '',
-  className: '',
-  onClick: () => { },
-};
-
-export default function Navbar() {
+export default function Navbar(): React.ReactElement {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);

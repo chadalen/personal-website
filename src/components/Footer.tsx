@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faHeart } from '@fortawesome/free-solid-svg-icons';
 
-export default function Footer() {
+function Footer(): React.ReactElement {
   return (
     <>
       <div className="flex flex-col justify-center items-center bg-gray-800 py-10">
@@ -79,3 +79,5 @@ export default function Footer() {
     </>
   );
 }
+
+export default Footer;
